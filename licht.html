@@ -1,0 +1,57 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Niko Will
+ * @copyright   2013
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+
+{% block title %}
+Licht
+{% endblock %}
+
+{% block header %}
+<img class="icon" src='{{ icon0 }}light_light.png'/>
+{% endblock %}
+
+{% block content %}
+{% import "widget_list.html" as list %}
+<ul data-role="listview" data-dividertheme="c" class="nw_list">
+    <li data-role="list-divider">Erdgeschoss</li>
+    {{ list.dimmer('eg.kueche.licht','Küche','eg.kueche.licht','eg.kueche.licht.wert') }}
+    {{ list.dimmer('eg.kueche.leds.weiss','Küche Weiß','eg.kueche.leds.weiss','eg.kueche.leds.weiss.wert') }}
+    {{ list.rgb('eg.kueche.leds.rgb', 'Küche RGB', 'eg.kueche.leds.rot', 'eg.kueche.leds.rot.wert', 'eg.kueche.leds.gruen', 'eg.kueche.leds.gruen.wert', 'eg.kueche.leds.blau', 'eg.kueche.leds.blau.wert') }}
+    {{ list.dimmer('eg.essen.licht','Essen','eg.essen.licht','eg.essen.licht.wert') }}
+    {{ list.dimmer('eg.wohnen.licht','Wohnen','eg.wohnen.licht','eg.wohnen.licht.wert') }}
+    {{ list.switch('eg.wohnen.kugellampe','Kugellampe','eg.wohnen.kugellampe', icon1~'message_socket.png', icon0~'message_socket.png') }}
+    {{ list.dimmer('eg.flur.deckenspots', 'Flur', 'eg.flur.licht', 'eg.flur.licht.wert') }}
+    {{ list.dimmer('eg.treppe.licht', 'Treppe', 'eg.treppe.licht', 'eg.treppe.licht.wert') }}
+    {{ list.switch('eg.wc.licht', 'Toilette', 'eg.wc.licht', icon1~'light_light.png', icon0~'light_light.png') }}
+    {{ list.switch('eg.technik.licht', 'Technik', 'eg.technik.licht', icon1~'light_light.png', icon0~'light_light.png') }}
+    <li data-role="list-divider">Garten</li>
+    {{ list.dimmer('aa.terrasse.licht', 'Wandlampen', 'aa.terrasse.licht', 'aa.terrasse.licht.wert') }}
+    {{ list.dimmer('aa.terrasse.kugel.gross', 'Kugel groß', 'aa.terrasse.kugel.gross', 'aa.terrasse.kugel.gross.wert') }}
+    {{ list.dimmer('aa.terrasse.kugel.mittel', 'Kugel mittel', 'aa.terrasse.kugel.mittel', 'aa.terrasse.kugel.mittel.wert') }}
+    {{ list.dimmer('aa.terrasse.kugel.klein', 'Kugel klein', 'aa.terrasse.kugel.klein', 'aa.terrasse.kugel.klein.wert') }}
+    <li data-role="list-divider">Dachgeschoss</li>
+    {{ list.dimmer('dg.schlafen.licht', 'Schlafen', 'dg.schlafen.licht', 'dg.schlafen.licht.wert') }}
+    {{ list.switch('dg.schlafen.nachtlicht.rechts', 'Nachttisch Nadine', 'dg.schlafen.nachtlicht.rechts', icon1~'light_light.png', icon0~'light_light.png') }}
+    {{ list.switch('dg.schlafen.nachtlicht.links', 'Nachttisch Niko', 'dg.schlafen.nachtlicht.links', icon1~'light_light.png', icon0~'light_light.png') }}
+    {{ list.dimmer('dg.ankleide.licht', 'Ankleide', 'dg.ankleide.licht', 'dg.ankleide.licht.wert') }}
+    {{ list.dimmer('dg.masterbad.licht', 'Masterbad', 'dg.masterbad.licht', 'dg.masterbad.licht.wert') }}
+    {{ list.dimmer('dg.arbeiten.licht', 'Arbeiten', 'dg.arbeiten.licht', 'dg.arbeiten.licht.wert') }}
+    {{ list.dimmer('dg.zimmer1.licht', 'Hunde', 'dg.zimmer1.licht', 'dg.zimmer1.licht.wert') }}
+    {{ list.dimmer('dg.zimmer2.licht', 'Gäste', 'dg.zimmer2.licht', 'dg.zimmer2.licht.wert') }}
+    {{ list.switch('dg.hwr.licht', 'HWR', 'dg.hwr.licht', icon1~'light_light.png', icon0~'light_light.png') }}
+    {{ list.switch('dg.bad.licht', 'Gästebad', 'dg.bad.licht', icon1~'light_light.png', icon0~'light_light.png') }}
+    {{ list.dimmer('dg.flur.licht', 'Flur', 'dg.flur.licht', 'dg.flur.licht.wert') }}
+    {{ list.switch('dg.buehne.licht', 'Dachboden', 'dg.buehne.licht', icon1~'light_light.png', icon0~'light_light.png') }}
+</ul>
+
+{% endblock %}
+

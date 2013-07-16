@@ -1,0 +1,38 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Niko Will
+ * @copyright   2013
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block title %}
+Arbeiten
+{% endblock %}
+
+{% block header %}
+<img class="icon" src='{{ icon0 }}scene_office.png'/>
+{% endblock %}
+
+{% block content %}
+{% import "widget_list.html" as list %}
+<ul data-role="listview" data-dividertheme="c" class="nw_list">
+    <li data-role="list-divider">Licht</li>
+    {{ list.dimmer('dg.arbeiten.licht', 'Deckenspots', 'dg.arbeiten.licht', 'dg.arbeiten.licht.wert') }}
+    <li data-role="list-divider">Rollladen</li>
+    {{ list.blind('dg.arbeiten.rollladen', 'Fenster', 'dg.arbeiten.rollladen.lang', 'dg.arbeiten.rollladen.kurz', 'dg.arbeiten.rollladen.position') }}
+    <li data-role="list-divider">Heizung</li>
+    {{ list.rtr('dg.arbeiten.heizung', 'Heizung', 'dg.arbeiten.heizung.ist', 'dg.arbeiten.heizung.stellwert', 'dg.arbeiten.heizung.soll', 'dg.arbeiten.heizung.sollwertverschiebung', 'dg.arbeiten.heizung.komfort', 'dg.arbeiten.heizung.nacht', 'dg.arbeiten.heizung.frostschutz', 'dg.arbeiten.heizung.heizen') }}
+</ul>
+<br />
+<br />
+<div>
+    {{ plot.period('plot.dg.arbeiten.heizung.ist', 'dg.arbeiten.heizung.ist', 'avg', '1d', 0, 20, 30, '', 'Arbeiten IST-Temperatur') }}
+</div>
+
+{% endblock %}
+

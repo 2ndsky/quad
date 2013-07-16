@@ -1,0 +1,34 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Niko Will
+ * @copyright   2013
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block title %}
+Wohnen
+{% endblock %}
+
+{% block header %}
+<img class="icon" src='{{ icon0 }}it_television.png'/>
+{% endblock %}
+
+{% block content %}
+{% import "widget_list.html" as list %}
+<ul data-role="listview" data-dividertheme="c" class="nw_list">
+    <li data-role="list-divider">Licht</li>
+    {{ list.dimmer('eg.wohnen.licht','Deckenspots','eg.wohnen.licht','eg.wohnen.licht.wert') }}
+    <li data-role="list-divider">Steckdosen</li>
+    {{ list.switch('eg.wohnen.kugellampe','TV','eg.wohnen.kugellampe', icon1~'message_socket.png', icon0~'message_socket.png') }}
+    {{ list.switch('eg.wohnen.stehlampe','Sofa','eg.wohnen.stehlampe', icon1~'message_socket.png', icon0~'message_socket.png') }}
+    <li data-role="list-divider">Jalousie</li>
+    {{ list.blind('eg.wohnen.jalousie', 'Fenster', 'eg.wohnen.jalousie.lang', 'eg.wohnen.jalousie.kurz', 'eg.wohnen.jalousie.position', 'eg.wohnen.jalousie.kurz', 'eg.wohnen.jalousie.lamelle') }}
+</ul>
+
+{% endblock %}
+

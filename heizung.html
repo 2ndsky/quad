@@ -1,0 +1,43 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Niko Will
+ * @copyright   2013
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+
+{% block title %}
+Heizung
+{% endblock %}
+
+{% block header %}
+<img class="icon" src='{{ icon0 }}sani_heating.png'/>
+{% endblock %}
+
+{% block content %}
+{% import "widget_list.html" as list %}
+<ul data-role="listview" data-dividertheme="c" class="nw_list">
+    <li data-role="list-divider">Erdgeschoss</li>
+    {{ list.rtr('eg.kueche.heizung', 'Küche', 'eg.kueche.heizung.ist', 'eg.kueche.heizung.stellwert', 'eg.kueche.heizung.soll', 'eg.kueche.heizung.sollwertverschiebung', 'eg.kueche.heizung.komfort', 'eg.kueche.heizung.nacht', 'eg.kueche.heizung.frostschutz', 'eg.kueche.heizung.heizen') }}
+    {{ list.float('eg.essen.heizung.ist', 'Essen', 'eg.essen.heizung.ist', '°C') }}
+    {{ list.rtr('eg.flur.heizung', 'Flur', 'eg.flur.heizung.ist', 'eg.flur.heizung.stellwert', 'eg.flur.heizung.soll', 'eg.flur.heizung.sollwertverschiebung', 'eg.flur.heizung.komfort', 'eg.flur.heizung.nacht', 'eg.flur.heizung.frostschutz', 'eg.flur.heizung.heizen') }}
+    {{ list.float('eg.technik.rack.temp', 'Netzwerkschrank', 'eg.technik.rack.temp', '°C') }}
+    <li data-role="list-divider">Dachgeschoss</li>
+    {{ list.rtr('dg.schlafen.heizung', 'Schlafen', 'dg.schlafen.heizung.ist', 'dg.schlafen.heizung.stellwert', 'dg.schlafen.heizung.soll', 'dg.schlafen.heizung.sollwertverschiebung', 'dg.schlafen.heizung.komfort', 'dg.schlafen.heizung.nacht', 'dg.schlafen.heizung.frostschutz', 'dg.schlafen.heizung.heizen') }}
+    {{ list.rtr('dg.ankleide.heizung', 'Ankleide', 'dg.ankleide.heizung.ist', 'dg.ankleide.heizung.stellwert', 'dg.ankleide.heizung.soll', 'dg.ankleide.heizung.sollwertverschiebung', 'dg.ankleide.heizung.komfort', 'dg.ankleide.heizung.nacht', 'dg.ankleide.heizung.frostschutz', 'dg.ankleide.heizung.heizen') }}
+    {{ list.rtr('dg.masterbad.heizung', 'Masterbad', 'dg.masterbad.heizung.ist', 'dg.masterbad.heizung.stellwert', 'dg.masterbad.heizung.soll', 'dg.masterbad.heizung.sollwertverschiebung', 'dg.masterbad.heizung.komfort', 'dg.masterbad.heizung.nacht', 'dg.masterbad.heizung.frostschutz', 'dg.masterbad.heizung.heizen') }}
+    {{ list.rtr('dg.arbeiten.heizung', 'Arbeiten', 'dg.arbeiten.heizung.ist', 'dg.arbeiten.heizung.stellwert', 'dg.arbeiten.heizung.soll', 'dg.arbeiten.heizung.sollwertverschiebung', 'dg.arbeiten.heizung.komfort', 'dg.arbeiten.heizung.nacht', 'dg.arbeiten.heizung.frostschutz', 'dg.arbeiten.heizung.heizen') }}
+    {{ list.rtr('dg.zimmer1.heizung', 'Hunde', 'dg.zimmer1.heizung.ist', 'dg.zimmer1.heizung.stellwert', 'dg.zimmer1.heizung.soll', 'dg.zimmer1.heizung.sollwertverschiebung', 'dg.zimmer1.heizung.komfort', 'dg.zimmer1.heizung.nacht', 'dg.zimmer1.heizung.frostschutz', 'dg.zimmer1.heizung.heizen') }}
+    {{ list.rtr('dg.zimmer2.heizung', 'Gäste', 'dg.zimmer2.heizung.ist', 'dg.zimmer2.heizung.stellwert', 'dg.zimmer2.heizung.soll', 'dg.zimmer2.heizung.sollwertverschiebung', 'dg.zimmer2.heizung.komfort', 'dg.zimmer2.heizung.nacht', 'dg.zimmer2.heizung.frostschutz', 'dg.zimmer2.heizung.heizen') }}
+    {{ list.rtr('dg.hwr.heizung', 'HWR', 'dg.hwr.heizung.ist', 'dg.hwr.heizung.stellwert', 'dg.hwr.heizung.soll', 'dg.hwr.heizung.sollwertverschiebung', 'dg.hwr.heizung.komfort', 'dg.hwr.heizung.nacht', 'dg.hwr.heizung.frostschutz', 'dg.hwr.heizung.heizen') }}
+    {{ list.rtr('dg.bad.heizung', 'Gästebad', 'dg.bad.heizung.ist', 'dg.bad.heizung.stellwert', 'dg.bad.heizung.soll', 'dg.bad.heizung.sollwertverschiebung', 'dg.bad.heizung.komfort', 'dg.bad.heizung.nacht', 'dg.bad.heizung.frostschutz', 'dg.bad.heizung.heizen') }}
+    {{ list.float('dg.flur.heizung.ist', 'Flur', 'dg.flur.heizung.ist', '°C') }}
+</ul>
+
+{% endblock %}
+

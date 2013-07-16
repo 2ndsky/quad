@@ -1,0 +1,204 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * ----------------------------------------------------------------------------- 
+ */
+ 
+ 
+@CHARSET "UTF-8";
+
+/* display background only on larger displays */
+@media all and (min-width: 600px) {
+    .page-bg {
+	    background-image: url('../../pics/bg/smoke_spirals.png');
+    }
+}
+
+.ui-page > .ui-header .ui-right {
+    margin: 5px 5px 0 0;
+    text-align: right;
+}
+
+.ui-page > .ui-header .ui-title {
+    display: inline-block;
+    margin: 20px 0 6px 0;
+}
+
+.nw_tiles li {
+    border-width: 1px;
+    border-style: outset;
+    border-color: #777;
+    display: block;
+    float: left;
+    height: 66px;
+    width: 145px;
+    padding: 7px 5px 7px 8px;
+    float: left;
+    margin: 0px;
+    text-decoration: none;
+    position: relative;
+}
+
+.nw_tiles .ui-li-has-thumb .ui-btn-inner {
+    border: 0;
+}
+
+.nw_tiles .ui-li-has-thumb .ui-btn-inner a.ui-link-inherit {
+    padding: 0 0 0 60px;
+    height: 70px;
+}
+
+.nw_tiles .ui-ri-aside img.icon {
+    height: 24px;
+    width: 24px;
+}
+
+.nw_tiles .ui-ri-aside {
+    text-align: right;
+    font-size: 10px;
+    line-height: 25px;
+    height: 25px;
+    bottom: 5px;
+    left: 7px;
+    right: 0px;
+    position: absolute;
+}
+
+.nw_tile_info img.icon {
+    height: 24px;
+    width: 24px;
+    float: left;
+}
+
+.nw_list a {
+    text-decoration: none;
+}
+
+.nw_list .ui-li-static.ui-li {
+    padding: 0;
+    line-height: 42px;
+}
+.nw_list li:nth-child(odd) {
+    background-color: #1d1d1d;
+}
+.nw_list li:nth-child(even) {
+    background-color: #212121;
+}
+.nw_list img.icon {
+    height: 32px;
+    width: 32px;
+}
+.nw_list .ui-btn-up-a {
+    border: 0;
+}
+
+.nw_table {
+    width: 100%;
+    height: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+.nw_table_cell {
+    display: table-cell;
+    margin-right: 1px;
+    text-align: center;
+}
+
+.nw_table_cell .nw_border {
+    border-style: outset;
+    border-width: 1px;
+    border-color: #343434;
+}
+
+.nw_list > li > .nw_table > .nw_table_cell:first-child {
+    text-align: left;
+    padding-left: 10px;
+    border-style: outset;
+    border-width: 1px;
+    border-color: #343434;
+}
+
+.nw_table_cell .ui-btn-inner {
+    border: 0;
+}
+
+.nw_table_cell a.ui-btn-inline.ui-mini {
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.nw_blind_state .switch .switch img.icon {
+    vertical-align: top;
+}
+
+.nw_li_buttons {
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+.nw_dimmer-popup {
+    height: 100px;
+    width: 232px;
+}
+
+.nw_rgb-popup {
+    height: 230px;
+    width: 232px;
+}
+
+.nw_blind-popup, .nw_rtr-popup {
+    height: 215px;
+    width: 260px;
+}
+
+@media (min-width: 640px) {
+    .content-primary {
+        float: left;
+        margin-right: 1%;
+        padding-right: 1%;
+        width: 60%;
+    }
+
+    .content-secondary {
+        float: left;
+        text-align: left;
+        width: 37%;
+    }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+  
+}
+
+@media (min-width: 980px) {
+.nw_tiles li {
+    height: 66px;
+    width: 180px;
+    padding: 7px 5px 7px 10px;
+}
+.nw_tiles .ui-li-has-thumb .ui-btn-inner a.ui-link-inherit {
+    padding: 0 0 0 70px;
+}
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+
+}
+
+@media (max-width: 767px) {
+
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    .nw_min_landscape, .plot {
+        display: none;
+    }
+}

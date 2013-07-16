@@ -1,0 +1,44 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Niko Will
+ * @copyright   2013
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block title %}
+Masterbad
+{% endblock %}
+
+{% block header %}
+<img class="icon" src='{{ icon0 }}scene_bathroom.png'/>
+{% endblock %}
+
+{% block content %}
+{% import "widget_list.html" as list %}
+<ul data-role="listview" data-dividertheme="c" class="nw_list">
+    <li data-role="list-divider">Licht</li>
+    {{ list.dimmer('dg.masterbad.licht', 'Deckenspots', 'dg.masterbad.licht', 'dg.masterbad.licht.wert') }}
+    <li data-role="list-divider">Rollladen</li>
+    {{ list.blind('dg.masterbad.rollladen', 'Fenster', 'dg.masterbad.rollladen.lang', 'dg.masterbad.rollladen.kurz', 'dg.masterbad.rollladen.position') }}
+    <li data-role="list-divider">Status</li>
+    {{ list.symbol('dg.masterbad.fenster.geschlossen', 'Fenster', 'dg.masterbad.fenster.geschlossen', icon1~'fts_window_2w_open_l.png', icon0~'fts_window_2w.png') }}
+    <li data-role="list-divider">Audio</li>
+    {{ list.dimmerEx('dg.masterbad.audio', 'Lautstärke', 'dg.masterbad.audio', 'dg.masterbad.audio.volume', icon1~'audio_volume_high.png', icon0~'audio_volume_high.png', 0, 30, 1) }}
+    {{ list.switch('dg.masterbad.audio.mute', 'Stumm', 'dg.masterbad.audio.mute', icon1~'audio_volume_mute.png', icon0~'audio_volume_mute.png') }}
+    {{ list.switch('dg.masterbad.audio.loudness', 'Loudness', 'dg.masterbad.audio.loudness', icon1~'audio_loudness.png', icon0~'audio_loudness.png') }}
+    <li data-role="list-divider">Heizung</li>
+    {{ list.rtr('dg.masterbad.heizung', 'Heizung', 'dg.masterbad.heizung.ist', 'dg.masterbad.heizung.stellwert', 'dg.masterbad.heizung.soll', 'dg.masterbad.heizung.sollwertverschiebung', 'dg.masterbad.heizung.komfort', 'dg.masterbad.heizung.nacht', 'dg.masterbad.heizung.frostschutz', 'dg.masterbad.heizung.heizen') }}
+</ul>
+<br />
+<br />
+<div>
+    {{ plot.period('plot.dg.masterbad.heizung.ist', 'dg.masterbad.heizung.ist', 'avg', '1d', 0, 20, 30, '', 'Masterbad IST-Temperatur') }}
+</div>
+
+{% endblock %}
+

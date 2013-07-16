@@ -1,0 +1,31 @@
+/**
+ * display a value
+ *
+ * @param       unique id for this widget
+ * @param       a gad/item
+ * @param       a unit (optional)
+ * @param       the parent html-tag for the value (optional, default 'span')
+ */
+{% macro percent(id, gad, tag) %}
+
+   <{{ tag|default('span') }} id="{{ uid(page, id) }}" data-widget="visu.percent" data-item="{{ gad }}"
+                data-unit="%">--- %</{{ tag|default('span') }}>
+
+{% endmacro %}
+
+{% macro lbutton(id, gad_short, gad_long, pic, val) %} 
+    <span id="{{ uid(page, id) }}" data-widget="visu.button" data-item="{{ gad_short }},{{ gad_long }}"
+                data-val="{{ val|default('1') }}"
+                class="switch"><a><img class="icon" src="{{ pic }}"/></a>
+    </span> 
+{% endmacro %} 
+
+{% macro shifter(id, gad_value, pic, min, max) %}
+
+    <span id="{{ uid(page, id) }}" data-widget="visu.shifter" data-item="{{ gad_value }}"
+                data-pic="{{ pic|default(icon0~'light_light_dim_00.png') }}"
+        data-min="{{ min|default('0') }}" data-max="{{ max|default('255') }}" class="switch">
+        <img class="icon" src="{{ pic|default(icon0~'light_light_dim_00.png') }}"/>
+    </span>
+
+{% endmacro %}

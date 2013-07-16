@@ -1,0 +1,37 @@
+
+{% macro dimmer(id, txt, gad_switch, gad_value, min, max, step) %}
+    {% import "device.html" as device %}
+	<div id="{{ id }}" data-role="popup" data-overlay-theme="a" class="nw_dimmer-popup">
+	    {{ device.dimmer(id~'device', txt, gad_switch, gad_value, min, max, step) }}
+	</div>
+{% endmacro %}
+
+{% macro dimmerEx(id, txt, gad_switch, gad_value, pic_on, pic_off, min, max, step) %}
+    {% import "widget_ext.html" as ext %}
+        <div id="{{ id }}" data-role="popup" data-overlay-theme="a" class="nw_dimmer-popup">
+            {{ ext.dimmer(id~'dimmer_ext', txt, gad_switch, gad_value, pic_on, pic_off, min, max, step) }}
+        </div>
+{% endmacro %}
+
+{% macro rgb(id, txt, gad_switch_r, gad_value_r, gad_switch_g, gad_value_g, gad_switch_b, gad_value_b, min, max, step) %}
+    {% import "device.html" as device %}
+	<div id="{{ id }}" data-role="popup" data-overlay-theme="a" class="nw_rgb-popup">
+	    {{ device.dimmer(id~'red', txt~' Rot', gad_switch_r, gad_value_r, min, max, step) }}
+	    {{ device.dimmer(id~'green', txt~' Grün', gad_switch_g, gad_value_g, min, max, step) }}
+	    {{ device.dimmer(id~'blue', txt~' Blau', gad_switch_b, gad_value_b, min, max, step) }}
+	</div>
+{% endmacro %}
+
+{% macro blind(id, txt, gad_move, gad_stop, gad_pos, gad_shift, gad_angle, min, max, step, mode) %}
+    {% import "device.html" as device %}
+	<div id="{{ id }}" data-role="popup" data-overlay-theme="a" class="nw_blind-popup">
+            {{ device.blind(id~'shutter', txt, gad_move, gad_stop, gad_pos, gad_shift, gad_angle, min, max, step, mode) }}
+	</div>
+{% endmacro %}
+
+{% macro rtr(id, txt, gad_actual, gad_set_value, gad_set, gad_comfort, gad_night, gad_frost, gad_state, gad_txt, step) %}
+    {% import "widget_ext.html" as ext %} 
+	<div id="{{ id }}" data-role="popup" data-overlay-theme="a" class="nw_rtr-popup">
+            {{ ext.rtr(id~'rtr', txt, gad_actual, gad_set_value, gad_set, gad_comfort, gad_night, gad_frost, gad_state, gad_txt, step) }}
+        </div>
+{% endmacro %}

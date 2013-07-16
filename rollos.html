@@ -1,0 +1,41 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Niko Will
+ * @copyright   2013
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "rooms.html" %}
+
+
+{% block title %}
+Rollos
+{% endblock %}
+
+{% block header %}
+<img class="icon" src='{{ icon0 }}fts_shutter_50.png'/>
+{% endblock %}
+
+{% block content %}
+{% import "widget_list.html" as list %}
+<ul data-role="listview" data-dividertheme="c" class="nw_list">
+    <li data-role="list-divider">Erdgeschoss</li>
+    {{ list.blind('eg.kueche.jalousie.temp', 'Küche', 'eg.kueche.jalousie.lang', 'eg.kueche.jalousie.kurz', 'eg.kueche.jalousie.position', 'eg.kueche.jalousie.kurz', 'eg.kueche.jalousie.lamelle') }}
+    {{ list.blind('eg.essen.jalousie.rechts', 'Essen rechts', 'eg.essen.jalousie.rechts.lang', 'eg.essen.jalousie.rechts.kurz', 'eg.essen.jalousie.rechts.position', 'eg.essen.jalousie.rechts.kurz', 'eg.essen.jalousie.rechts.lamelle') }}
+    {{ list.blind('eg.essen.jalousie.mitte', 'Essen Türe', 'eg.essen.jalousie.mitte.lang', 'eg.essen.jalousie.mitte.kurz', 'eg.essen.jalousie.mitte.position', 'eg.essen.jalousie.mitte.kurz', 'eg.essen.jalousie.mitte.lamelle') }}
+    {{ list.blind('eg.essen.jalousie.links', 'Essen links', 'eg.essen.jalousie.links.lang', 'eg.essen.jalousie.links.kurz', 'eg.essen.jalousie.links.position', 'eg.essen.jalousie.links.kurz', 'eg.essen.jalousie.links.lamelle') }}
+    {{ list.blind('eg.wohnen.jalousie', 'Wohnen', 'eg.wohnen.jalousie.lang', 'eg.wohnen.jalousie.kurz', 'eg.wohnen.jalousie.position', 'eg.wohnen.jalousie.kurz', 'eg.wohnen.jalousie.lamelle') }}
+    <li data-role="list-divider">Dachgeschoss</li>
+    {{ list.blind('dg.schlafen.rollladen', 'Schlafen', 'dg.schlafen.rollladen.lang', 'dg.schlafen.rollladen.kurz', 'dg.schlafen.rollladen.position') }}
+    {{ list.blind('dg.ankleide.rollladen', 'Ankleide', 'dg.ankleide.rollladen.lang', 'dg.ankleide.rollladen.kurz', 'dg.ankleide.rollladen.position') }}
+    {{ list.blind('dg.masterbad.rollladen', 'Masterbad', 'dg.masterbad.rollladen.lang', 'dg.masterbad.rollladen.kurz', 'dg.masterbad.rollladen.position') }}
+    {{ list.blind('dg.arbeiten.rollladen', 'Arbeiten', 'dg.arbeiten.rollladen.lang', 'dg.arbeiten.rollladen.kurz', 'dg.arbeiten.rollladen.position') }}
+    {{ list.blind('dg.zimmer1.rollladen', 'Hunde', 'dg.zimmer1.rollladen.lang', 'dg.zimmer1.rollladen.kurz', 'dg.zimmer1.rollladen.position') }}
+    {{ list.blind('dg.zimmer2.rollladen', 'Gäste', 'dg.zimmer2.rollladen.lang', 'dg.zimmer2.rollladen.kurz', 'dg.zimmer2.rollladen.position') }}
+</ul>
+
+{% endblock %}
+

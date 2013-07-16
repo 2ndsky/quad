@@ -1,0 +1,56 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Niko Will
+ * @copyright   2013
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ * TODO:
+ * - Status Geschirrspüler
+ * - Status Herd
+ * - RTR
+ * - Temperaturverlauf
+ */
+
+
+{% extends "rooms.html" %}
+
+{% block title %}
+Garten
+{% endblock %}
+
+{% block header %}
+<img class="icon" src='{{ icon0 }}scene_garden.png'/>
+{% endblock %}
+
+{% block content %}
+{% import "widget_list.html" as list %}
+<ul data-role="listview" data-dividertheme="c" class="nw_list">
+    <li data-role="list-divider">Licht</li>
+    {{ list.dimmer('aa.terrasse.licht', 'Wandlampen', 'aa.terrasse.licht', 'aa.terrasse.licht.wert') }}
+    {{ list.dimmer('aa.terrasse.kugel.gross', 'Kugel groß', 'aa.terrasse.kugel.gross', 'aa.terrasse.kugel.gross.wert') }}
+    {{ list.dimmer('aa.terrasse.kugel.mittel', 'Kugel mittel', 'aa.terrasse.kugel.mittel', 'aa.terrasse.kugel.mittel.wert') }}
+    {{ list.dimmer('aa.terrasse.kugel.klein', 'Kugel klein', 'aa.terrasse.kugel.klein', 'aa.terrasse.kugel.klein.wert') }}
+    <li data-role="list-divider">Wetter</li>
+    {{ list.float('aa.temp', 'Temperatur Nordwand', 'aa.temp', '°') }} 
+    {{ list.float('ws.temp', 'Tempperatur Dach', 'ws.temperatur', '°') }} 
+    {{ list.float('ws.wind.geschwindigkeit', 'Wind Geschwindigkeit', 'ws.wind.geschwindigkeit', 'm/s') }} 
+    {{ list.symbol('ws.niederschlag', 'Regen', 'ws.niederschlag', icon0~'weather_rain_light.png', icon0~'weather_sun.png') }}
+    <li data-role="list-divider">PV-Anlage</li>
+    {{ list.value('pv.pac', 'Pac', 'pv.wr.pac', 'W') }} 
+    {{ list.value('pv.out', 'Ertrag', 'pv.wr.out', 'Wh') }} 
+
+</ul>
+<br/>
+<br/>
+    {{ plot.period('plot.aa.temp', ['aa.temp', 'ws.temperatur'], 'avg', '1d', 0, -20, 40, '', ['Nordwand', 'Dach']) }}
+    {{ plot.period('plot.wind', 'ws.wind.geschwindigkeit', 'avg', '1d', 0, 0, 15, '', 'Geschwindigkeit') }}
+    {{ plot.period('plot.helligkeit', ['ws.helligkeit.nord', 'ws.helligkeit.ost', 'ws.helligkeit.sued', 'ws.helligkeit.west', 'ws.helligkeit.sky'], 'avg', '1d', 0, 0, 80000, '', ['Nord', 'Ost', 'Süd', 'West', 'Sky']) }}
+    {{ plot.period('plot.globalstrahlung', ['ws.globalstrahlung.nord', 'ws.globalstrahlung.ost', 'ws.globalstrahlung.sued', 'ws.globalstrahlung.west', 'ws.globalstrahlung.sky'], 'avg', '1d', 0, 0, 1000, '', ['Nord', 'Ost', 'Süd', 'West', 'Sky']) }}
+    {{ plot.period('plot.daemmerung', 'ws.daemmerung', 'avg', '1d', 0, 0, 1000, '', 'Dämmerung') }}
+    {{ plot.period('plot.pv.pac', ['pv.wr.pac', 'pv.wr.string1.pdc', 'pv.wr.string2.pdc'], 'avg', '1d', 0, 0, 10000, '', ['Gesamt', 'String 1', 'String 2']) }}
+    {{ plot.period('plot.pv.udc', ['pv.wr.string1.udc', 'pv.wr.string2.udc'], 'avg', '1d', 0, 200, 500, '', ['String 1', 'String 2']) }}
+    {{ plot.period('plot.pv.out', 'pv.wr.out', 'avg', '1d', 0, 0, 80000, '', 'Gesamt', '', 'area') }}
+
+{% endblock %}
+
