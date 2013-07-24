@@ -1,7 +1,7 @@
 // idleTimer() takes an optional argument that defines the idle timeout
 // timeout is in milliseconds; defaults to 30000
 $(document).on('pageinit', function() {
-    if (navigator.userAgent.match(/iPad/i) != null) {
+    if (jQuery().idleTimer && navigator.userAgent.match(/iPad/i) != null) {
         $.idleTimer(120 * 1000);
     }
 });
