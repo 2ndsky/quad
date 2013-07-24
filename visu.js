@@ -1,3 +1,19 @@
+// idleTimer() takes an optional argument that defines the idle timeout
+// timeout is in milliseconds; defaults to 30000
+$(document).on('pageinit', function() {
+    if (navigator.userAgent.match(/iPad/i) != null) {
+        $.idleTimer(120 * 1000);
+    }
+});
+
+$(document).bind('idle.idleTimer', function() {
+    $.mobile.changePage("index.php?page=qlock");
+});
+
+$(document).bind('active.idleTimer', function() {
+    parent.history.back();
+});
+
 // -----------------------------------------------------------------------------
 // W I D G E T   D E L E G A T E   F U N C T I O N S
 // -----------------------------------------------------------------------------
