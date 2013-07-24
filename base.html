@@ -108,6 +108,7 @@
     </div>
     
     <div data-role="content" class="page-bg">
+        {% block content_all %}
 		<div class="content-primary">
             {% block content %}{% endblock %}
         </div>
@@ -115,6 +116,7 @@
         <div class="content-secondary"> 
             {% block sidebar %}{% endblock %}
         </div>
+        {% endblock %}
     </div>
 
 	{% block footer %}{% endblock %}
