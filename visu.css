@@ -17,6 +17,8 @@
     }
 }
 
+
+
 .ui-page > .ui-header .ui-right {
     margin: 5px 5px 0 0;
     text-align: right;
@@ -194,6 +196,34 @@
 
 @media (min-width: 569px) and (max-width: 767px) {
 
+}
+
+@media (min-width: 569px) {
+    .ui-content {
+        padding: 0;
+    }
+
+    .ui-content .ui-listview {
+        margin: 0;
+    }
+
+    .content-primary {
+        width: 50%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .content-secondary {
+        width: 50%;
+    }
+
+    .nw_tiles li {
+        width: 29%;
+    }
+    .nw_list img.icon {
+        height: 48px;
+        width: 48px;
+    }
 }
 
 /* Portrait phones to Landscape */
