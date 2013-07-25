@@ -114,7 +114,14 @@
         </div>
         
         <div class="content-secondary"> 
-            {% block sidebar %}{% endblock %}
+            {% block sidebar %}
+            <div class="nw_quad">
+                {% block quad_top %}{% endblock %}
+            </div>
+            <div class="nw_quad">
+                {% block quad_bottom %}{% endblock %}
+            </div>
+            {% endblock %}
         </div>
         {% endblock %}
     </div>

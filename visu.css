@@ -29,6 +29,14 @@
     margin: 20px 0 6px 0;
 }
 
+
+.nw_quad {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50%;
+    padding: 20px;
+}
+
 .nw_tiles li {
     border-width: 1px;
     border-style: outset;
@@ -161,15 +169,17 @@
 @media (min-width: 640px) {
     .content-primary {
         float: left;
-        margin-right: 1%;
-        padding-right: 1%;
-        width: 60%;
+        width: 50%;
+        margin: 0;
+        padding: 0;
     }
 
     .content-secondary {
-        float: left;
-        text-align: left;
-        width: 37%;
+        width: 50%;
+        position: fixed;
+        top: 62px;
+        right: 0;
+        bottom: 0;
     }
 }
 
@@ -207,15 +217,6 @@
         margin: 0;
     }
 
-    .content-primary {
-        width: 50%;
-        margin: 0;
-        padding: 0;
-    }
-
-    .content-secondary {
-        width: 50%;
-    }
 
     .nw_tiles li {
         width: 29%;
