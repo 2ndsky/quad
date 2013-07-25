@@ -87,6 +87,9 @@
     text-decoration: none;
 }
 
+.nw_list .ui-li-divider {
+    margin-right: 2px;
+}
 .nw_list .ui-li-static.ui-li {
     padding: 0;
     line-height: 42px;
