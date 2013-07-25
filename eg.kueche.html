@@ -5,15 +5,10 @@
  * @copyright   2013
  * @license     GPL <http://www.gnu.de>
  * -----------------------------------------------------------------------------
- * TODO:
- * - Status Geschirrspüler
- * - Status Herd
- * - RTR
- * - Temperaturverlauf
  */
 
 
-{% extends "rooms.html" %}
+{% extends "base.html" %}
 
 {% block title %}
 Kochen
@@ -21,6 +16,10 @@ Kochen
 
 {% block header %}
 <img class="icon" src='{{ icon0 }}scene_cooking.png'/>
+{% endblock %}
+
+{% block quad_top %}
+{{ plot.period('plot.eg.kueche.heizung.ist', 'eg.kueche.heizung.ist', 'avg', '1d', 0, 20, 30, '', 'Küche IST-Temperatur') }}
 {% endblock %}
 
 {% block content %}
@@ -39,11 +38,5 @@ Kochen
     <li data-role="list-divider">Heizung</li>
     {{ list.rtr('eg.kueche.heizung', 'Heizung', 'eg.kueche.heizung.ist', 'eg.kueche.heizung.stellwert', 'eg.kueche.heizung.soll', 'eg.kueche.heizung.sollwertverschiebung', 'eg.kueche.heizung.komfort', 'eg.kueche.heizung.nacht', 'eg.kueche.heizung.frostschutz', 'eg.kueche.heizung.heizen') }}
 </ul>
-<br />
-<br />
-<div>
-    {{ plot.period('plot.eg.kueche.heizung.ist', 'eg.kueche.heizung.ist', 'avg', '1d', 0, 20, 30, '', 'Küche IST-Temperatur') }}
-</div>
-
 {% endblock %}
 
