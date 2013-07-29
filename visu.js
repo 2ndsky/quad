@@ -1,3 +1,26 @@
+$(document).on("pagecreate", function() {
+    $(".nw_tab-header ul li").on("click",function(){
+        $(this).parent().find(".ui-btn-active").removeClass("ui-btn-active");
+        $(this).addClass("ui-btn-active");
+        var newSelection = $(this).children("a").attr("data-tab-class");
+        var prevSelection = $(this).parent().parent().attr("data-tab-selection");
+        $("."+prevSelection).addClass("ui-screen-hidden");
+        $("."+newSelection).removeClass("ui-screen-hidden");
+        $(this).parent().parent().attr("data-tab-selection", newSelection);
+        
+        //$('[id^="' + $.mobile.activePage.attr('id') + '-"][data-widget^="plot."][data-item]').each(function(idx) {
+        $("."+newSelection).find('[data-widget="plot.period"]').each(function(idx) {
+            if ($('#' + this.id).highcharts()) {
+                $('#' + this.id).highcharts().destroy(); 
+                var values = widget.get(widget.explode($(this).attr('data-item')));
+                if (widget.check(values))
+                    $(this).trigger('update', [values]);
+            }
+        });
+        
+    });
+});
+
 // idleTimer() takes an optional argument that defines the idle timeout
 // timeout is in milliseconds; defaults to 30000
 $(document).on('pageinit', function() {

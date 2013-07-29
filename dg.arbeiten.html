@@ -21,11 +21,8 @@ Arbeiten
 {% block content %}
 {% import "widget_list.html" as list %}
 <ul data-role="listview" data-dividertheme="c" class="nw_list">
-    <li data-role="list-divider">Licht</li>
     {{ list.dimmer('dg.arbeiten.licht', 'Deckenspots', 'dg.arbeiten.licht', 'dg.arbeiten.licht.wert') }}
-    <li data-role="list-divider">Rollladen</li>
-    {{ list.blind('dg.arbeiten.rollladen', 'Fenster', 'dg.arbeiten.rollladen.lang', 'dg.arbeiten.rollladen.kurz', 'dg.arbeiten.rollladen.position') }}
-    <li data-role="list-divider">Heizung</li>
+    {{ list.blind('dg.arbeiten.rollladen', 'Rollladen', 'dg.arbeiten.rollladen.lang', 'dg.arbeiten.rollladen.kurz', 'dg.arbeiten.rollladen.position') }}
     {{ list.rtr('dg.arbeiten.heizung', 'Heizung', 'dg.arbeiten.heizung.ist', 'dg.arbeiten.heizung.stellwert', 'dg.arbeiten.heizung.soll', 'dg.arbeiten.heizung.sollwertverschiebung', 'dg.arbeiten.heizung.komfort', 'dg.arbeiten.heizung.nacht', 'dg.arbeiten.heizung.frostschutz', 'dg.arbeiten.heizung.heizen') }}
 </ul>
 <br />

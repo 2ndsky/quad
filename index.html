@@ -16,6 +16,7 @@
 {% endblock %}
 
 {% block quad_top %}
+<div style="padding: 20px">
     {% import "lib.html" as lib %}
     {{ lib.updatecheck() }}
     
@@ -24,6 +25,7 @@
     <hr/>
     {{ weather.forecastweek('weather_forecast') }}
     <hr/>
+</div>
 {% endblock %}
 
 {% block content %}

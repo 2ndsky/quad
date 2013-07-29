@@ -21,16 +21,12 @@ Hunde
 {% block content %}
 {% import "widget_list.html" as list %}
 <ul data-role="listview" data-dividertheme="c" class="nw_list">
-    <li data-role="list-divider">Licht</li>
     {{ list.dimmer('dg.zimmer1.licht', 'Deckenspots', 'dg.zimmer1.licht', 'dg.zimmer1.licht.wert') }}
-    <li data-role="list-divider">Rollladen</li>
-    {{ list.blind('dg.zimmer1.rollladen', 'Fenster', 'dg.zimmer1.rollladen.lang', 'dg.zimmer1.rollladen.kurz', 'dg.zimmer1.rollladen.position') }}
+    {{ list.blind('dg.zimmer1.rollladen', 'Rollladen', 'dg.zimmer1.rollladen.lang', 'dg.zimmer1.rollladen.kurz', 'dg.zimmer1.rollladen.position') }}
     {{ list.symbol('dg.zimmer1.rollladen.sperre', 'Sperre', 'dg.zimmer1.rollladen.sperre', icon1~'secur_locked.png', icon0~'secur_open.png') }}
-    <li data-role="list-divider">Audio</li>
-    {{ list.dimmerEx('dg.zimmer1.audio', 'Lautstärke', 'dg.zimmer1.audio', 'dg.zimmer1.audio.volume', icon1~'audio_volume_high.png', icon0~'audio_volume_high.png', 0, 30, 1) }}
-    {{ list.switch('dg.zimmer1.audio.mute', 'Stumm', 'dg.zimmer1.audio.mute', icon1~'audio_volume_mute.png', icon0~'audio_volume_mute.png') }}
-    {{ list.switch('dg.zimmer1.audio.loudness', 'Loudness', 'dg.zimmer1.audio.loudness', icon1~'audio_loudness.png', icon0~'audio_loudness.png') }}
-    <li data-role="list-divider">Heizung</li>
+    {{ list.dimmerEx('dg.zimmer1.audio', 'Audio Volume', 'dg.zimmer1.audio', 'dg.zimmer1.audio.volume', icon1~'audio_volume_high.png', icon0~'audio_volume_high.png', 0, 30, 1) }}
+    {{ list.switch('dg.zimmer1.audio.mute', 'Audio Mute', 'dg.zimmer1.audio.mute', icon1~'audio_volume_mute.png', icon0~'audio_volume_mute.png') }}
+    {{ list.switch('dg.zimmer1.audio.loudness', 'Audio Loudness', 'dg.zimmer1.audio.loudness', icon1~'audio_loudness.png', icon0~'audio_loudness.png') }}
     {{ list.rtr('dg.zimmer1.heizung', 'Heizung', 'dg.zimmer1.heizung.ist', 'dg.zimmer1.heizung.stellwert', 'dg.zimmer1.heizung.soll', 'dg.zimmer1.heizung.sollwertverschiebung', 'dg.zimmer1.heizung.komfort', 'dg.zimmer1.heizung.nacht', 'dg.zimmer1.heizung.frostschutz', 'dg.zimmer1.heizung.heizen') }}
 </ul>
 <br />

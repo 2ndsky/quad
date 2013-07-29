@@ -21,11 +21,8 @@ Ankleide
 {% block content %}
 {% import "widget_list.html" as list %}
 <ul data-role="listview" data-dividertheme="c" class="nw_list">
-    <li data-role="list-divider">Licht</li>
     {{ list.dimmer('dg.ankleide.licht', 'Deckenspots', 'dg.ankleide.licht', 'dg.ankleide.licht.wert') }}
-    <li data-role="list-divider">Rollladen</li>
-    {{ list.blind('dg.ankleide.rollladen', 'Fenster', 'dg.ankleide.rollladen.lang', 'dg.ankleide.rollladen.kurz', 'dg.ankleide.rollladen.position') }}
-    <li data-role="list-divider">Heizung</li>
+    {{ list.blind('dg.ankleide.rollladen', 'Rollladen', 'dg.ankleide.rollladen.lang', 'dg.ankleide.rollladen.kurz', 'dg.ankleide.rollladen.position') }}
     {{ list.rtr('dg.ankleide.heizung', 'Heizung', 'dg.ankleide.heizung.ist', 'dg.ankleide.heizung.stellwert', 'dg.ankleide.heizung.soll', 'dg.ankleide.heizung.sollwertverschiebung', 'dg.ankleide.heizung.komfort', 'dg.ankleide.heizung.nacht', 'dg.ankleide.heizung.frostschutz', 'dg.ankleide.heizung.heizen') }}
 </ul>
 <br />

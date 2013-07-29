@@ -21,11 +21,8 @@ Gäste
 {% block content %}
 {% import "widget_list.html" as list %}
 <ul data-role="listview" data-dividertheme="c" class="nw_list">
-    <li data-role="list-divider">Licht</li>
     {{ list.dimmer('dg.zimmer2.licht', 'Deckenspots', 'dg.zimmer2.licht', 'dg.zimmer2.licht.wert') }}
-    <li data-role="list-divider">Rollladen</li>
-    {{ list.blind('dg.zimmer2.rollladen', 'Fenster', 'dg.zimmer2.rollladen.lang', 'dg.zimmer2.rollladen.kurz', 'dg.zimmer2.rollladen.position') }}
-    <li data-role="list-divider">Heizung</li>
+    {{ list.blind('dg.zimmer2.rollladen', 'Rollladen', 'dg.zimmer2.rollladen.lang', 'dg.zimmer2.rollladen.kurz', 'dg.zimmer2.rollladen.position') }}
     {{ list.rtr('dg.zimmer2.heizung', 'Heizung', 'dg.zimmer2.heizung.ist', 'dg.zimmer2.heizung.stellwert', 'dg.zimmer2.heizung.soll', 'dg.zimmer2.heizung.sollwertverschiebung', 'dg.zimmer2.heizung.komfort', 'dg.zimmer2.heizung.nacht', 'dg.zimmer2.heizung.frostschutz', 'dg.zimmer2.heizung.heizen') }}
 </ul>
 <br />

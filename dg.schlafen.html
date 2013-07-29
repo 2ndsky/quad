@@ -21,20 +21,15 @@ Schlafen
 {% block content %}
 {% import "widget_list.html" as list %}
 <ul data-role="listview" data-dividertheme="c" class="nw_list">
-    <li data-role="list-divider">Licht</li>
     {{ list.dimmer('dg.schlafen.licht', 'Deckenlampe', 'dg.schlafen.licht', 'dg.schlafen.licht.wert') }}
     {{ list.switch('dg.schlafen.nachtlicht.rechts', 'Nadine', 'dg.schlafen.nachtlicht.rechts', icon1~'light_light.png', icon0~'light_light.png') }}
     {{ list.switch('dg.schlafen.nachtlicht.links', 'Niko', 'dg.schlafen.nachtlicht.links', icon1~'light_light.png', icon0~'light_light.png') }}
-    <li data-role="list-divider">Rollladen</li>
-    {{ list.blind('dg.schlafen.rollladen', 'Fenster', 'dg.schlafen.rollladen.lang', 'dg.schlafen.rollladen.kurz', 'dg.schlafen.rollladen.position') }}
-    <li data-role="list-divider">Szenen</li>
+    {{ list.blind('dg.schlafen.rollladen', 'Rollladen', 'dg.schlafen.rollladen.lang', 'dg.schlafen.rollladen.kurz', 'dg.schlafen.rollladen.position') }}
     {{ list.switch('modus.schlafen.nadine', 'Schlafen Nadine', 'modus.schlafen.nadine', icon1~'scene_sleeping.png', icon0~'scene_sleeping.png') }}
     {{ list.switch('modus.schlafen.niko', 'Schlafen Niko', 'modus.schlafen.niko', icon1~'scene_sleeping.png', icon0~'scene_sleeping.png') }}
-    <li data-role="list-divider">Audio</li>
-    {{ list.dimmerEx('dg.schlafen.audio', 'Lautstärke', 'dg.schlafen.audio', 'dg.schlafen.audio.volume', icon1~'audio_volume_high.png', icon0~'audio_volume_high.png', 0, 30, 1) }}
-    {{ list.switch('dg.schlafen.audio.mute', 'Stumm', 'dg.schlafen.audio.mute', icon1~'audio_volume_mute.png', icon0~'audio_volume_mute.png') }}
-    {{ list.switch('dg.schlafen.audio.loudness', 'Loudness', 'dg.schlafen.audio.loudness', icon1~'audio_loudness.png', icon0~'audio_loudness.png') }}
-    <li data-role="list-divider">Heizung</li>
+    {{ list.dimmerEx('dg.schlafen.audio', 'Audio Volume', 'dg.schlafen.audio', 'dg.schlafen.audio.volume', icon1~'audio_volume_high.png', icon0~'audio_volume_high.png', 0, 30, 1) }}
+    {{ list.switch('dg.schlafen.audio.mute', 'Audio Mute', 'dg.schlafen.audio.mute', icon1~'audio_volume_mute.png', icon0~'audio_volume_mute.png') }}
+    {{ list.switch('dg.schlafen.audio.loudness', 'Audio Loudness', 'dg.schlafen.audio.loudness', icon1~'audio_loudness.png', icon0~'audio_loudness.png') }}
     {{ list.rtr('dg.schlafen.heizung', 'Heizung', 'dg.schlafen.heizung.ist', 'dg.schlafen.heizung.stellwert', 'dg.schlafen.heizung.soll', 'dg.schlafen.heizung.sollwertverschiebung', 'dg.schlafen.heizung.komfort', 'dg.schlafen.heizung.nacht', 'dg.schlafen.heizung.frostschutz', 'dg.schlafen.heizung.heizen') }}
 </ul>
 <br />

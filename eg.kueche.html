@@ -25,17 +25,10 @@ Kochen
 {% block content %}
 {% import "widget_list.html" as list %}
 <ul data-role="listview" data-dividertheme="c" class="nw_list">
-    <li data-role="list-divider">Licht</li>
-<!--
-    {{ list.switch('eg.kueche.licht','Deckenspots','eg.kueche.licht') }}
--->
-
     {{ list.dimmer('eg.kueche.licht','Deckenspots','eg.kueche.licht','eg.kueche.licht.wert') }}
     {{ list.dimmer('eg.kueche.leds.weiss','Arbeitsplatte Weiß','eg.kueche.leds.weiss','eg.kueche.leds.weiss.wert') }}
     {{ list.rgb('eg.kueche.leds.rgb', 'Arbeitsplatte RGB', 'eg.kueche.leds.rot', 'eg.kueche.leds.rot.wert', 'eg.kueche.leds.gruen', 'eg.kueche.leds.gruen.wert', 'eg.kueche.leds.blau', 'eg.kueche.leds.blau.wert') }}
-    <li data-role="list-divider">Jalousie</li>
-    {{ list.blind('eg.kueche.jalousie.temp', 'Fenster', 'eg.kueche.jalousie.lang', 'eg.kueche.jalousie.kurz', 'eg.kueche.jalousie.position', 'eg.kueche.jalousie.kurz', 'eg.kueche.jalousie.lamelle') }}
-    <li data-role="list-divider">Heizung</li>
+    {{ list.blind('eg.kueche.jalousie.temp', 'Jalousie', 'eg.kueche.jalousie.lang', 'eg.kueche.jalousie.kurz', 'eg.kueche.jalousie.position', 'eg.kueche.jalousie.kurz', 'eg.kueche.jalousie.lamelle') }}
     {{ list.rtr('eg.kueche.heizung', 'Heizung', 'eg.kueche.heizung.ist', 'eg.kueche.heizung.stellwert', 'eg.kueche.heizung.soll', 'eg.kueche.heizung.sollwertverschiebung', 'eg.kueche.heizung.komfort', 'eg.kueche.heizung.nacht', 'eg.kueche.heizung.frostschutz', 'eg.kueche.heizung.heizen') }}
 </ul>
 {% endblock %}

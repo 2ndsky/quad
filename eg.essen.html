@@ -21,13 +21,10 @@ Essen
 {% block content %}
 {% import "widget_list.html" as list %}
 <ul data-role="listview" data-dividertheme="c" class="nw_list">
-    <li data-role="list-divider">Licht</li>
     {{ list.dimmer('eg.essen.licht','Pendellampe','eg.essen.licht','eg.essen.licht.wert') }}
-    <li data-role="list-divider">Jalousie</li>
-    {{ list.blind('eg.essen.jalousie.rechts', 'Fenster rechts', 'eg.essen.jalousie.rechts.lang', 'eg.essen.jalousie.rechts.kurz', 'eg.essen.jalousie.rechts.position', 'eg.essen.jalousie.rechts.kurz', 'eg.essen.jalousie.rechts.lamelle') }}
-    {{ list.blind('eg.essen.jalousie.mitte', 'Türe', 'eg.essen.jalousie.mitte.lang', 'eg.essen.jalousie.mitte.kurz', 'eg.essen.jalousie.mitte.position', 'eg.essen.jalousie.mitte.kurz', 'eg.essen.jalousie.mitte.lamelle') }}
-    {{ list.blind('eg.essen.jalousie.links', 'Fenster links', 'eg.essen.jalousie.links.lang', 'eg.essen.jalousie.links.kurz', 'eg.essen.jalousie.links.position', 'eg.essen.jalousie.links.kurz', 'eg.essen.jalousie.links.lamelle') }}
-    <li data-role="list-divider">Status</li>
+    {{ list.blind('eg.essen.jalousie.rechts', 'Jalousie rechts', 'eg.essen.jalousie.rechts.lang', 'eg.essen.jalousie.rechts.kurz', 'eg.essen.jalousie.rechts.position', 'eg.essen.jalousie.rechts.kurz', 'eg.essen.jalousie.rechts.lamelle') }}
+    {{ list.blind('eg.essen.jalousie.mitte', 'Jalousie Türe', 'eg.essen.jalousie.mitte.lang', 'eg.essen.jalousie.mitte.kurz', 'eg.essen.jalousie.mitte.position', 'eg.essen.jalousie.mitte.kurz', 'eg.essen.jalousie.mitte.lamelle') }}
+    {{ list.blind('eg.essen.jalousie.links', 'Jalousie links', 'eg.essen.jalousie.links.lang', 'eg.essen.jalousie.links.kurz', 'eg.essen.jalousie.links.position', 'eg.essen.jalousie.links.kurz', 'eg.essen.jalousie.links.lamelle') }}
     {{ list.switch('eg.essen.terrassentuer.auto_off', 'Automatik', 'eg.essen.terrassentuer.auto_off', icon1~'secur_locked.png', icon0~'secur_open.png') }}
     {{ list.symbol('eg.essen.terrassentuer.rechts', 'Türe rechts', 'eg.essen.terrassentuer.rechts', icon1~'fts_door_open.png', icon0~'fts_door.png') }}
     {{ list.symbol('eg.essen.terrassentuer.links', 'Türe links', 'eg.essen.terrassentuer.links', icon1~'fts_door_open.png', icon0~'fts_door.png') }}
