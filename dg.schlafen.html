@@ -8,7 +8,7 @@
  */
 
 
-{% extends "rooms.html" %}
+{% extends "base.html" %}
 
 {% block title %}
 Schlafen
@@ -32,11 +32,9 @@ Schlafen
     {{ list.switch('dg.schlafen.audio.loudness', 'Audio Loudness', 'dg.schlafen.audio.loudness', icon1~'audio_loudness.png', icon0~'audio_loudness.png') }}
     {{ list.rtr('dg.schlafen.heizung', 'Heizung', 'dg.schlafen.heizung.ist', 'dg.schlafen.heizung.stellwert', 'dg.schlafen.heizung.soll', 'dg.schlafen.heizung.sollwertverschiebung', 'dg.schlafen.heizung.komfort', 'dg.schlafen.heizung.nacht', 'dg.schlafen.heizung.frostschutz', 'dg.schlafen.heizung.heizen') }}
 </ul>
-<br />
-<br />
-<div>
-    {{ plot.period('plot.dg.schlafen.heizung.ist', 'dg.schlafen.heizung.ist', 'avg', '1d', 0, 20, 30, '', 'Schlafen IST-Temperatur') }}
-</div>
+{% endblock %}
 
+{% block quad_top %}
+{{ plot.period('plot.dg.schlafen.heizung.ist', 'dg.schlafen.heizung.ist', 'avg', '3d', 0, 20, 30, '', 'Schlafen IST-Temperatur') }}
 {% endblock %}
 
