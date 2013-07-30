@@ -1,3 +1,10 @@
+$(document).on("pageshow", function() {
+    $(".nw_tab-header").each(function(idx) {
+        var height = $(this).parent().innerHeight() - $(this).outerHeight() - 40;
+        $(this).siblings(".nw_tab-content").css('height', height);
+    });
+});
+
 $(document).on("pagecreate", function() {
     $(".nw_tab-header ul li").on("click",function(){
         $(this).parent().find(".ui-btn-active").removeClass("ui-btn-active");
@@ -8,7 +15,6 @@ $(document).on("pagecreate", function() {
         $("."+newSelection).removeClass("ui-screen-hidden");
         $(this).parent().parent().attr("data-tab-selection", newSelection);
         
-        //$('[id^="' + $.mobile.activePage.attr('id') + '-"][data-widget^="plot."][data-item]').each(function(idx) {
         $("."+newSelection).find('[data-widget="plot.period"]').each(function(idx) {
             if ($('#' + this.id).highcharts()) {
                 $('#' + this.id).highcharts().destroy(); 
