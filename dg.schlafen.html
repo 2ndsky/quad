@@ -8,7 +8,7 @@
  */
 
 
-{% extends "base.html" %}
+{% extends "rooms.html" %}
 
 {% block title %}
 Schlafen
@@ -34,7 +34,7 @@ Schlafen
 </ul>
 {% endblock %}
 
-{% block quad_top %}
+{% block quad_bottom %}
 {{ plot.period('plot.dg.schlafen.heizung.ist', 'dg.schlafen.heizung.ist', 'avg', '3d', 0, 20, 30, '', 'Schlafen IST-Temperatur') }}
 {% endblock %}
 

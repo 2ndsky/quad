@@ -8,7 +8,7 @@
  */
 
 
-{% extends "base.html" %}
+{% extends "rooms.html" %}
 
 {% block title %}
 Wetterstation
@@ -43,7 +43,7 @@ Wetterstation
     {{ list.float('ws.global.sky', 'Sky', 'ws.globalstrahlung.sky', 'W/m²') }} 
 </ul>
 {% endblock %}
-{% block quad_top %}
+{% block quad_bottom %}
     <div id="navbar1" class="nw_tab-header ui-min" data-role="navbar" data-tab-selection="tab1">
         <ul>
             <li><a href="#" data-tab-class="tab1" class="ui-btn-active">Temperatur</a></li>
