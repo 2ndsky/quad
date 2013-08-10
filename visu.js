@@ -110,3 +110,26 @@ $(document).delegate('span[data-widget="visu.shifter"]', {
         $('#' + this.id + ' img').attr('src', $(this).attr('data-pic').replace('00', step));
     }
 });
+
+// ----- visu.map --------------------------------------------------------------
+$(document).delegate('[data-widget="visu.map"]', {
+    'update': function(event, response) {
+        var val = parseFloat(response).toFixed(2);
+        
+        var str_map = $(this).attr('data-map-str').explode();
+        var min_map = $(this).attr('data-map-min').explode();
+        var max_map = $(this).attr('data-map-max').explode();
+
+        for (var i = 0; i < str_map.length; i++) {
+            var min = parseFloat(min_map[i]).toFixed(2);
+            var max = parseFloat(max_map[i]).toFixed(2);
+            if (min <= val && max >= val) {
+                $('#' + this.id).html(str_map[i]);
+                return;
+            }
+        }
+        
+        $('#' + this.id).html("invalid mapping");
+    }
+});
+

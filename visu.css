@@ -29,7 +29,7 @@
 
 
 .nw_quad {
-    overflow:scroll;
+    overflow:auto;
     box-sizing: border-box;
     width: 100%;
     height: 50%;
@@ -56,6 +56,71 @@
     margin: 0px;
     text-decoration: none;
     position: relative;
+    overflow: hidden;
+}
+
+.nw_tiles li.double {
+    height: 140px;
+    padding: 0;
+}
+
+.nw_tiles li.double .table {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.nw_tiles li.double .table .row {
+    display: table-row;
+    height: 1px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.nw_tiles li.double .table .row .single {
+    display: table-cell;
+    text-align: right;
+    padding: 0 10px 10px 0;
+    font-size: 1.5em;
+}
+
+.nw_tiles li.double table {
+    width: 100%;
+}
+
+.nw_tiles li.double table td {
+    font-size: 0.7em;
+    font-weight: lighter;
+    padding: 0 10px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.nw_tiles li.double table  td.right {
+    text-align: right;
+}
+
+.nw_tiles li.double .table .expand {
+    display: table-row;
+    height: auto;
+    overflow: hidden;
+}
+
+.nw_tiles li.double .table .expand h3 {
+    font-weight: normal;
+    margin-left: 60px;
+}
+
+.nw_tiles li.double img.icon {
+    float: left;
+    margin-top: 5px;
+}
+
+.nw_tiles li.double svg {
+    float: left;
+    margin: 10px;
+    width: 40px;
+    height: 40px;
 }
 
 .ui-btn-inner {
@@ -97,6 +162,7 @@
     box-sizing: border-box;
     height: 35px;
     line-height: 33px;
+    font-weight: normal;
 }
 
 .nw_list .ui-li-divider {

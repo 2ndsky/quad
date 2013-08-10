@@ -29,3 +29,14 @@
     </span>
 
 {% endmacro %}
+
+
+{% macro map(id, gad_value, map_min, map_max, map_str) %}
+
+    <span id="{{ uid(page, id) }}" data-widget="visu.map" data-item="{{ gad_value }}"
+        data-map-str="{{ implode(map_str) }}" 
+        data-map-min="{{ implode(map_min) }}" 
+        data-map-max="{{ implode(map_max) }}">
+    </span>
+
+{% endmacro %}

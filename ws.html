@@ -19,28 +19,165 @@ Wetterstation
 {% endblock %}
 
 {% block content %}
-{% import "widget_list.html" as list %}
-<ul data-role="listview" data-dividertheme="c" class="nw_list">
-    {{ list.symbol('ws.niederschlag', 'Regen', 'ws.niederschlag', icon0~'weather_rain_light.png', icon0~'weather_sun.png') }}
-    {{ list.float('ws.daemmerung', 'Dämmerung', 'ws.daemmerung', 'Lux') }} 
-    <li data-role="list-divider">Temperatur</li>
-    {{ list.float('aa.temp', 'Nordwand', 'aa.temp', '°') }} 
-    {{ list.float('ws.temp', 'Dach', 'ws.temperatur', '°') }} 
-    <li data-role="list-divider">Wind</li>
-    {{ list.float('ws.wind.geschwindigkeit', 'Geschwindigkeit', 'ws.wind.geschwindigkeit', 'm/s') }} 
-    {{ list.float('ws.wind.richtung', 'Richtung', 'ws.wind.richtung') }} 
-    <li data-role="list-divider">Helligkeit</li>
-    {{ list.float('ws.hell.ost', 'Ost', 'ws.helligkeit.ost', 'Lux') }} 
-    {{ list.float('ws.hell.sued', 'Süd', 'ws.helligkeit.sued', 'Lux') }} 
-    {{ list.float('ws.hell.west', 'West', 'ws.helligkeit.west', 'Lux') }} 
-    {{ list.float('ws.hell.nord', 'Nord', 'ws.helligkeit.nord', 'Lux') }} 
-    {{ list.float('ws.hell.sky', 'Sky', 'ws.helligkeit.sky', 'Lux') }} 
-    <li data-role="list-divider">Globalstrahlung</li>
-    {{ list.float('ws.global.ost', 'Ost', 'ws.globalstrahlung.ost', 'W/m²') }} 
-    {{ list.float('ws.global.sued', 'Süd', 'ws.globalstrahlung.sued', 'W/m²') }} 
-    {{ list.float('ws.global.west', 'West', 'ws.globalstrahlung.west', 'W/m²') }} 
-    {{ list.float('ws.global.nord', 'Nord', 'ws.globalstrahlung.nord', 'W/m²') }} 
-    {{ list.float('ws.global.sky', 'Sky', 'ws.globalstrahlung.sky', 'W/m²') }} 
+<ul data-role="listview" data-dividertheme="c" class="nw_tiles">
+    <li class="double" data-icon="false">
+        <div class="table">
+            <div class="expand">
+                <img class="icon" src="{{ icon0 }}temp_temperature.png"/><h3>Nordwand</h3>
+            </div>
+            <div class="row">
+                <div class="single">
+                    {{ basic.float('aa.temp', 'aa.temp', '°') }}
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="double" data-icon="false">
+        <div class="table">
+            <div class="expand">
+                <img class="icon" src="{{ icon0 }}temp_temperature.png"/><h3>Wetterstation</h3>
+            </div>
+            <div class="row">
+                <div class="single">
+                    {{ basic.float('ws.temp', 'ws.temperatur', '°') }}
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="double" data-icon="false">
+        <div class="table">
+            <div class="expand">
+                {{ icon.windsock('svg.ws.wind.geschwindigkeit', '', 'ws.wind.geschwindigkeit', 0.0, 15.0) }}<h3>Windstärke</h3>
+            </div>
+            <div class="row">
+                <div class="single">
+                    {{ basic.float('ws.wind.geschwindigkeit', 'ws.wind.geschwindigkeit', 'm/s') }}
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="double" data-icon="false">
+        <div class="table">
+            <div class="expand">
+                {{ icon.windrose('svg.ws.wind.richtung', '', 'ws.wind.richtung', 0.0, 3.6) }}<h3>Windrichtung</h3>
+            </div>
+            <div class="row">
+                <div class="single">
+                    {% import "widget_visu.html" as visu %}
+                    {{ visu.map('ws.wind.richtung', 'ws.wind.richtung', 
+                    ['0.00', '0.12', '0.34', '0.57', '0.79', '1.02', '1.24', '1.47', '1.69', '1.92', '2.14', '2.37', '2.59', '2.82', '3.04', '3.27', '3.49', '3.60'], 
+                    ['0.11', '0.33', '0.56', '0.78', '1.01', '1.23', '1.46', '1.68', '1.91', '2.13', '2.36', '2.58', '2.81', '3.03', '3.26', '3.48', '3.59', '3.60'], 
+                    ['Nord', 'NNO', 'Nordost', 'ONO', 'Ost', 'OSO', 'Südost', 'SSO', 'Süd', 'SSW', 'Südwest', 'WSW', 'West', 'WNW', 'Nordwest', 'NNW', 'Nord', 'Windstill']) }}
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="double" data-icon="false">
+        <div class="table">
+            <div class="expand">
+                <img class="icon" src="{{ icon0 }}weather_rain_light.png"/><h3>Regen</h3>
+            </div>
+            <div class="row">
+                <div class="single">
+                    {{ basic.text('ws.niederschlag', 'ws.niederschlag', 'Ja', 'Nein', '1', '0') }}
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="double" data-icon="false">
+        <div class="table">
+            <div class="expand">
+                <img class="icon" src="{{ icon0 }}weather_sunset.png"/><h3>Dämmerung</h3>
+            </div>
+            <div class="row">
+                <div class="single">
+                    {{ basic.float('ws.daemmerung', 'ws.daemmerung', 'Lux') }} 
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="double" data-icon="false">
+        <div class="table">
+            <div class="expand">
+                <img class="icon" src="{{ icon0 }}weather_sun.png"/><h3>Helligkeit</h3>
+            </div>
+            <div class="row">
+                <table>
+                    <tr>
+                        <td>Ost</td>
+                        <td class="right">
+                            {{ basic.float('ws.hell.ost2', 'ws.helligkeit.ost', 'Lux') }} 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Süd</td>
+                        <td class="right">
+                            {{ basic.float('ws.hell.sued2', 'ws.helligkeit.sued', 'Lux') }} 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>West</td>
+                        <td class="right">
+                            {{ basic.float('ws.hell.west2', 'ws.helligkeit.west', 'Lux') }} 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nord</td>
+                        <td class="right">
+                            {{ basic.float('ws.hell.nord2', 'ws.helligkeit.nord', 'Lux') }} 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sky</td>
+                        <td class="right">
+                            {{ basic.float('ws.hell.sky2', 'ws.helligkeit.sky', 'Lux') }} 
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </li>
+    <li class="double" data-icon="false">
+        <div class="table">
+            <div class="expand">
+                <img class="icon" src="{{ icon0 }}message_light_intensity.png"/><h3>Globalstrahlung</h3>
+            </div>
+            <div class="row">
+                <table>
+                    <tr>
+                        <td>Ost</td>
+                        <td class="right">
+                            {{ basic.float('ws.global.ost2', 'ws.globalstrahlung.ost', 'W/m²') }} 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Süd</td>
+                        <td class="right">
+                            {{ basic.float('ws.global.sued2', 'ws.globalstrahlung.sued', 'W/m²') }} 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>West</td>
+                        <td class="right">
+                            {{ basic.float('ws.global.west2', 'ws.globalstrahlung.west', 'W/m²') }} 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nord</td>
+                        <td class="right">
+                            {{ basic.float('ws.global.nord2', 'ws.globalstrahlung.nord', 'W/m²') }} 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sky</td>
+                        <td class="right">
+                            {{ basic.float('ws.global.sky2', 'ws.globalstrahlung.sky', 'W/m²') }} 
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </li>
 </ul>
 {% endblock %}
 {% block quad_bottom %}
