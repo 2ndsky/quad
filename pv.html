@@ -1,0 +1,178 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Niko Will
+ * @copyright   2013
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "base.html" %}
+
+{% block title %}
+Photovoltaik
+{% endblock %}
+
+{% block header %}
+<img class="icon" src='{{ icon0 }}measure_photovoltaic_inst.png'/>
+{% endblock %}
+
+{% block quad_main_top %}
+{% if once('solarlog') %}
+    <script src="pages/quad/solarlog.js"></script>
+{% endif %}
+<ul data-role="listview" data-dividertheme="c" class="nw_list">
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="nw_table_cell nw_border">Datum</div>
+        <div class="nw_table_cell">
+            <div class="nw_table">
+                <div class="nw_table_cell nw_border"><span id="pv_day"></span></div>
+                <div class="nw_table_cell nw_border"><span id="pv_month"></span></div>
+                <div class="nw_table_cell nw_border nw_min_landscape"><span id="pv_year"></span></div>
+            </div>
+        </div>
+    </div>
+    </li>
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="nw_table_cell nw_border">Ertrag (kW/h)</div>
+        <div class="nw_table_cell">
+            <div class="nw_table">
+                <div class="nw_table_cell nw_border"><span id="pv_day_pac"></span></div>
+                <div class="nw_table_cell nw_border"><span id="pv_month_pac"></span></div>
+                <div class="nw_table_cell nw_border nw_min_landscape"><span id="pv_year_pac"></span></div>
+            </div>
+        </div>
+    </div>
+    </li>
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="nw_table_cell nw_border">Ertrag (€)</div>
+        <div class="nw_table_cell">
+            <div class="nw_table">
+                <div class="nw_table_cell nw_border"><span id="pv_day_eur"></span></div>
+                <div class="nw_table_cell nw_border"><span id="pv_month_eur"></span></div>
+                <div class="nw_table_cell nw_border nw_min_landscape"><span id="pv_year_eur"></span></div>
+            </div>
+        </div>
+    </div>
+    </li>
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="nw_table_cell nw_border">Ertrag spezifisch (kWh/kWp)</div>
+        <div class="nw_table_cell">
+            <div class="nw_table">
+                <div class="nw_table_cell nw_border"><span id="pv_day_pac2"></span></div>
+                <div class="nw_table_cell nw_border"><span id="pv_month_pac2"></span></div>
+                <div class="nw_table_cell nw_border nw_min_landscape"><span id="pv_year_pac2"></span></div>
+            </div>
+        </div>
+    </div>
+    </li>
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="nw_table_cell nw_border">Maximalwert (kW bzw. kW/h)</div>
+        <div class="nw_table_cell">
+            <div class="nw_table">
+                <div class="nw_table_cell nw_border"><span id="pv_day_max"></span></div>
+                <div class="nw_table_cell nw_border"><span id="pv_month_max"></span></div>
+                <div class="nw_table_cell nw_border nw_min_landscape"><span id="pv_year_max"></span></div>
+            </div>
+        </div>
+    </div>
+    </li>
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="nw_table_cell nw_border">Sollwert (kW/h)</div>
+        <div class="nw_table_cell">
+            <div class="nw_table">
+                <div class="nw_table_cell nw_border"><span id="pv_day_soll"></span></div>
+                <div class="nw_table_cell nw_border"><span id="pv_month_soll"></span></div>
+                <div class="nw_table_cell nw_border nw_min_landscape"><span id="pv_year_soll"></span></div>
+            </div>
+        </div>
+    </div>
+    </li>
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="nw_table_cell nw_border">Ist</div>
+        <div class="nw_table_cell">
+            <div class="nw_table">
+                <div class="nw_table_cell nw_border"><span id="pv_day_ist"></span></div>
+                <div class="nw_table_cell nw_border"><span id="pv_month_ist"></span></div>
+                <div class="nw_table_cell nw_border nw_min_landscape"><span id="pv_year_ist"></span></div>
+            </div>
+        </div>
+    </div>
+    </li>
+    <li data-role="list-divider">Momentan</li>
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="nw_table_cell nw_border">Einspeiseleistung Pac</div>
+        <div class="nw_table_cell">
+            <div class="nw_table">
+                <div class="nw_table_cell nw_border">
+                    <span id="pv_cur_pac"></span>
+                </div>
+                <div class="nw_table_cell nw_border"></div>
+                <div class="nw_table_cell nw_border nw_min_landscape"></div>
+            </div>
+        </div>
+    </div>
+    </li>
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="nw_table_cell nw_border">Generator P1, P2</div>
+        <div class="nw_table_cell">
+            <div class="nw_table">
+                <div class="nw_table_cell nw_border"><span id="pv_cur_string1"></span></div>
+                <div class="nw_table_cell nw_border"><span id="pv_cur_string2"></span></div>
+                <div class="nw_table_cell nw_border nw_min_landscape"></div>
+            </div>
+        </div>
+    </div>
+    </li>
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="nw_table_cell nw_border">WR Wirkungsgrad</div>
+        <div class="nw_table_cell">
+            <div class="nw_table">
+                <div class="nw_table_cell nw_border"><span id="pv_cur_percent"></span></div>
+                <div class="nw_table_cell nw_border"></div>
+                <div class="nw_table_cell nw_border nw_min_landscape"></div>
+            </div>
+        </div>
+    </div>
+    </li>
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="nw_table_cell nw_border">Status</div>
+        <div class="nw_table_cell nw_border"><span id="pv_cur_status"></span></div>
+    </div>
+    </li>
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="nw_table_cell nw_border">Fehler</div>
+        <div class="nw_table_cell nw_border"><span id="pv_cur_error"></span></div>
+    </div>
+    </li>
+</ul>
+{% endblock %}
+
+{% block quad_main_bottom %}
+<div id="pv_plot_year" class="plot">
+</div>
+{% endblock %}
+
+{% block quad_top %}
+<div id="pv_plot_day" class="plot">
+</div>
+{% endblock %}
+
+{% block quad_bottom %}
+<div id="pv_plot_month" class="plot">
+</div>
+{% endblock %}
+

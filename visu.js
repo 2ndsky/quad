@@ -1,3 +1,18 @@
+var solarlog = null;
+
+$(document).delegate("#pv", "pagebeforeshow", function() {
+    solarlog.prepare();
+});
+
+$(document).delegate("#pv", "pagecreate", function() {
+    solarlog = new SolarLog("http://192.168.178.24/");
+});
+
+$(document).delegate("#pv", "pageshow", function() {
+    solarlog.render(new Date());
+});
+
+// ---- TABS ------------------------------------------------------------------
 $(document).on("pageshow", function() {
     $(".nw_tab-header").each(function(idx) {
         var height = $(this).parent().innerHeight() - $(this).outerHeight() - 40;
