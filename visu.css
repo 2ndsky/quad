@@ -10,13 +10,6 @@
  
 @CHARSET "UTF-8";
 
-/* display background only on larger displays */
-@media all and (min-width: 600px) {
-    .page-bg {
-	    background-image: url('../../pics/bg/smoke_spirals.png');
-    }
-}
-
 .ui-page > .ui-header .ui-right {
     margin: 5px 5px 0 0;
     text-align: right;
@@ -27,6 +20,13 @@
     margin: 20px 0 6px 0;
 }
 
+.ui-content {
+    padding: 0;
+}
+
+.ui-content .ui-listview {
+    margin: 0;
+}
 
 .nw_quad {
     overflow:auto;
@@ -38,8 +38,11 @@
 
 .nw_quad .plot {
     box-sizing: border-box;
-    margin: 20px;
     height: 100%;
+    width: 100%;
+    border-width: 1px;
+    border-style: outset;
+    border-color: #777;
 }
 
 .nw_tiles li {
@@ -205,9 +208,10 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    height: 100%;
 }
 
-.nw_table_cell .nw_border {
+.nw_table_cell.nw_border {
     border-width: 1px;
     border-style: outset;
     border-color: #777;
@@ -312,10 +316,17 @@
 
 @media (min-width: 640px) {
     .content-primary {
-        float: left;
         width: 50%;
+        position: fixed;
+        top: 47px;
+        left: 0;
+        bottom: 0;
+        overflow: auto;
+        /*
+        float: left;
         margin: 0 0 2px 0;
         padding: 0;
+         */
     }
 
     .content-secondary {
@@ -346,15 +357,6 @@
 }
 
 @media (min-width: 569px) {
-    .ui-content {
-        padding: 0;
-    }
-
-    .ui-content .ui-listview {
-        margin: 0;
-    }
-
-
     .nw_tiles li {
         width: 33.33%;
     }
@@ -376,6 +378,15 @@
 
     .ui-page > .ui-header .ui-title {
         margin: 10px 0 6px 30px;
+    }
+}
+
+@media (max-width: 568px) {
+    .nw_quad {
+        height: 100%;
+    }
+    .nw_min_tablet {
+        display: none;
     }
 }
 
