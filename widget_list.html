@@ -60,6 +60,30 @@
     
 {% endmacro %}
 
+{% macro format(id, txt, gad, format, unit, colspan) %}
+    {% import "widget_visu.html" as visu %}
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="nw_table_cell nw_border">{{ txt|e }}</div>
+{% if colspan %}
+        <div class="nw_table_cell nw_border">
+            {{ visu.format(id~'list_format', gad, format, unit) }}
+        </div>
+{% else %}        
+        <div class="nw_table_cell">
+            <div class="nw_table">
+                <div class="nw_table_cell nw_border">
+                    {{ visu.format(id~'list_format', gad, format, unit) }}
+                </div>
+                <div class="nw_table_cell nw_border"></div>
+                <div class="nw_table_cell nw_border nw_min_landscape"></div>
+            </div>
+        </div>
+{% endif %}
+    </div>
+    </li>
+{% endmacro %}
+
 {% macro float(id, txt, gad, unit) %}
     {% import "basic.html" as basic %}
     <li data-icon="false">
@@ -79,11 +103,16 @@
     
 {% endmacro %}
 
-{% macro value(id, txt, gad, unit) %}
+{% macro value(id, txt, gad, unit, colspan) %}
     {% import "basic.html" as basic %}
     <li data-icon="false">
     <div class="nw_table">
         <div class="nw_table_cell nw_border">{{ txt|e }}</div>
+{% if colspan %}
+        <div class="nw_table_cell nw_border">
+            {{ basic.value(id~'list_value', gad, unit) }}
+        </div>
+{% else %}        
         <div class="nw_table_cell">
             <div class="nw_table">
                 <div class="nw_table_cell nw_border">
@@ -93,6 +122,7 @@
                 <div class="nw_table_cell nw_border nw_min_landscape"></div>
             </div>
         </div>
+{% endif %}
     </div>
     </li>
     

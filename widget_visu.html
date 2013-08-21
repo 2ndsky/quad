@@ -1,4 +1,20 @@
 /**
+* Displays a formatted value
+*
+* @param unique id for this widget
+* @param a gad/item
+* @param a name of a format function
+* @param a unit, tries to get the format for that unit from the language-file (optional)
+* @param the parent html-tag for the value (optional, default 'span')
+*/
+{% macro format(id, gad, format, unit, tag) %}
+
+	<{{ tag|default('span') }} id="{{ uid(page, id) }}" data-widget="visu.format" data-item="{{ gad }}"
+    data-unit="{{ unit }}" data-format="{{ format }}">-.- {{ unit }}</{{ tag|default('span') }}>
+
+{% endmacro %}
+
+/**
  * display a value
  *
  * @param       unique id for this widget

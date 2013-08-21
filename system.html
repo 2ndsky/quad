@@ -1,0 +1,46 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Niko Will
+ * @copyright   2013
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "base.html" %}
+
+{% block title %}
+Server
+{% endblock %}
+
+{% block header %}
+<img class="icon" src='{{ icon0 }}it_server.png'/>
+{% endblock %}
+
+{% block quad_main_top %}
+{% import "widget_list.html" as list %}
+<ul data-role="listview" data-dividertheme="c" class="nw_list">
+    <li data-role="list-divider">Smarthome.py</li>
+    {{ list.value('smarthome.runtime', 'Laufzeit', 'smarthome.runtime', '', 'true') }}
+    {{ list.value('smarthome.threads', 'Threads', 'smarthome.threads', '') }}
+    {{ list.format('smarthome.memory', 'Speicher', 'smarthome.memory', 'transExByteToMegabyte', 'MB') }}
+    <li data-role="list-divider">Hardware</li>
+    {{ list.value('system.uptime', 'Laufzeit', 'system.uptime', '', 'true') }}
+    {{ list.float('system.load', 'CPU', 'system.load', '%') }}
+    {{ list.float('system.memory', 'Speicher', 'system.memory', '%') }}
+{% endblock %}
+
+{% block quad_main_bottom %}
+{{ plot.period('plot.smarthome.threads', 'smarthome.threads', 'avg', '1d', 0, '', '', '', 'Threads') }}
+{% endblock %}
+
+
+{% block quad_top %}
+{{ plot.period('plot.system', ['system.load', 'system.memory'], 'avg', '1d', 0, '', '', '', ['CPU', 'Speicher']) }}
+{% endblock %}
+
+{% block quad_bottom %}
+{{ plot.period('plot.smarthome.memory', 'smarthome.memory', 'avg', '1d', 0, '', '', '', 'Speicher smarthome') }}
+{% endblock %}
+

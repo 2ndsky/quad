@@ -1,3 +1,5 @@
+
+// ---- SOLARLOG ----------------------------------------------------
 var solarlog = null;
 
 $(document).delegate("#pv", "pagebeforeshow", function() {
@@ -6,10 +8,33 @@ $(document).delegate("#pv", "pagebeforeshow", function() {
 
 $(document).delegate("#pv", "pagecreate", function() {
     solarlog = new SolarLog("http://192.168.178.24/");
+
+    $('#pv_datebox').bind('datebox', function(e, p) {
+        if ( p.method === 'set' ) {
+            e.stopImmediatePropagation();
+            solarlog.render(p.date);
+            $('#pv_datebox').datebox('close');
+        } else if (p.method === 'close') {
+            $('#pv_datebox').datebox('close');
+        }
+    });
 });
 
 $(document).delegate("#pv", "pageshow", function() {
     solarlog.render(new Date());
+    
+    var open = function() {
+        if (solarlog.date) {
+            $('#pv_datebox').val(solarlog.date.transDate('d.m.Y'));
+            $('#pv_datebox').datebox('refresh');
+        }
+        $('#pv_datebox').datebox('open');
+    };
+    
+    $('#pv_day').click(open);
+    $('#pv_month').click(open);
+    $('#pv_year').click(open);
+    
 });
 
 // ---- TABS ------------------------------------------------------------------
@@ -73,6 +98,26 @@ $(document).delegate("#aa_tuerkamera", "pagehide", function() {
     }
 });
 
+// ----- t r a n s -------------------------------------------------------------
+
+Number.prototype.transExSecondsToHours = function() {
+    return (this / (60 * 60)).toFixed(1);
+};
+
+Number.prototype.transExKwhToMwh = function() {
+    return (this / (1000)).toFixed(2);
+};
+
+Number.prototype.transExSecondsToHMS = function() {
+    var H = Math.floor(this / (60 * 60));
+    var M = Math.floor((this / 60) % 60);
+    var S = Math.floor(this % (60 * 60));
+    return ('0' + H).slice(-2) + ':' + ('0' + M).slice(-2) + ':' + ('0' + S).slice(-2);
+};
+
+Number.prototype.transExByteToMegabyte = function() {
+    return (this / (1024 * 1024)).toFixed(1);
+};
 
 // -----------------------------------------------------------------------------
 // W I D G E T   D E L E G A T E   F U N C T I O N S
@@ -82,6 +127,13 @@ $(document).delegate("#aa_tuerkamera", "pagehide", function() {
 
 // ----- v i s u ---------------------------------------------------------------
 // -----------------------------------------------------------------------------
+
+// ----- visu.format -----------------------------------------------------------
+$(document).delegate('[data-widget="visu.format"]', {
+    'update': function (event, response) {
+        $('#' + this.id).html(parseFloat(response)[$(this).attr('data-format')]() + ' ' + $(this).attr('data-unit'));
+    }
+});
 
 // ----- visu.percent ----------------------------------------------------------
 $(document).delegate('[data-widget="visu.percent"]', {

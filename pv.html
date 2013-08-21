@@ -22,10 +22,16 @@ Photovoltaik
 {% if once('solarlog') %}
     <script src="pages/quad/solarlog.js"></script>
 {% endif %}
+
+    
 <ul data-role="listview" data-dividertheme="c" class="nw_list">
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">Datum</div>
+        <div class="nw_table_cell nw_border">
+            Datum
+            <input name="pv_datebox" id="pv_datebox" type="date" data-role="datebox"
+                data-options='{"mode": "flipbox", "hideInput": true, "centerHoriz": true, "centerVert": true, "useModal": true}'>
+            </div>
         <div class="nw_table_cell">
             <div class="nw_table">
                 <div class="nw_table_cell nw_border"><span id="pv_day"></span></div>
@@ -37,7 +43,7 @@ Photovoltaik
     </li>
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">Ertrag (kW/h)</div>
+        <div class="nw_table_cell nw_border">Ertrag (kWh)</div>
         <div class="nw_table_cell">
             <div class="nw_table">
                 <div class="nw_table_cell nw_border"><span id="pv_day_pac"></span></div>
@@ -73,7 +79,7 @@ Photovoltaik
     </li>
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">Maximalwert (kW bzw. kW/h)</div>
+        <div class="nw_table_cell nw_border">Maximalwert (kW bzw. kWh)</div>
         <div class="nw_table_cell">
             <div class="nw_table">
                 <div class="nw_table_cell nw_border"><span id="pv_day_max"></span></div>
@@ -85,7 +91,7 @@ Photovoltaik
     </li>
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">Sollwert (kW/h)</div>
+        <div class="nw_table_cell nw_border">Sollwert (kWh)</div>
         <div class="nw_table_cell">
             <div class="nw_table">
                 <div class="nw_table_cell nw_border"><span id="pv_day_soll"></span></div>
