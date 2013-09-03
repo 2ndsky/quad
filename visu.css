@@ -343,8 +343,14 @@
 
 }
 
-@media (min-width: 980px) {
+@media (min-width: 1025px) {
+    .content-primary {
+        top: 65px;
+    }
 
+    .content-secondary {
+        top: 65px;
+    }
 }
 
 /* Portrait tablet to landscape and desktop */
