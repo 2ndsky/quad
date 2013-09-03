@@ -344,6 +344,11 @@
 }
 
 @media (min-width: 1025px) {
+    .ui-content {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+    }
     .content-primary {
         top: 65px;
     }
