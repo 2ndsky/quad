@@ -22,10 +22,10 @@
 
 /* Get rid of scrollbars, could be problem for lots of content */
 .ui-content {
+    min-height: 0;
+    clear: both;
+    margin: 0;
     padding: 0;
-    position: fixed;
-    top: 0;
-    bottom: 0;
 }
 
 .ui-content .ui-listview {
@@ -319,24 +319,23 @@
 
 /* Generally move content from top */
 .content-primary {
-    position: fixed;
     top: 47px;
 }
 
 .content-secondary {
-    position: fixed;
     top: 47px;
 }
 
 /* Start splitting primary and secondary content */
+
 @media (min-width: 640px) {
     .content-primary {
         width: 50%;
-        position: fixed;
         top: 47px;
-        left: 0;
-        bottom: 0;
+        float: left;
         overflow: auto;
+        margin: 0;
+        padding: 0;
         /*
         float: left;
         margin: 0 0 2px 0;
@@ -346,10 +345,8 @@
 
     .content-secondary {
         width: 50%;
-        position: fixed;
         top: 47px;
-        right: 0;
-        bottom: 0;
+        float: right;
     }
 }
 
@@ -374,6 +371,7 @@
     .nw_tiles li {
         width: 33.33%;
     }
+
 }
 
 /* Portrait tablet to landscape and desktop */
@@ -381,6 +379,9 @@
 @media (min-width: 569px) and (max-width: 979px) {
     .content-secondary .nw_tiles li {
         width: 50%;
+    }
+    .content-primary .nw_tiles li {
+        width: 33.33%;
     }
     .nw_list img.icon {
         height: 32px;
@@ -401,15 +402,18 @@
 }
 
 @media (max-width: 1024px) {
+    /* Header bar */
     .ui-page > .ui-header {
         height: 45px;
     }
 
+    /* Header bar icons */
     .ui-header img.icon {
         width: 32px;
         height: 32px;
     }
 
+    /* Header bar text title*/
     .ui-page > .ui-header .ui-title {
         margin: 10px 0 6px 30px;
     }
