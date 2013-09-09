@@ -34,12 +34,14 @@
 
 .nw_quad {
     overflow:auto;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
     position: relative;
 }
 
 .nw_quad .plot {
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     height: 100%;
     width: 100%;
@@ -49,6 +51,7 @@
 }
 
 .nw_tiles li {
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     border-width: 1px;
     border-style: outset;
@@ -206,12 +209,10 @@
 
 .nw_table_cell {
     display: table-cell;
-    margin-right: 1px;
     text-align: center;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    height: 100%;
 }
 
 .nw_table_cell.nw_border {
@@ -296,6 +297,7 @@
     padding: 0;
     height: 35px;
     line-height: 33px;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     border-width: 1px;
     border-style: outset;
