@@ -10,6 +10,12 @@
  
 @CHARSET "UTF-8";
 
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .ui-page > .ui-header .ui-right {
     margin: 5px 5px 0 0;
     text-align: right;
@@ -22,26 +28,39 @@
 
 /* Get rid of scrollbars, could be problem for lots of content */
 .ui-content {
-    min-height: 0;
-    clear: both;
     margin: 0;
     padding: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 62px;
+    min-height: 99%;
+    height: 99%;
+    position: absolute;
 }
 
 .ui-content .ui-listview {
     margin: 0;
 }
 
-.nw_quad {
-    overflow:auto;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+/* Position secondary graphs from top */
+.nw_min_tablet {
+    top: 50%;
     width: 100%;
-    position: relative;
+}
+
+.nw_quad {
+    overflow: auto;
+    height: 50%;
+    position: absolute;
+    width: 100%;
+}
+
+.content-secondary > .nw_quad {
+    width: 100%;
 }
 
 .nw_quad .plot {
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     height: 100%;
     width: 100%;
@@ -51,15 +70,12 @@
 }
 
 .nw_tiles li {
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     border-width: 1px;
     border-style: outset;
     border-color: #777;
     display: block;
     float: left;
     height: 70px;
-    width: 50%;
     padding: 0 5px 5px 0;
     float: left;
     margin: 0px;
@@ -102,7 +118,6 @@
     font-weight: lighter;
     padding: 0 10px;
     margin: 0;
-    box-sizing: border-box;
 }
 
 .nw_tiles li.double table  td.right {
@@ -168,7 +183,6 @@
 }
 
 .nw_list li {
-    box-sizing: border-box;
     height: 35px;
     line-height: 33px;
     font-weight: normal;
@@ -265,7 +279,6 @@
 
 
 .nw_tab-content {
-    box-sizing: border-box;
     margin: 20px;
 }
 
@@ -297,8 +310,6 @@
     padding: 0;
     height: 35px;
     line-height: 33px;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     border-width: 1px;
     border-style: outset;
     border-color: #777;
@@ -319,24 +330,48 @@
     border: 0;
 }
 
+.content-primary {
+    width: 50%;
+    height: 100%;
+    float: left;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 /* We do not hide secondary content, we show it below */
 .content-secondary {
     display: block;
+    position: relative;
 }
+
 /* Start splitting primary and secondary content */
 
 @media (min-width: 640px) {
     .content-primary {
         width: 50%;
+        height: 100%;
         float: left;
         overflow: auto;
         margin: 0;
         padding: 0;
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 
     .content-secondary {
         width: 50%;
         float: right;
+        height: 100%;
+        position: relative;
     }
 }
 
@@ -347,7 +382,6 @@
 
 /* For bigger header, move down content */
 @media (min-width: 1025px) {
-
 }
 
 /* Show three tiles on bigger screen */
@@ -365,7 +399,7 @@
         width: 50%;
     }
     .content-primary .nw_tiles li {
-        width: 33.33%;
+        width: 50%;
     }
     .nw_list img.icon {
         height: 32px;
@@ -390,6 +424,10 @@
     /* Header bar */
     .ui-page > .ui-header {
         height: 47px;
+    }
+
+    .ui-content {
+        top: 47px;
     }
 
     /* Header bar icons */
