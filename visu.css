@@ -314,27 +314,30 @@
     border: 0;
 }
 
-@media (min-width: 640px) {
+.content-primary {
+    width: 50%;
+    position: fixed;
+    top: 62px;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+}
+
+.content-secondary {
+    width: 50%;
+    position: fixed;
+    top: 62px;
+    right: 0;
+    bottom: 0;
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
     .content-primary {
-        width: 50%;
-        position: fixed;
         top: 47px;
-        left: 0;
-        bottom: 0;
-        overflow: auto;
-        /*
-        float: left;
-        margin: 0 0 2px 0;
-        padding: 0;
-         */
     }
 
     .content-secondary {
-        width: 50%;
-        position: fixed;
         top: 47px;
-        right: 0;
-        bottom: 0;
     }
 }
 
