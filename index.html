@@ -15,7 +15,7 @@
     <div class="mini"><span class="miniclock">{{ now|date('H:i') }}</span>, {{ now|date('d.m,') }} v{{ config_version }}</div>
 {% endblock %}
 
-{% block quad_top %}
+{% block sidebar %}
 <div style="padding: 20px">
     {% import "lib.html" as lib %}
     {{ lib.updatecheck() }}

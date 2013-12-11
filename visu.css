@@ -77,7 +77,6 @@
     float: left;
     height: 70px;
     padding: 0 5px 5px 0;
-    float: left;
     margin: 0px;
     text-decoration: none;
     position: relative;
@@ -373,8 +372,22 @@
 /* Show three tiles on bigger screen */
 @media (min-width: 980px) {
     .nw_tiles li {
-        width: 33.33%;
+        width: 33.333333%;
     }
+}
+
+/* Workaround iPad2 downscale problem */
+@media screen and (width: 1024px) {
+    .content-secondary {
+        width: 510px;
+    }
+    .content-primary {
+        width: 514px;
+    }
+}
+
+/* Workaround iPhone4 downscale problem */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
 
 }
 
@@ -449,14 +462,20 @@
     }
 
     .nw_tiles li {
-        width: 33.33%;
+        width: 33.333333%;
+    }
+    .nw_tiles li:nth-child(3n+3) {
+        width: 108px;
     }
 }
 
 /* Portrait phones to Landscape */
 @media (min-width: 321px) and (max-width: 568px) {
     .nw_tiles li {
-        width: 33.33%;
+        width: 33.333333%;
+    }
+    .nw_tiles li:nth-child(3n+3) {
+        width: 162px;
     }
 }
 

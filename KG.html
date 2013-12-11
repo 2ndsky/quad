@@ -1,0 +1,41 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * ----------------------------------------------------------------------------- 
+ */
+ 
+{% extends "rooms-duo.html" %}
+
+{% block title %}
+Keller
+{% endblock %}
+
+{% block header %}
+<img class="icon" src='{{ icon0 }}control_building_2_s_kg.png'/>
+{% endblock %}
+
+{% block content %}
+{% import "widget_list.html" as list %}
+<ul data-role="listview" data-dividertheme="c" class="nw_list">
+    <li data-role="list-divider">Licht</li>
+    {{ list.switch('KG.Bad.Leuchte', 'Bad', 'KG.Bad.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Buero.Links.Leuchte', 'Büro Links', 'KG.Buero.Links.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Buero.Mitte.Leuchte', 'Büro Mitte', 'KG.Buero.Mitte.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Buero.Rechts.Leuchte', 'Büro Rechts', 'KG.Buero.Rechts.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Flur.Leuchte', 'Flur', 'KG.Flur.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.HWR.Leuchte', 'HWR', 'KG.HWR.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Lager.Leuchte', 'Lager', 'KG.Lager.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Treppe.Leuchte', 'Treppe', 'KG.Treppe.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Sammel.Leuchten', 'ALLE', 'KG.Sammel.Leuchten', icon1~'light_light.png', icon0~'light_light.png') }}
+	
+    <li data-role="list-divider">Rolladen</li>
+    {{ list.blind('KG.Buero.Links.Rollo', 'Büro Links', 'KG.Buero.Links.Rollo.move', 'KG.Buero.Links.Rollo.stop', 'KG.Buero.Links.Rollo.pos') }}
+    {{ list.blind('KG.Buero.Mitte.Rollo', 'Büro Mitte', 'KG.Buero.Mitte.Rollo.move', 'KG.Buero.Mitte.Rollo.stop', 'KG.Buero.Mitte.Rollo.pos') }}
+    {{ list.blind('KG.Buero.Rechts.Rollo', 'Büro Rechts', 'KG.Buero.Rechts.Rollo.move', 'KG.Buero.Rechts.Rollo.stop', 'KG.Buero.Rechts.Rollo.pos') }}
+    {{ list.blind('KG.Buero.Rollos', 'ALLE', 'KG.Buero.Rollos.move', 'KG.Buero.Rollos.stop', 'KG.Buero.Rollos.pos') }}
+</ul>
+
+{% endblock %}

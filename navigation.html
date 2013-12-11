@@ -10,9 +10,31 @@
 
 <ul data-role="listview" data-dividertheme="c" class="nw_tiles">
     <li data-icon="false">
+    <a href="index.php?page=KG">
+        <img class="icon" src="{{ icon0 }}control_building_2_s_kg.png"/><h3>KG</h3>
+            <div class="ui-ri-aside">
+            </div>
+    </a>
+    </li>
+    <li data-icon="false">
+    <a href="index.php?page=EG">
+        <img class="icon" src="{{ icon0 }}control_building_2_s_eg.png"/><h3>EG</h3>
+            <div class="ui-ri-aside">
+            </div>
+    </a>
+    </li>
+    <li data-icon="false">
+    <a href="index.php?page=DG">
+        <img class="icon" src="{{ icon0 }}control_building_2_s_dg.png"/><h3>DG</h3>
+            <div class="ui-ri-aside">
+            </div>
+    </a>
+    </li>
+    <li data-icon="false">
     <a href="index.php?page=licht">
         <img class="icon" src="{{ icon0 }}light_light.png"/><h3>Licht</h3>
             <div class="ui-ri-aside">
+				{{ basic.value('counter.Leuchten', 'counter.Leuchten', ' AN') }}
             </div>
     </a>
     </li>
@@ -41,8 +63,6 @@
     <a href="index.php?page=eg.essen">
         <img class="icon" src="{{ icon0 }}scene_dinner.png"/><h3>Essen</h3>
             <div class="ui-ri-aside">
-                {{ basic.symbol('NaviTuerEssen', 'eg.essen.terrassentuer.rechts', '', icon1~'fts_door_open.png') }}
-                {{ basic.symbol('NaviTuerEssenFreigabe', 'eg.essen.terrassentuer.auto_off', '', icon1~'secur_locked.png') }}
             </div>
     </a>
     </li>
@@ -63,8 +83,6 @@
     <a href="index.php?page=dg.schlafen">
         <img class="icon" src="{{ icon0 }}scene_sleeping.png"/><h3>Schlafen</h3>
             <div class="ui-ri-aside">
-                {{ basic.symbol('navi.modus.schlafen', 'modus.schlafen', '', icon1~'scene_sleeping.png') }}
-                {{ basic.symbol('navi.dg.schlafen.audio', 'dg.schlafen.audio', '', icon1~'audio_volume_high.png') }}
             </div>
     </a>
     </li>
@@ -72,7 +90,6 @@
     <a href="index.php?page=dg.ankleide">
         <img class="icon" src="{{ icon0 }}scene_dressing_room.png"/><h3>Ankleide</h3>
             <div class="ui-ri-aside">
-                {{ basic.symbol('navi.modus.schlafen.ankleide', 'modus.schlafen', '', icon1~'scene_sleeping.png') }}
             </div>
     </a>
     </li>
@@ -80,9 +97,6 @@
     <a href="index.php?page=dg.masterbad">
         <img class="icon" src="{{ icon0 }}scene_bathroom.png"/><h3>Masterbad</h3>
             <div class="ui-ri-aside">
-                {{ basic.symbol('navi.dg.masterbad.fenster.geschlossen', 'dg.masterbad.fenster.geschlossen', '', icon1~'fts_window_2w_open_l.png') }}
-                {{ basic.symbol('navi.modus.schlafen.masterbad', 'modus.schlafen.beide', '', icon1~'scene_sleeping.png') }}
-                {{ basic.symbol('navi.dg.masterbad.audio', 'dg.masterbad.audio', '', icon1~'audio_volume_high.png') }}
             </div>
     </a>
     </li>
@@ -97,8 +111,6 @@
     <a href="index.php?page=dg.zimmer1">
         <img class="icon" src="{{ icon0 }}scene_childs_room.png"/><h3>Hunde</h3>
             <div class="ui-ri-aside">
-                {{ basic.symbol('navi.dg.zimmer1.rollladen.sperre', 'dg.zimmer1.rollladen.sperre', '', icon1~'secur_locked.png') }}
-                {{ basic.symbol('navi.dg.zimmer1.audio', 'dg.zimmer1.audio', '', icon1~'audio_volume_high.png') }}
             </div>
     </a>
     </li>
@@ -120,7 +132,6 @@
     <a href="index.php?page=ws">
         <img class="icon" src="{{ icon0 }}weather_station_quadra.png"/><h3>Wetterstation</h3>
             <div class="ui-ri-aside">
-                {{ basic.symbol('navi.ws.niederschlag', 'ws.niederschlag', '', icon1~'weather_rain_light.png') }}
             </div>
     </a>
     </li>
