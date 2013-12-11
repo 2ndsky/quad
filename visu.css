@@ -341,13 +341,22 @@
     left: 0;
     right: 0;
     bottom: 0;
+    overflow: auto;
 }
 
 /* We do not hide secondary content, we show it below */
 .content-secondary {
     display: block;
     position: relative;
+    top: 62px;
+    right: 0;
+    bottom: 0;
 }
+
+@media (min-width: 640px) and (max-width: 1024px) {
+    .content-primary {
+        top: 47px;
+    }
 
 /* Start splitting primary and secondary content */
 @media (min-width: 640px) {

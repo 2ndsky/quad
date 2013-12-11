@@ -37,7 +37,7 @@
     <script type="text/javascript" src="vendor/jquery/jquery-2.0.3.min.js"></script>
 
 	{% if config_transition != 'fade' %}
-    <script type="text/javascript">$(document).on("mobileinit", function(){ $.mobile.defaultPageTransition = '{{ config_transition }}'; });</script>
+        <script type="text/javascript">$(document).on("mobileinit", function(){ $.mobile.defaultPageTransition = '{{ config_transition }}'; });</script>{% endif %}
     {% endif %}
 
     <script type="text/javascript" src="vendor/jquery.mobile/jquery.mobile-1.3.2.min.js"></script>
