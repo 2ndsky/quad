@@ -8,7 +8,7 @@
  */
 
 
-{% extends "rooms.html" %}
+{% extends "rooms-duo.html" %}
 
 
 {% block title %}
@@ -22,35 +22,42 @@ Licht
 {% block content %}
 {% import "widget_list.html" as list %}
 <ul data-role="listview" data-dividertheme="c" class="nw_list">
-    <li data-role="list-divider">Erdgeschoss</li>
-    {{ list.dimmer('eg.kueche.licht','Küche','eg.kueche.licht','eg.kueche.licht.wert') }}
-    {{ list.dimmer('eg.kueche.leds.weiss','Küche Weiß','eg.kueche.leds.weiss','eg.kueche.leds.weiss.wert') }}
-    {{ list.rgb('eg.kueche.leds.rgb', 'Küche RGB', 'eg.kueche.leds.rot', 'eg.kueche.leds.rot.wert', 'eg.kueche.leds.gruen', 'eg.kueche.leds.gruen.wert', 'eg.kueche.leds.blau', 'eg.kueche.leds.blau.wert') }}
-    {{ list.dimmer('eg.essen.licht','Essen','eg.essen.licht','eg.essen.licht.wert') }}
-    {{ list.dimmer('eg.wohnen.licht','Wohnen','eg.wohnen.licht','eg.wohnen.licht.wert') }}
-    {{ list.switch('eg.wohnen.kugellampe','Kugellampe','eg.wohnen.kugellampe', icon1~'message_socket.png', icon0~'message_socket.png') }}
-    {{ list.dimmer('eg.flur.deckenspots', 'Flur', 'eg.flur.licht', 'eg.flur.licht.wert') }}
-    {{ list.dimmer('eg.treppe.licht', 'Treppe', 'eg.treppe.licht', 'eg.treppe.licht.wert') }}
-    {{ list.switch('eg.wc.licht', 'Toilette', 'eg.wc.licht', icon1~'light_light.png', icon0~'light_light.png') }}
-    {{ list.switch('eg.technik.licht', 'Technik', 'eg.technik.licht', icon1~'light_light.png', icon0~'light_light.png') }}
-    <li data-role="list-divider">Garten</li>
-    {{ list.dimmer('aa.terrasse.licht', 'Wandlampen', 'aa.terrasse.licht', 'aa.terrasse.licht.wert') }}
-    {{ list.dimmer('aa.terrasse.kugel.gross', 'Kugel groß', 'aa.terrasse.kugel.gross', 'aa.terrasse.kugel.gross.wert') }}
-    {{ list.dimmer('aa.terrasse.kugel.mittel', 'Kugel mittel', 'aa.terrasse.kugel.mittel', 'aa.terrasse.kugel.mittel.wert') }}
-    {{ list.dimmer('aa.terrasse.kugel.klein', 'Kugel klein', 'aa.terrasse.kugel.klein', 'aa.terrasse.kugel.klein.wert') }}
-    <li data-role="list-divider">Dachgeschoss</li>
-    {{ list.dimmer('dg.schlafen.licht', 'Schlafen', 'dg.schlafen.licht', 'dg.schlafen.licht.wert') }}
-    {{ list.switch('dg.schlafen.nachtlicht.rechts', 'Nachttisch Nadine', 'dg.schlafen.nachtlicht.rechts', icon1~'light_light.png', icon0~'light_light.png') }}
-    {{ list.switch('dg.schlafen.nachtlicht.links', 'Nachttisch Niko', 'dg.schlafen.nachtlicht.links', icon1~'light_light.png', icon0~'light_light.png') }}
-    {{ list.dimmer('dg.ankleide.licht', 'Ankleide', 'dg.ankleide.licht', 'dg.ankleide.licht.wert') }}
-    {{ list.dimmer('dg.masterbad.licht', 'Masterbad', 'dg.masterbad.licht', 'dg.masterbad.licht.wert') }}
-    {{ list.dimmer('dg.arbeiten.licht', 'Arbeiten', 'dg.arbeiten.licht', 'dg.arbeiten.licht.wert') }}
-    {{ list.dimmer('dg.zimmer1.licht', 'Hunde', 'dg.zimmer1.licht', 'dg.zimmer1.licht.wert') }}
-    {{ list.dimmer('dg.zimmer2.licht', 'Gäste', 'dg.zimmer2.licht', 'dg.zimmer2.licht.wert') }}
-    {{ list.switch('dg.hwr.licht', 'HWR', 'dg.hwr.licht', icon1~'light_light.png', icon0~'light_light.png') }}
-    {{ list.switch('dg.bad.licht', 'Gästebad', 'dg.bad.licht', icon1~'light_light.png', icon0~'light_light.png') }}
-    {{ list.dimmer('dg.flur.licht', 'Flur', 'dg.flur.licht', 'dg.flur.licht.wert') }}
-    {{ list.switch('dg.buehne.licht', 'Dachboden', 'dg.buehne.licht', icon1~'light_light.png', icon0~'light_light.png') }}
+    <li data-role="list-divider">KG</li>
+    {{ list.switch('KG.Bad.Leuchte', 'Bad', 'KG.Bad.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Buero.Links.Leuchte', 'Büro Links', 'KG.Buero.Links.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Buero.Mitte.Leuchte', 'Büro Mitte', 'KG.Buero.Mitte.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Buero.Rechts.Leuchte', 'Büro Rechts', 'KG.Buero.Rechts.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Flur.Leuchte', 'Flur', 'KG.Flur.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.HWR.Leuchte', 'HWR', 'KG.HWR.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Lager.Leuchte', 'Lager', 'KG.Lager.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Treppe.Leuchte', 'Treppe', 'KG.Treppe.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('KG.Sammel.Leuchten', 'ALLE', 'KG.Sammel.Leuchten', icon1~'light_light.png', icon0~'light_light.png') }}
+	
+	<li data-role="list-divider">EG</li>
+    {{ list.switch('EG.Flur.Leuchte', 'Flur', 'EG.Flur.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('EG.Speisekammer.Leuchte', 'Speisekammer', 'EG.Speisekammer.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('EG.Kueche.Leuchte', 'Küche', 'EG.Kueche.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('EG.Kueche.Fenster.Leuchte', 'Küchenfenster', 'EG.Kueche.Fenster.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('EG.WC.Leuchte', 'Gäste-WC', 'EG.WC.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('EG.Garderobe.Leuchte', 'Garderobe', 'EG.Garderobe.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('EG.Haustuer.Leuchte', 'Haustür', 'EG.Haustuer.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('EG.Terrasse.Leuchte', 'Terrasse', 'EG.Terrasse.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.dimmer('EG.Essen.Leuchte','Deckenspots','EG.Essen.Leuchte','EG.Essen.Leuchte.dimmen') }}
+    {{ list.dimmer('EG.Essen.Tisch.Leuchte','Esstisch','EG.Essen.Tisch.Leuchte','EG.Essen.Tisch.Leuchte.dimmen') }}
+    {{ list.dimmer('EG.Wohnen.Tisch.Leuchte','Wohnzimmer','EG.Wohnen.Tisch.Leuchte','EG.Wohnen.Tisch.Leuchte.dimmen') }}
+    {{ list.switch('EG.Sammel.Leuchten', 'ALLE', 'EG.Sammel.Leuchten', icon1~'light_light.png', icon0~'light_light.png') }}
+	
+	<li data-role="list-divider">DG</li>
+    {{ list.switch('DG.Schlafen.Leuchte', 'Schlafen', 'DG.Schlafen.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('DG.Schlafen.Wand.Leuchte', 'Schlafen Wandstrahler', 'DG.Schlafen.Wand.Leuchte', icon1~'light_diffused.png', icon0~'light_diffused.png') }}
+    {{ list.switch('DG.Ankleide.Leuchte', 'Ankleide', 'DG.Schlafen.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('DG.Kind.Leuchte', 'Kind', 'DG.Kind.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('DG.Arbeit.Leuchte', 'Arbeit', 'DG.Arbeit.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('DG.Flur.Leuchte', 'Flur', 'DG.Flur.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('DG.Flur.Treppe.Leuchte', 'Treppe', 'DG.Flur.Treppe.Leuchte', icon1~'light_stairs.png', icon0~'light_stairs.png') }}
+    {{ list.switch('DG.Bad.Leuchte', 'Bad', 'DG.Bad.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('DG.Bad.Waschtisch.Leuchte', 'Bad Waschtisch', 'DG.Bad.Waschtisch.Leuchte', icon1~'light_mirror.png', icon0~'light_mirror.png') }}
+    {{ list.switch('DG.Sammel.Leuchten', 'ALLE', 'DG.Sammel.Leuchten', icon1~'light_light.png', icon0~'light_light.png') }}
 </ul>
 
 {% endblock %}

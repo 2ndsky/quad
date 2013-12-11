@@ -1,5 +1,6 @@
 
 // ---- SOLARLOG ----------------------------------------------------
+/**
 var solarlog = null;
 
 $(document).delegate("#pv", "pagebeforeshow", function() {
@@ -36,6 +37,7 @@ $(document).delegate("#pv", "pageshow", function() {
     $('#pv_year').click(open);
     
 });
+*/
 
 // ---- TABS ------------------------------------------------------------------
 $(document).on("pageshow", function() {

@@ -1,0 +1,48 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Martin Gleiß
+ * @copyright   2012
+ * @license     GPL <http://www.gnu.de>
+ * ----------------------------------------------------------------------------- 
+ */
+ 
+{% extends "rooms-duo.html" %}
+
+{% block title %}
+Dachgeschoss
+{% endblock %}
+
+{% block header %}
+<img class="icon" src='{{ icon0 }}control_building_2_s_dg.png'/>
+{% endblock %}
+
+{% block content %}
+{% import "widget_list.html" as list %}
+<ul data-role="listview" data-dividertheme="c" class="nw_list">
+    <li data-role="list-divider">Licht</li>
+    {{ list.switch('DG.Schlafen.Leuchte', 'Schlafen', 'DG.Schlafen.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('DG.Schlafen.Wand.Leuchte', 'Schlafen Wandstrahler', 'DG.Schlafen.Wand.Leuchte', icon1~'light_diffused.png', icon0~'light_diffused.png') }}
+    {{ list.switch('DG.Ankleide.Leuchte', 'Ankleide', 'DG.Schlafen.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('DG.Kind.Leuchte', 'Kind', 'DG.Kind.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('DG.Arbeit.Leuchte', 'Arbeit', 'DG.Arbeit.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('DG.Flur.Leuchte', 'Flur', 'DG.Flur.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('DG.Flur.Treppe.Leuchte', 'Treppe', 'DG.Flur.Treppe.Leuchte', icon1~'light_stairs.png', icon0~'light_stairs.png') }}
+    {{ list.switch('DG.Bad.Leuchte', 'Bad', 'DG.Bad.Leuchte', icon1~'light_ceiling_light.png', icon0~'light_ceiling_light.png') }}
+    {{ list.switch('DG.Bad.Waschtisch.Leuchte', 'Bad Waschtisch', 'DG.Bad.Waschtisch.Leuchte', icon1~'light_mirror.png', icon0~'light_mirror.png') }}
+    {{ list.switch('DG.Sammel.Leuchten', 'ALLE', 'DG.Sammel.Leuchten', icon1~'light_light.png', icon0~'light_light.png') }}
+	
+    <li data-role="list-divider">Rolladen</li>
+    {{ list.blind('DG.Schlafen.Links.Rollo', 'Schlafen Links', 'DG.Schlafen.Links.Rollo.move', 'DG.Schlafen.Links.Rollo.stop', 'DG.Schlafen.Links.Rollo.pos') }}
+	{{ list.blind('DG.Schlafen.Rechts.Rollo', 'Schlafen Rechts', 'DG.Schlafen.Rechts.Rollo.move', 'DG.Schlafen.Rechts.Rollo.stop', 'DG.Schlafen.Rechts.Rollo.pos') }}
+    {{ list.blind('DG.Ankleide.Rollo', 'Ankleide', 'DG.Ankleide.Rollo.move', 'DG.Ankleide.Rollo.stop', 'DG.Ankleide.Rollo.pos') }}
+    {{ list.blind('DG.Kind.Links.Rollo', 'Kind', 'DG.Kind.Links.Rollo.move', 'DG.Kind.Links.Rollo.stop', 'DG.Kind.Links.Rollo.pos') }}
+    {{ list.blind('DG.Kind.Rechts.Rollo', 'Kind', 'DG.Kind.Rechts.Rollo.move', 'DG.Kind.Rechts.Rollo.stop', 'DG.Kind.Rechts.Rollo.pos') }}
+    {{ list.blind('DG.Arbeit.Rollo', 'Arbeit', 'DG.Arbeit.Rollo.move', 'DG.Arbeit.Rollo.stop', 'DG.Arbeit.Rollo.pos') }}
+	{{ list.blind('DG.Flur.Raffstore', 'Flur', 'DG.Flur.Raffstore.move', 'DG.Flur.Raffstore.stop', 'DG.Flur.Raffstore.pos', 'DG.Flur.Raffstore.stop', 'DG.Flur.Raffstore.abs_angle') }}
+	{{ list.blind('DG.Bad.Rollo', 'Bad', 'DG.Bad.Rollo.move', 'DG.Bad.Rollo.stop', 'DG.Bad.Rollo.pos') }}
+	{{ list.blind('DG.Bad.Dach.Rollo', 'Bad Dach', 'DG.Bad.Dach.Rollo.move', 'DG.Bad.Dach.Rollo.stop', 'DG.Bad.Dach.Rollo.pos') }}
+	{{ list.blind('DG.Sammel.Rollos', 'ALLE', 'DG.Sammel.Rollos.move', 'DG.Sammel.Rollos.stop') }}
+</ul>
+
+{% endblock %}

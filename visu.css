@@ -10,6 +10,12 @@
  
 @CHARSET "UTF-8";
 
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 .ui-page > .ui-header .ui-right {
     margin: 5px 5px 0 0;
     text-align: right;
@@ -20,20 +26,38 @@
     margin: 20px 0 6px 0;
 }
 
+/* Get rid of scrollbars, could be problem for lots of content */
 .ui-content {
+    margin: 0;
     padding: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 62px;
+    min-height: 99%;
+    height: 99%;
+    position: absolute;
 }
 
 .ui-content .ui-listview {
     margin: 0;
 }
 
-.nw_quad {
-    overflow:auto;
-    box-sizing: border-box;
+/* Position secondary graphs from top */
+.nw_min_tablet {
+    top: 50%;
     width: 100%;
+}
+
+.nw_quad {
+    overflow: auto;
     height: 50%;
-    position: relative;
+    position: absolute;
+    width: 100%;
+}
+
+.content-secondary > .nw_quad {
+    width: 100%;
 }
 
 .nw_quad .plot {
@@ -46,16 +70,13 @@
 }
 
 .nw_tiles li {
-    box-sizing: border-box;
     border-width: 1px;
     border-style: outset;
     border-color: #777;
     display: block;
     float: left;
     height: 70px;
-    width: 50%;
     padding: 0 5px 5px 0;
-    float: left;
     margin: 0px;
     text-decoration: none;
     position: relative;
@@ -96,7 +117,6 @@
     font-weight: lighter;
     padding: 0 10px;
     margin: 0;
-    box-sizing: border-box;
 }
 
 .nw_tiles li.double table  td.right {
@@ -162,7 +182,6 @@
 }
 
 .nw_list li {
-    box-sizing: border-box;
     height: 35px;
     line-height: 33px;
     font-weight: normal;
@@ -203,12 +222,10 @@
 
 .nw_table_cell {
     display: table-cell;
-    margin-right: 1px;
     text-align: center;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    height: 100%;
 }
 
 .nw_table_cell.nw_border {
@@ -261,7 +278,6 @@
 
 
 .nw_tab-content {
-    box-sizing: border-box;
     margin: 20px;
 }
 
@@ -293,7 +309,6 @@
     padding: 0;
     height: 35px;
     line-height: 33px;
-    box-sizing: border-box;
     border-width: 1px;
     border-style: outset;
     border-color: #777;
@@ -316,16 +331,23 @@
 
 .content-primary {
     width: 50%;
-    position: fixed;
-    top: 62px;
+    height: 100%;
+    float: left;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
     left: 0;
+    right: 0;
     bottom: 0;
     overflow: auto;
 }
 
+/* We do not hide secondary content, we show it below */
 .content-secondary {
-    width: 50%;
-    position: fixed;
+    display: block;
+    position: relative;
     top: 62px;
     right: 0;
     bottom: 0;
@@ -336,8 +358,14 @@
         top: 47px;
     }
 
+/* Start splitting primary and secondary content */
+@media (min-width: 640px) {
     .content-secondary {
-        top: 47px;
+        width: 50%;
+        float: right;
+        height: 100%;
+        position: relative;
+        overflow: auto;
     }
 }
 
@@ -346,11 +374,52 @@
 
 }
 
+/* For bigger header, move down content */
+@media (min-width: 1025px) {
+}
+
+/* Show three tiles on bigger screen */
 @media (min-width: 980px) {
+    .nw_tiles li {
+        width: 33.333333%;
+    }
+}
+
+/* Workaround iPad2 downscale problem */
+@media screen and (width: 1024px) {
+    .content-secondary {
+        width: 510px;
+    }
+    .content-primary {
+        width: 514px;
+    }
+}
+
+/* Workaround iPhone4 downscale problem */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
 
 }
 
 /* Portrait tablet to landscape and desktop */
+/* Show two tiles on small screen */
+@media (min-width: 640px) and (max-width: 979px) {
+    .content-secondary .nw_tiles li {
+        width: 50%;
+    }
+    .content-primary .nw_tiles li {
+        width: 50%;
+    }
+    .nw_list img.icon {
+        height: 32px;
+        width: 32px;
+    }
+    .content-primary,.content-secondary {
+        min-width: 280px;
+        overflow: auto;
+    }
+
+}
+
 @media (min-width: 768px) and (max-width: 979px) {
 
 }
@@ -360,43 +429,62 @@
 }
 
 @media (min-width: 569px) {
-    .nw_tiles li {
-        width: 33.33%;
-    }
-    .nw_list img.icon {
-        height: 32px;
-        width: 32px;
-    }
+
 }
 
 @media (max-width: 1024px) {
+    /* Header bar */
     .ui-page > .ui-header {
-        height: 45px;
+        height: 47px;
     }
 
+    .ui-content {
+        top: 47px;
+    }
+
+    /* Header bar icons */
     .ui-header img.icon {
         width: 32px;
         height: 32px;
     }
 
+    /* Header bar text title*/
     .ui-page > .ui-header .ui-title {
         margin: 10px 0 6px 30px;
     }
 }
 
-@media (max-width: 568px) {
+/* 568 to 640 */
+@media (max-width: 639px) {
     .nw_quad {
         height: 100%;
     }
     .nw_min_tablet {
         display: none;
     }
+    .content-primary {
+        width: 100%;
+    }
+    .content-secondary {
+        display: none;
+        width: 100%;
+    }
+
+    .nw_tiles li {
+        width: 33.333333%;
+    }
+    .nw_tiles li:nth-child(3n+3) {
+        width: 108px;
+    }
 }
 
 /* Portrait phones to Landscape */
 @media (min-width: 321px) and (max-width: 568px) {
     .nw_tiles li {
-        width: 33.33%;
+        width: 33.333333%;
+    }
+    .nw_tiles li:nth-child(3n+3) {
+        width: 162px;
     }
 }
 
