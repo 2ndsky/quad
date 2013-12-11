@@ -32,15 +32,15 @@ Server
 {% endblock %}
 
 {% block quad_main_bottom %}
-{{ plot.period('plot.smarthome.threads', 'smarthome.threads', 'avg', '1d', 0, '', '', '', 'Threads') }}
+{{ plot.period('plot.smarthome.threads', 'smarthome.threads', 'min', '7d', 0, '', '', '', 'Threads') }}
 {% endblock %}
 
 
 {% block quad_top %}
-{{ plot.period('plot.system', ['system.load', 'system.memory'], 'avg', '1d', 0, '', '', '', ['CPU', 'Speicher']) }}
+{{ plot.period('plot.system', ['system.load', 'system.memory'], 'min', '7d', 0, '', '', '', ['CPU', 'Speicher']) }}
 {% endblock %}
 
 {% block quad_bottom %}
-{{ plot.period('plot.smarthome.memory', 'smarthome.memory', 'avg', '1d', 0, '', '', '', 'Speicher smarthome') }}
+{{ plot.period('plot.smarthome.memory', 'smarthome.memory', 'min', '7d', 0, '', '', '', 'Speicher smarthome') }}
 {% endblock %}
 
