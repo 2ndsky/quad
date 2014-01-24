@@ -18,10 +18,6 @@ Kochen
 <img class="icon" src='{{ icon0 }}scene_cooking.png'/>
 {% endblock %}
 
-{% block quad_top %}
-{{ plot.period('plot.eg.kueche.heizung.ist', 'eg.kueche.heizung.ist', 'avg', '1d', 0, 20, 30, '', 'Küche IST-Temperatur') }}
-{% endblock %}
-
 {% block content %}
 {% import "widget_list.html" as list %}
 <ul data-role="listview" data-dividertheme="c" class="nw_list">
@@ -31,5 +27,14 @@ Kochen
     {{ list.blind('eg.kueche.jalousie.temp', 'Jalousie', 'eg.kueche.jalousie.lang', 'eg.kueche.jalousie.kurz', 'eg.kueche.jalousie.position', 'eg.kueche.jalousie.kurz', 'eg.kueche.jalousie.lamelle') }}
     {{ list.rtr('eg.kueche.heizung', 'Heizung', 'eg.kueche.heizung.ist', 'eg.kueche.heizung.stellwert', 'eg.kueche.heizung.soll', 'eg.kueche.heizung.sollwertverschiebung', 'eg.kueche.heizung.komfort', 'eg.kueche.heizung.nacht', 'eg.kueche.heizung.frostschutz', 'eg.kueche.heizung.heizen') }}
 </ul>
+{% endblock %}
+
+
+{% block quad_top %}
+{{ plot.period_zoomable('plot.eg.kueche.heizung.ist', 'eg.kueche.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist') }}
+{% endblock %}
+
+{% block quad_bottom %}
+{{ plot.period_zoomable('plot.eg.kueche.heizung.stellwert', 'eg.kueche.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert') }}
 {% endblock %}
 

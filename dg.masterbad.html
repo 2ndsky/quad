@@ -29,11 +29,13 @@ Masterbad
     {{ list.switch('dg.masterbad.audio.loudness', 'Audio Loudness', 'dg.masterbad.audio.loudness', icon1~'audio_loudness.png', icon0~'audio_loudness.png') }}
     {{ list.rtr('dg.masterbad.heizung', 'Heizung', 'dg.masterbad.heizung.ist', 'dg.masterbad.heizung.stellwert', 'dg.masterbad.heizung.soll', 'dg.masterbad.heizung.sollwertverschiebung', 'dg.masterbad.heizung.komfort', 'dg.masterbad.heizung.nacht', 'dg.masterbad.heizung.frostschutz', 'dg.masterbad.heizung.heizen') }}
 </ul>
-<br />
-<br />
-<div>
-    {{ plot.period('plot.dg.masterbad.heizung.ist', 'dg.masterbad.heizung.ist', 'avg', '1d', 0, 20, 30, '', 'Masterbad IST-Temperatur') }}
-</div>
+{% endblock %}
 
+{% block quad_top %}
+{{ plot.period_zoomable('plot.dg.masterbad.heizung.ist', 'dg.masterbad.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist') }}
+{% endblock %}
+
+{% block quad_bottom %}
+{{ plot.period_zoomable('plot.dg.masterbad.heizung.stellwert', 'dg.masterbad.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert') }}
 {% endblock %}
 

@@ -232,6 +232,7 @@
 
 {% macro blind(id, txt, gad_move, gad_stop, gad_pos, gad_shift, gad_angle, min, max, step, mode) %}
     {% import "basic.html" as basic %}
+    {% import "icon.html" as icon %}
     {% import "widget_visu.html" as visu %}
     {% import "widget_popup.html" as popup %}
     <li data-icon="false">
@@ -251,7 +252,7 @@
                 </div>
                 <div class="nw_table_cell nw_border">
                     <a href="#{{ uid(page, id) }}_list_blind_popup" data-rel="popup" data-position-to="window">
-			{{ visu.shifter(id~'list_blind_shifter', gad_pos, icon0~'fts_shutter_00.png') }}
+                        {{ icon.blind(id~'list_blind_shifter', '', gad_pos, 0, 255, gad_angle) }}
                     </a>
                 </div>
                 {{ popup.blind(uid(page, id)~'_list_blind_popup', txt, gad_move, gad_stop, gad_pos, gad_shift, gad_angle, gad_saved, min, max, step, mode) }}

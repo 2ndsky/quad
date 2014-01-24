@@ -25,11 +25,14 @@ Ankleide
     {{ list.blind('dg.ankleide.rollladen', 'Rollladen', 'dg.ankleide.rollladen.lang', 'dg.ankleide.rollladen.kurz', 'dg.ankleide.rollladen.position') }}
     {{ list.rtr('dg.ankleide.heizung', 'Heizung', 'dg.ankleide.heizung.ist', 'dg.ankleide.heizung.stellwert', 'dg.ankleide.heizung.soll', 'dg.ankleide.heizung.sollwertverschiebung', 'dg.ankleide.heizung.komfort', 'dg.ankleide.heizung.nacht', 'dg.ankleide.heizung.frostschutz', 'dg.ankleide.heizung.heizen') }}
 </ul>
-<br />
-<br />
-<div>
-    {{ plot.period('plot.dg.ankleide.heizung.ist', 'dg.ankleide.heizung.ist', 'avg', '1d', 0, 20, 30, '', 'Ankleide IST-Temperatur') }}
-</div>
+{% endblock %}
 
+
+{% block quad_top %}
+{{ plot.period_zoomable('plot.dg.ankleide.heizung.ist', 'dg.ankleide.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist') }}
+{% endblock %}
+
+{% block quad_bottom %}
+{{ plot.period_zoomable('plot.dg.ankleide.heizung.stellwert', 'dg.ankleide.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert') }}
 {% endblock %}
 

@@ -34,7 +34,11 @@ Schlafen
 </ul>
 {% endblock %}
 
+{% block quad_top %}
+{{ plot.period_zoomable('plot.dg.schlafen.heizung.ist', 'dg.schlafen.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist') }}
+{% endblock %}
+
 {% block quad_bottom %}
-{{ plot.period('plot.dg.schlafen.heizung.ist', 'dg.schlafen.heizung.ist', 'avg', '3d', 0, 20, 30, '', 'Schlafen IST-Temperatur') }}
+{{ plot.period_zoomable('plot.dg.schlafen.heizung.stellwert', 'dg.schlafen.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert') }}
 {% endblock %}
 

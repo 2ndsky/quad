@@ -1,0 +1,40 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Niko Will
+ * @copyright   2013
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "base.html" %}
+
+{% block title %}
+Flur
+{% endblock %}
+
+{% block header %}
+<img class="icon" src='{{ icon0 }}scene_hall.png'/>
+{% endblock %}
+
+{% block content %}
+{% import "widget_list.html" as list %}
+<ul data-role="listview" data-dividertheme="c" class="nw_list">
+    {{ list.dimmer('dg.flur.licht','Deckenspots','dg.flur.licht','dg.flur.licht.wert') }}
+    {{ list.switch('dg.hwr.licht', 'HWR', 'dg.hwr.licht', icon1~'light_light.png', icon0~'light_light.png') }}
+    {{ list.switch('dg.bad.licht', 'Gästebad', 'dg.bad.licht', icon1~'light_light.png', icon0~'light_light.png') }}
+    {{ list.float('dg.flur.heizung.ist', 'Flur', 'dg.flur.heizung.ist', '°C') }}
+    {{ list.rtr('dg.bad.heizung', 'Heizung Bad', 'dg.bad.heizung.ist', 'dg.bad.heizung.stellwert', 'dg.bad.heizung.soll', 'dg.bad.heizung.sollwertverschiebung', 'dg.bad.heizung.komfort', 'dg.bad.heizung.nacht', 'dg.bad.heizung.frostschutz', 'dg.bad.heizung.heizen') }}
+    {{ list.rtr('dg.hwr.heizung', 'Heizung HWR', 'dg.hwr.heizung.ist', 'dg.hwr.heizung.stellwert', 'dg.hwr.heizung.soll', 'dg.hwr.heizung.sollwertverschiebung', 'dg.hwr.heizung.komfort', 'dg.hwr.heizung.nacht', 'dg.hwr.heizung.frostschutz', 'dg.hwr.heizung.heizen') }}
+</ul>
+{% endblock %}
+
+{% block quad_top %}
+{{ plot.period_zoomable('plot.dg.bad.heizung.ist', ['dg.bad.heizung.ist', 'dg.hwr.heizung.ist'], 'avg', '1w', 0, 15, 25, '', ['Bad Ist', 'HWR Ist']) }}
+{% endblock %}
+
+{% block quad_bottom %}
+{{ plot.period_zoomable('plot.dg.bad.heizung.stellwert', ['dg.bad.heizung.stellwert', 'dg.hwr.heizung.stellwert'], 'avg', '1w', 0, 0, 100, '', ['Bad Stellwert', 'HWR Stellwert']) }}
+{% endblock %}
+

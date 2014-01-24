@@ -29,11 +29,12 @@ Hunde
     {{ list.switch('dg.zimmer1.audio.loudness', 'Audio Loudness', 'dg.zimmer1.audio.loudness', icon1~'audio_loudness.png', icon0~'audio_loudness.png') }}
     {{ list.rtr('dg.zimmer1.heizung', 'Heizung', 'dg.zimmer1.heizung.ist', 'dg.zimmer1.heizung.stellwert', 'dg.zimmer1.heizung.soll', 'dg.zimmer1.heizung.sollwertverschiebung', 'dg.zimmer1.heizung.komfort', 'dg.zimmer1.heizung.nacht', 'dg.zimmer1.heizung.frostschutz', 'dg.zimmer1.heizung.heizen') }}
 </ul>
-<br />
-<br />
-<div>
-    {{ plot.period('plot.dg.zimmer1.heizung.ist', 'dg.zimmer1.heizung.ist', 'avg', '1d', 0, 20, 30, '', 'Hunde IST-Temperatur') }}
-</div>
-
 {% endblock %}
 
+{% block quad_top %}
+{{ plot.period_zoomable('plot.dg.zimmer1.heizung.ist', 'dg.zimmer1.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist') }}
+{% endblock %}
+
+{% block quad_bottom %}
+{{ plot.period_zoomable('plot.dg.zimmer1.heizung.stellwert', 'dg.zimmer1.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert') }}
+{% endblock %}

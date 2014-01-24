@@ -25,11 +25,12 @@ Gäste
     {{ list.blind('dg.zimmer2.rollladen', 'Rollladen', 'dg.zimmer2.rollladen.lang', 'dg.zimmer2.rollladen.kurz', 'dg.zimmer2.rollladen.position') }}
     {{ list.rtr('dg.zimmer2.heizung', 'Heizung', 'dg.zimmer2.heizung.ist', 'dg.zimmer2.heizung.stellwert', 'dg.zimmer2.heizung.soll', 'dg.zimmer2.heizung.sollwertverschiebung', 'dg.zimmer2.heizung.komfort', 'dg.zimmer2.heizung.nacht', 'dg.zimmer2.heizung.frostschutz', 'dg.zimmer2.heizung.heizen') }}
 </ul>
-<br />
-<br />
-<div>
-    {{ plot.period('plot.dg.zimmer2.heizung.ist', 'dg.zimmer2.heizung.ist', 'avg', '1d', 0, 20, 30, '', 'Gäste IST-Temperatur') }}
-</div>
-
 {% endblock %}
 
+{% block quad_top %}
+{{ plot.period_zoomable('plot.dg.zimmer2.heizung.ist', 'dg.zimmer2.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist') }}
+{% endblock %}
+
+{% block quad_bottom %}
+{{ plot.period_zoomable('plot.dg.zimmer2.heizung.stellwert', 'dg.zimmer2.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert') }}
+{% endblock %}

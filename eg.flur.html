@@ -1,0 +1,39 @@
+/**
+ * -----------------------------------------------------------------------------
+ * @package     smartVISU
+ * @author      Niko Will
+ * @copyright   2013
+ * @license     GPL <http://www.gnu.de>
+ * -----------------------------------------------------------------------------
+ */
+
+
+{% extends "base.html" %}
+
+{% block title %}
+Flur
+{% endblock %}
+
+{% block header %}
+<img class="icon" src='{{ icon0 }}scene_hall.png'/>
+{% endblock %}
+
+{% block content %}
+{% import "widget_list.html" as list %}
+<ul data-role="listview" data-dividertheme="c" class="nw_list">
+    {{ list.dimmer('eg.flur.licht','Deckenspots','eg.flur.licht','eg.flur.licht.wert') }}
+    {{ list.dimmer('eg.treppe.licht','Treppe','eg.treppe.licht','eg.treppe.licht.wert') }}
+    {{ list.switch('eg.wc.licht', 'Toilette', 'eg.wc.licht', icon1~'light_light.png', icon0~'light_light.png') }}
+    {{ list.rtr('eg.flur.heizung', 'Heizung', 'eg.flur.heizung.ist', 'eg.flur.heizung.stellwert', 'eg.flur.heizung.soll', 'eg.flur.heizung.sollwertverschiebung', 'eg.flur.heizung.komfort', 'eg.flur.heizung.nacht', 'eg.flur.heizung.frostschutz', 'eg.flur.heizung.heizen') }}
+</ul>
+{% endblock %}
+
+
+{% block quad_top %}
+{{ plot.period_zoomable('plot.eg.flur.heizung.ist', 'eg.flur.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist') }}
+{% endblock %}
+
+{% block quad_bottom %}
+{{ plot.period_zoomable('plot.eg.flur.heizung.stellwert', 'eg.flur.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert') }}
+{% endblock %}
+

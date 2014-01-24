@@ -25,11 +25,13 @@ Arbeiten
     {{ list.blind('dg.arbeiten.rollladen', 'Rollladen', 'dg.arbeiten.rollladen.lang', 'dg.arbeiten.rollladen.kurz', 'dg.arbeiten.rollladen.position') }}
     {{ list.rtr('dg.arbeiten.heizung', 'Heizung', 'dg.arbeiten.heizung.ist', 'dg.arbeiten.heizung.stellwert', 'dg.arbeiten.heizung.soll', 'dg.arbeiten.heizung.sollwertverschiebung', 'dg.arbeiten.heizung.komfort', 'dg.arbeiten.heizung.nacht', 'dg.arbeiten.heizung.frostschutz', 'dg.arbeiten.heizung.heizen') }}
 </ul>
-<br />
-<br />
-<div>
-    {{ plot.period('plot.dg.arbeiten.heizung.ist', 'dg.arbeiten.heizung.ist', 'avg', '1d', 0, 20, 30, '', 'Arbeiten IST-Temperatur') }}
-</div>
+{% endblock %}
 
+{% block quad_top %}
+{{ plot.period_zoomable('plot.dg.arbeiten.heizung.ist', 'dg.arbeiten.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist') }}
+{% endblock %}
+
+{% block quad_bottom %}
+{{ plot.period_zoomable('plot.dg.arbeiten.heizung.stellwert', 'dg.arbeiten.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert') }}
 {% endblock %}
 
