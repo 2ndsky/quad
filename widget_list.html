@@ -25,16 +25,12 @@
     {% import "basic.html" as basic %}
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">{{ txt|e }}</div>
-        <div class="nw_table_cell">
-            <div class="nw_table">
-                <div class="nw_table_cell nw_border">
-                    {{ basic.switch(id~'list_switch', gad_switch, pic_on, pic_off) }}
-                </div>
-                <div class="nw_table_cell nw_border"></div>
-                <div class="nw_table_cell nw_border nw_min_landscape"></div>
-            </div>
+        <div class="text">{{ txt|e }}</div>
+        <div>
+            {{ basic.switch(id~'list_switch', gad_switch, pic_on, pic_off) }}
         </div>
+        <div></div>
+        <div class="landscape"></div>
     </div>
     </li>
     
@@ -44,17 +40,13 @@
     {% import "basic.html" as basic %}
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">{{ txt|e }}</div>
-        <div class="nw_table_cell">
-            <div class="nw_table">
-                <div class="nw_table_cell nw_border">
-                    {{ basic.symbol(id~'list_symbol_off', gad, '', pic_off, 0) }}
-                    {{ basic.symbol(id~'list_symbol_on', gad, '', pic_on, 1) }}
-                </div>
-                <div class="nw_table_cell nw_border"></div>
-                <div class="nw_table_cell nw_border nw_min_landscape"></div>
-            </div>
+        <div class="text">{{ txt|e }}</div>
+        <div>
+            {{ basic.symbol(id~'list_symbol_off', gad, '', pic_off, 0) }}
+            {{ basic.symbol(id~'list_symbol_on', gad, '', pic_on, 1) }}
         </div>
+        <div></div>
+        <div class="landscape"></div>
     </div>
     </li>
     
@@ -64,21 +56,17 @@
     {% import "widget_visu.html" as visu %}
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">{{ txt|e }}</div>
+        <div class="text">{{ txt|e }}</div>
 {% if colspan %}
-        <div class="nw_table_cell nw_border">
+        <div>
             {{ visu.format(id~'list_format', gad, format, unit) }}
         </div>
 {% else %}        
-        <div class="nw_table_cell">
-            <div class="nw_table">
-                <div class="nw_table_cell nw_border">
-                    {{ visu.format(id~'list_format', gad, format, unit) }}
-                </div>
-                <div class="nw_table_cell nw_border"></div>
-                <div class="nw_table_cell nw_border nw_min_landscape"></div>
-            </div>
+        <div>
+            {{ visu.format(id~'list_format', gad, format, unit) }}
         </div>
+        <div></div>
+        <div class="landscape"></div>
 {% endif %}
     </div>
     </li>
@@ -88,16 +76,12 @@
     {% import "basic.html" as basic %}
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">{{ txt|e }}</div>
-        <div class="nw_table_cell">
-            <div class="nw_table">
-                <div class="nw_table_cell nw_border">
-                    {{ basic.float(id~'list_float', gad, unit) }}
-                </div>
-                <div class="nw_table_cell nw_border"></div>
-                <div class="nw_table_cell nw_border nw_min_landscape"></div>
-            </div>
+        <div class="text">{{ txt|e }}</div>
+        <div>
+            {{ basic.float(id~'list_float', gad, unit) }}
         </div>
+        <div></div>
+        <div class="landscape"></div>
     </div>
     </li>
     
@@ -107,21 +91,17 @@
     {% import "basic.html" as basic %}
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">{{ txt|e }}</div>
+        <div class="text">{{ txt|e }}</div>
 {% if colspan %}
-        <div class="nw_table_cell nw_border">
+        <div>
             {{ basic.value(id~'list_value', gad, unit) }}
         </div>
 {% else %}        
-        <div class="nw_table_cell">
-            <div class="nw_table">
-                <div class="nw_table_cell nw_border">
-                    {{ basic.value(id~'list_value', gad, unit) }}
-                </div>
-                <div class="nw_table_cell nw_border"></div>
-                <div class="nw_table_cell nw_border nw_min_landscape"></div>
-            </div>
+        <div>
+            {{ basic.value(id~'list_value', gad, unit) }}
         </div>
+        <div></div>
+        <div class="landscape"></div>
 {% endif %}
     </div>
     </li>
@@ -146,21 +126,17 @@
     {% import "widget_popup.html" as popup %}
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">{{ txt|e }}</div>
-        <div class="nw_table_cell">
-            <div class="nw_table">
-                <div class="nw_table_cell nw_border">
-                    {{ basic.shifter(id~'list_dimmer_shifter', gad_switch, gad_value) }}
-                </div>
-                <div class="nw_table_cell nw_border">
-                    <a href="#{{ uid(page, id) }}_list_dimmer_popup" data-rel="popup" data-position-to="window">
-                    {{ visu.percent(id~'_list_dimmer_actual', gad_value) }}
-                    </a>
-                </div>
-		{{ popup.dimmer(uid(page, id)~'_list_dimmer_popup', txt, gad_switch, gad_value, min, max, step) }}
-                <div class="nw_table_cell nw_border nw_min_landscape"></div>
-            </div>
+        <div class="text">{{ txt|e }}</div>
+        <div>
+            {{ basic.shifter(id~'list_dimmer_shifter', gad_switch, gad_value) }}
         </div>
+        <div>
+            <a href="#{{ uid(page, id) }}_list_dimmer_popup" data-rel="popup" data-position-to="window">
+                {{ visu.percent(id~'_list_dimmer_actual', gad_value) }}
+            </a>
+            {{ popup.dimmer(uid(page, id)~'_list_dimmer_popup', txt, gad_switch, gad_value, min, max, step) }}
+        </div>
+        <div class="landscape"></div>
     </div>
     </li>
 
@@ -183,21 +159,17 @@
     {% import "widget_popup.html" as popup %}
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">{{ txt|e }}</div>
-        <div class="nw_table_cell">
-            <div class="nw_table">
-                <div class="nw_table_cell nw_border">
-                    {{ basic.switch(id~'list_dimmer_switch', gad_switch, pic_on, pic_off) }}
-                </div>
-                <div class="nw_table_cell nw_border">
-                    <a href="#{{ uid(page, id) }}_list_dimmerEx_popup" data-rel="popup" data-position-to="window">
-                    {{ basic.value(id~'_list_dimmer_actual', gad_value) }}
-                    </a>
-                </div>
-                {{ popup.dimmerEx(uid(page, id)~'_list_dimmerEx_popup', txt, gad_switch, gad_value, pic_on, pic_off, min, max, step) }}
-                <div class="nw_table_cell nw_border nw_min_landscape"></div>
-            </div>
+        <div class="text">{{ txt|e }}</div>
+        <div>
+            {{ basic.switch(id~'list_dimmer_switch', gad_switch, pic_on, pic_off) }}
         </div>
+        <div>
+            <a href="#{{ uid(page, id) }}_list_dimmerEx_popup" data-rel="popup" data-position-to="window">
+                {{ basic.value(id~'_list_dimmer_actual', gad_value) }}
+            </a>
+            {{ popup.dimmerEx(uid(page, id)~'_list_dimmerEx_popup', txt, gad_switch, gad_value, pic_on, pic_off, min, max, step) }}
+        </div>
+        <div class="landscape"></div>
     </div>
     </li>
 
@@ -208,23 +180,19 @@
     {% import "widget_popup.html" as popup %}
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">{{ txt|e }}</div>
-        <div class="nw_table_cell">
-            <div class="nw_table">
-                <div class="nw_table_cell nw_border">
-                    {{ basic.rgb(id, gad_value_r, gad_value_g, gad_value_b, min, max, step, colors) }}
-                </div>
-                <div class="nw_table_cell nw_border">
-                    <a href="#{{ uid(page, id) }}_list_rgb_popup" data-rel="popup" data-position-to="window" style="font-size: 0.6em;">
-                    {{ basic.value(id~'_list_rgb_r_actual', gad_value_r) }};
-                    {{ basic.value(id~'_list_rgb_g_actual', gad_value_g) }};
-                    {{ basic.value(id~'_list_rgb_b_actual', gad_value_b) }}
-                    </a>
-                </div>
-                {{ popup.rgb(uid(page, id)~'_list_rgb_popup', txt, gad_switch_r, gad_value_r, gad_switch_g, gad_value_g, gad_switch_b, gad_value_b, min, max, step) }}
-                <div class="nw_table_cell nw_border nw_min_landscape"></div>
-            </div>
+        <div class="text">{{ txt|e }}</div>
+        <div>
+            {{ basic.rgb(id, gad_value_r, gad_value_g, gad_value_b, min, max, step, colors) }}
         </div>
+        <div>
+            <a href="#{{ uid(page, id) }}_list_rgb_popup" data-rel="popup" data-position-to="window" style="font-size: 0.6em;">
+                {{ basic.value(id~'_list_rgb_r_actual', gad_value_r) }};
+                {{ basic.value(id~'_list_rgb_g_actual', gad_value_g) }};
+                {{ basic.value(id~'_list_rgb_b_actual', gad_value_b) }}
+            </a>
+            {{ popup.rgb(uid(page, id)~'_list_rgb_popup', txt, gad_switch_r, gad_value_r, gad_switch_g, gad_value_g, gad_switch_b, gad_value_b, min, max, step) }}
+        </div>
+        <div class="landscape"></div>
     </div>
     </li>
 {% endmacro %}
@@ -237,28 +205,24 @@
     {% import "widget_popup.html" as popup %}
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">{{ txt|e }}</div>
-        <div class="nw_table_cell">
+        <div class="text">{{ txt|e }}</div>
+        <div class="no_border">
             <div class="nw_table">
-                <div class="nw_table_cell">
-                    <div class="nw_table">
-                        <div class="nw_table_cell nw_border">
-                        {{ visu.lbutton(id, gad_stop, gad_move, icon0~'control_arrow_down.png', 1) }}
-                        </div>
-                        <div class="nw_table_cell nw_border">
-                        {{ visu.lbutton(id, gad_stop, gad_move, icon0~'control_arrow_up.png', 0) }}
-                        </div>
-                    </div>
+                <div>
+                    {{ visu.lbutton(id, gad_stop, gad_move, icon0~'control_arrow_down.png', 1) }}
                 </div>
-                <div class="nw_table_cell nw_border">
-                    <a href="#{{ uid(page, id) }}_list_blind_popup" data-rel="popup" data-position-to="window">
-                        {{ icon.blind(id~'list_blind_shifter', '', gad_pos, 0, 255, gad_angle) }}
-                    </a>
+                <div>
+                    {{ visu.lbutton(id, gad_stop, gad_move, icon0~'control_arrow_up.png', 0) }}
                 </div>
-                {{ popup.blind(uid(page, id)~'_list_blind_popup', txt, gad_move, gad_stop, gad_pos, gad_shift, gad_angle, gad_saved, min, max, step, mode) }}
-                <div class="nw_table_cell nw_border nw_min_landscape"></div>
             </div>
         </div>
+        <div>
+            <a href="#{{ uid(page, id) }}_list_blind_popup" data-rel="popup" data-position-to="window">
+                {{ icon.blind(id~'list_blind_shifter', '', gad_pos, 0, 255, gad_angle) }}
+            </a>
+            {{ popup.blind(uid(page, id)~'_list_blind_popup', txt, gad_move, gad_stop, gad_pos, gad_shift, gad_angle, gad_saved, min, max, step, mode) }}
+        </div>
+        <div class="landscape"></div>
     </div>
     </li>
 {% endmacro %}
@@ -269,22 +233,18 @@
     {% import "widget_popup.html" as popup %}
     <li data-icon="false">
     <div class="nw_table">
-        <div class="nw_table_cell nw_border">{{ txt|e }}</div>
-        <div class="nw_table_cell">
-            <div class="nw_table">
-                <div class="nw_table_cell nw_border">
-                        {{ basic.float(id~'_actual_value', gad_actual, '°') }}
-                </div>
-                <div class="nw_table_cell nw_border nw_min_landscape">
-                        {{ basic.value(id~'_valve_value', gad_valve, '%') }}
-                </div>
-                <div class="nw_table_cell nw_border">
-                    <a href="#{{ uid(page, id) }}_list_rtr_popup" data-rel="popup" data-position-to="window">
-                        {{ basic.float(id~'_set_value', gad_set_value, '°') }}
-                    </a>
-                </div>
-                {{ popup.rtr(uid(page, id)~'_list_rtr_popup', txt, gad_actual, gad_set_value, gad_set, gad_comfort, gad_night, gad_frost, gad_state, gad_txt, step) }}
-            </div>
+        <div class="text">{{ txt|e }}</div>
+        <div>
+                {{ basic.float(id~'_actual_value', gad_actual, '°') }}
+        </div>
+        <div>
+                {{ basic.value(id~'_valve_value', gad_valve, '%') }}
+        </div>
+        <div class="landscape">
+            <a href="#{{ uid(page, id) }}_list_rtr_popup" data-rel="popup" data-position-to="window">
+                {{ basic.float(id~'_set_value', gad_set_value, '°') }}
+            </a>
+            {{ popup.rtr(uid(page, id)~'_list_rtr_popup', txt, gad_actual, gad_set_value, gad_set, gad_comfort, gad_night, gad_frost, gad_state, gad_txt, step) }}
         </div>
     </div>
     </li>

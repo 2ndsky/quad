@@ -207,7 +207,7 @@
     table-layout: fixed;
 }
 
-.nw_table_cell {
+.nw_table > div {
     display: table-cell;
     margin-right: 1px;
     text-align: center;
@@ -215,27 +215,26 @@
     overflow: hidden;
     white-space: nowrap;
     height: 100%;
-}
-
-.nw_table_cell.nw_border {
     border-width: 1px;
     border-style: outset;
     border-color: #777;
 }
 
-.nw_list > li > .nw_table > .nw_table_cell:first-child {
+.nw_table > div.no_border {
+    border:0;
+}
+
+.nw_table > div.text {
     text-align: left;
     padding-left: 10px;
-    border-width: 1px;
-    border-style: outset;
-    border-color: #777;
+    width: 50%;
 }
 
-.nw_table_cell .ui-btn-inner {
+.nw_table > div .ui-btn-inner {
     border: 0;
 }
 
-.nw_table_cell a.ui-btn-inline.ui-mini {
+.nw_table > div a.ui-btn-inline.ui-mini {
     min-width: 40px;
     min-height: 40px;
 }
@@ -416,7 +415,7 @@
 
 /* Portrait phones and down */
 @media (max-width: 320px) {
-    .nw_min_landscape, .plot {
+    .nw_table > div.landscape, .nw_min_landscape, .plot {
         display: none;
     }
 }
