@@ -31,10 +31,10 @@ Flur
 {% endblock %}
 
 {% block quad_top %}
-{{ plot.period_zoomable('plot.dg.bad.heizung.ist', ['dg.bad.heizung.ist', 'dg.hwr.heizung.ist'], 'avg', '1w', 0, 15, 25, '', ['Bad Ist', 'HWR Ist']) }}
+{{ plot.period('plot.dg.bad.heizung.ist', ['dg.bad.heizung.ist', 'dg.hwr.heizung.ist'], 'avg', '1w', 0, 15, 25, '', ['Bad Ist', 'HWR Ist'], '', '', '', '1h') }}
 {% endblock %}
 
 {% block quad_bottom %}
-{{ plot.period_zoomable('plot.dg.bad.heizung.stellwert', ['dg.bad.heizung.stellwert', 'dg.hwr.heizung.stellwert'], 'avg', '1w', 0, 0, 100, '', ['Bad Stellwert', 'HWR Stellwert']) }}
+{{ plot.period('plot.dg.bad.heizung.stellwert', ['dg.bad.heizung.stellwert', 'dg.hwr.heizung.stellwert'], 'avg', '1w', 0, 0, 100, '', ['Bad Stellwert', 'HWR Stellwert'], '', '', '', '1h') }}
 {% endblock %}
 

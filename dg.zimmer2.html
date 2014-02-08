@@ -28,9 +28,9 @@ Gäste
 {% endblock %}
 
 {% block quad_top %}
-{{ plot.period_zoomable('plot.dg.zimmer2.heizung.ist', 'dg.zimmer2.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist') }}
+{{ plot.period('plot.dg.zimmer2.heizung.ist', 'dg.zimmer2.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist', '', '', '', '1h') }}
 {% endblock %}
 
 {% block quad_bottom %}
-{{ plot.period_zoomable('plot.dg.zimmer2.heizung.stellwert', 'dg.zimmer2.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert') }}
+{{ plot.period('plot.dg.zimmer2.heizung.stellwert', 'dg.zimmer2.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert', '', '', '', '1h') }}
 {% endblock %}

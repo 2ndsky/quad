@@ -190,10 +190,10 @@ Wetterstation
         </ul>
     </div>
     <div id="tab-content1" class="nw_tab-content">
-        <div class="tab1">{{ plot.period('plot.aa.temp', ['aa.temp', 'ws.temperatur'], 'avg', '1d', 0, -20, 40, '', ['Nordwand', 'Dach']) }}</div>
-        <div class="tab2 ui-screen-hidden">{{ plot.period('plot.wind', 'ws.wind.geschwindigkeit', 'avg', '1d', 0, 0, 15, '', 'Geschwindigkeit') }}</div>
-        <div class="tab3 ui-screen-hidden">{{ plot.period('plot.helligkeit', ['ws.helligkeit.nord', 'ws.helligkeit.ost', 'ws.helligkeit.sued', 'ws.helligkeit.west', 'ws.helligkeit.sky'], 'avg', '1d', 0, 0, 80000, '', ['Nord', 'Ost', 'Süd', 'West', 'Sky']) }}</div>
-        <div class="tab4 ui-screen-hidden">{{ plot.period('plot.globalstrahlung', ['ws.globalstrahlung.nord', 'ws.globalstrahlung.ost', 'ws.globalstrahlung.sued', 'ws.globalstrahlung.west', 'ws.globalstrahlung.sky'], 'avg', '1d', 0, 0, 1000, '', ['Nord', 'Ost', 'Süd', 'West', 'Sky']) }}</div>
+        <div class="tab1">{{ plot.period('plot.aa.temp', ['aa.temp', 'ws.temperatur'], 'avg', '1w', 0, -20, 40, '', ['Nordwand', 'Dach'], '', '', '', '1h') }}</div>
+        <div class="tab2 ui-screen-hidden">{{ plot.period('plot.wind', 'ws.wind.geschwindigkeit', 'avg', '1w', 0, 0, 15, '', 'Geschwindigkeit', '', '', '', '1h') }}</div>
+        <div class="tab3 ui-screen-hidden">{{ plot.period('plot.helligkeit', ['ws.helligkeit.nord', 'ws.helligkeit.ost', 'ws.helligkeit.sued', 'ws.helligkeit.west', 'ws.helligkeit.sky'], 'avg', '1w', 0, 0, 80000, '', ['Nord', 'Ost', 'Süd', 'West', 'Sky'], '', '', '', '1h') }}</div>
+        <div class="tab4 ui-screen-hidden">{{ plot.period('plot.globalstrahlung', ['ws.globalstrahlung.nord', 'ws.globalstrahlung.ost', 'ws.globalstrahlung.sued', 'ws.globalstrahlung.west', 'ws.globalstrahlung.sky'], 'avg', '1w', 0, 0, 1000, '', ['Nord', 'Ost', 'Süd', 'West', 'Sky'], '', '', '', '1h') }}</div>
     </div>
 
 {% endblock %}

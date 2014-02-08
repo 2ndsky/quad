@@ -30,10 +30,10 @@ Flur
 
 
 {% block quad_top %}
-{{ plot.period_zoomable('plot.eg.flur.heizung.ist', 'eg.flur.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist') }}
+{{ plot.period('plot.eg.flur.heizung.ist', 'eg.flur.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist', '', '', '', '1h') }}
 {% endblock %}
 
 {% block quad_bottom %}
-{{ plot.period_zoomable('plot.eg.flur.heizung.stellwert', 'eg.flur.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert') }}
+{{ plot.period('plot.eg.flur.heizung.stellwert', 'eg.flur.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert', '', '', '', '1h') }}
 {% endblock %}
 

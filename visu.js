@@ -40,7 +40,7 @@ $(document).delegate("#pv", "pageshow", function() {
 // ---- TABS ------------------------------------------------------------------
 $(document).on("pageshow", function() {
     $(".nw_tab-header").each(function(idx) {
-        var height = $(this).parent().innerHeight() - $(this).outerHeight() - 40;
+        var height = $(this).parent().innerHeight() - $(this).outerHeight();
         $(this).siblings(".nw_tab-content").css('height', height);
     });
 });

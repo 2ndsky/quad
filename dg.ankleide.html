@@ -29,10 +29,10 @@ Ankleide
 
 
 {% block quad_top %}
-{{ plot.period_zoomable('plot.dg.ankleide.heizung.ist', 'dg.ankleide.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist') }}
+{{ plot.period('plot.dg.ankleide.heizung.ist', 'dg.ankleide.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist', '', '', '', '1h') }}
 {% endblock %}
 
 {% block quad_bottom %}
-{{ plot.period_zoomable('plot.dg.ankleide.heizung.stellwert', 'dg.ankleide.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert') }}
+{{ plot.period('plot.dg.ankleide.heizung.stellwert', 'dg.ankleide.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert', '', '', '', '1h') }}
 {% endblock %}
 

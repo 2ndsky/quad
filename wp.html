@@ -42,10 +42,10 @@ Wärmepumpe
 {% endblock %}
 
 {% block quad_top %}
-{{ plot.period_zoomable('plot.wp.temp_vl_rl', ['wp.temp_vl', 'wp.temp_rl', 'wp.temp_rl_soll', 'aa.temp'], 'min', '1w', 0, 0, 50, '', ['Vorlauf', 'Rücklauf', 'Rücklauf Soll', 'Außentemperatur']) }}
+{{ plot.period('plot.wp.temp_vl_rl', ['wp.temp_vl', 'wp.temp_rl', 'wp.temp_rl_soll', 'aa.temp'], 'min', '1w', 0, 0, 50, '', ['Vorlauf', 'Rücklauf', 'Rücklauf Soll', 'Außentemperatur'], '', '', '', '1h') }}
 {% endblock %}
 
 {% block quad_bottom %}
-{{ plot.period_zoomable('plot.wp.temp_wq', ['wp.temp_wq_ein', 'wp.temp_wq_aus'], 'min', '1w', 0, -10, 40, '', ['Wärmequelle Ein', 'Wärmequelle Aus']) }}
+{{ plot.period('plot.wp.temp_wq', ['wp.temp_wq_ein', 'wp.temp_wq_aus'], 'min', '1w', 0, -10, 40, '', ['Wärmequelle Ein', 'Wärmequelle Aus'], '', '', '', '1h') }}
 {% endblock %}
 

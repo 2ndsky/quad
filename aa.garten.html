@@ -25,23 +25,6 @@ Garten
     {{ list.dimmer('aa.terrasse.kugel.gross', 'Kugel groß', 'aa.terrasse.kugel.gross', 'aa.terrasse.kugel.gross.wert') }}
     {{ list.dimmer('aa.terrasse.kugel.mittel', 'Kugel mittel', 'aa.terrasse.kugel.mittel', 'aa.terrasse.kugel.mittel.wert') }}
     {{ list.dimmer('aa.terrasse.kugel.klein', 'Kugel klein', 'aa.terrasse.kugel.klein', 'aa.terrasse.kugel.klein.wert') }}
-    <li data-role="list-divider">PV-Anlage</li>
-    {{ list.value('pv.pac', 'Pac', 'pv.wr.pac', 'W') }} 
-    {{ list.value('pv.out', 'Ertrag', 'pv.wr.out', 'Wh') }} 
-
 </ul>
-{% endblock %}
-{% block quad_top %}
-    <div id="navbar1" class="nw_tab-header ui-min" data-role="navbar" data-tab-selection="tab1">
-        <ul>
-            <li><a href="#" data-tab-class="tab1" class="ui-btn-active">PV Pac</a></li>
-            <li><a href="#" data-tab-class="tab2">PV Ertrag</a></li>
-        </ul>
-    </div>
-    <div id="tab-content1" class="nw_tab-content">
-        <div class="tab1">{{ plot.period('plot.pv.pac', ['pv.wr.pac', 'pv.wr.string1.pdc', 'pv.wr.string2.pdc'], 'avg', '1d', 0, 0, 10000, '', ['Gesamt', 'String 1', 'String 2']) }}</div>
-        <div class="tab2 ui-screen-hidden">{{ plot.period('plot.pv.out', 'pv.wr.out', 'avg', '1d', 0, 0, 80000, '', 'Gesamt', '', 'area') }}</div>
-    </div>
-
 {% endblock %}
 

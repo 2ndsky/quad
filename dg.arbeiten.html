@@ -28,10 +28,10 @@ Arbeiten
 {% endblock %}
 
 {% block quad_top %}
-{{ plot.period_zoomable('plot.dg.arbeiten.heizung.ist', 'dg.arbeiten.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist') }}
+{{ plot.period('plot.dg.arbeiten.heizung.ist', 'dg.arbeiten.heizung.ist', 'avg', '1w', 0, 15, 25, '', 'Ist', '', '', '', '1h') }}
 {% endblock %}
 
 {% block quad_bottom %}
-{{ plot.period_zoomable('plot.dg.arbeiten.heizung.stellwert', 'dg.arbeiten.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert') }}
+{{ plot.period('plot.dg.arbeiten.heizung.stellwert', 'dg.arbeiten.heizung.stellwert', 'avg', '1w', 0, 0, 100, '', 'Stellwert', '', '', '', '1h') }}
 {% endblock %}
 
