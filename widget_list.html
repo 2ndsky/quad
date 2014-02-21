@@ -21,8 +21,10 @@
  * @param       the maximum value if the slider is moved to total right (optional, default 255)
  * @param       step between two values (optional, default 5) 
  */
-{% macro switch(id, txt, gad_switch, pic_on, pic_off) %}
+{% macro switch(id, txt, gad_switch, gad_uzsu, pic_on, pic_off) %}
     {% import "basic.html" as basic %}
+    {% import "widget_visu.html" as visu %}
+    {% import "widget_popup.html" as popup %}
     <li data-icon="false">
     <div class="nw_table">
         <div class="text">{{ txt|e }}</div>
@@ -30,13 +32,17 @@
             {{ basic.switch(id~'list_switch', gad_switch, pic_on, pic_off) }}
         </div>
         <div></div>
-        <div class="landscape"></div>
+        <div class="landscape">
+{% if gad_uzsu %}
+            {{ visu.uzsu_icon(id~'list_uzsu', 'bool', gad_uzsu) }}
+{% endif %}
+        </div>
     </div>
     </li>
     
 {% endmacro %}
 
-{% macro symbol(id, txt, gad, pic_on, pic_off) %}
+{% macro symbol(id, txt, gad, gad_uzsu, pic_on, pic_off) %}
     {% import "basic.html" as basic %}
     <li data-icon="false">
     <div class="nw_table">
@@ -46,7 +52,11 @@
             {{ basic.symbol(id~'list_symbol_on', gad, '', pic_on, 1) }}
         </div>
         <div></div>
-        <div class="landscape"></div>
+        <div class="landscape">
+{% if gad_uzsu %}
+            {{ visu.uzsu_icon(id~'list_uzsu', 'bool', gad_uzsu) }}
+{% endif %}
+        </div>
     </div>
     </li>
     
@@ -120,7 +130,7 @@
  * @param       the maximum value if the slider is moved to total right (optional, default 255)
  * @param       step between two values (optional, default 5)
  */
-{% macro dimmer(id, txt, gad_switch, gad_value, min, max, step) %}
+{% macro dimmer(id, txt, gad_switch, gad_value, gad_uzsu, min, max, step) %}
     {% import "basic.html" as basic %}
     {% import "widget_visu.html" as visu %}
     {% import "widget_popup.html" as popup %}
@@ -136,7 +146,11 @@
             </a>
             {{ popup.dimmer(uid(page, id)~'_list_dimmer_popup', txt, gad_switch, gad_value, min, max, step) }}
         </div>
-        <div class="landscape"></div>
+        <div class="landscape">
+{% if gad_uzsu %}
+            {{ visu.uzsu_icon(id~'list_uzsu', 'percent', gad_uzsu, min, max) }}
+{% endif %}
+        </div>
     </div>
     </li>
 
@@ -153,7 +167,7 @@
  * @param       the maximum value if the slider is moved to total right (optional, default 255)
  * @param       step between two values (optional, default 5)
  */
-{% macro dimmerEx(id, txt, gad_switch, gad_value, pic_on, pic_off, min, max, step) %}
+{% macro dimmerEx(id, txt, gad_switch, gad_value, gad_uzsu, pic_on, pic_off, min, max, step) %}
     {% import "basic.html" as basic %}
     {% import "widget_visu.html" as visu %}
     {% import "widget_popup.html" as popup %}
@@ -169,7 +183,11 @@
             </a>
             {{ popup.dimmerEx(uid(page, id)~'_list_dimmerEx_popup', txt, gad_switch, gad_value, pic_on, pic_off, min, max, step) }}
         </div>
-        <div class="landscape"></div>
+        <div class="landscape">
+{% if gad_uzsu %}
+            {{ visu.uzsu_icon(id~'list_uzsu', 'percent', gad_uzsu, min, max) }}
+{% endif %}
+        </div>
     </div>
     </li>
 
@@ -198,7 +216,7 @@
 {% endmacro %}
 
 
-{% macro blind(id, txt, gad_move, gad_stop, gad_pos, gad_shift, gad_angle, min, max, step, mode) %}
+{% macro blind(id, txt, gad_move, gad_stop, gad_pos, gad_shift, gad_angle, gad_uzsu, min, max, step, mode) %}
     {% import "basic.html" as basic %}
     {% import "icon.html" as icon %}
     {% import "widget_visu.html" as visu %}
@@ -222,7 +240,11 @@
             </a>
             {{ popup.blind(uid(page, id)~'_list_blind_popup', txt, gad_move, gad_stop, gad_pos, gad_shift, gad_angle, gad_saved, min, max, step, mode) }}
         </div>
-        <div class="landscape"></div>
+        <div class="landscape">
+{% if gad_uzsu %}
+            {{ visu.uzsu_icon(id~'list_uzsu', 'percent', gad_uzsu, min, max) }}
+{% endif %}
+        </div>
     </div>
     </li>
 {% endmacro %}

@@ -56,3 +56,14 @@
     </span>
 
 {% endmacro %}
+
+{% macro uzsu_icon(id, type, gad_uzsu, min, max, pic_on, pic_off) %}
+
+	<span id="{{ uid(page, id) }}" data-widget="visu.uzsu_icon" data-item="{{ gad_uzsu }}" data-type="{{ type }}"
+        data-min="{{ min|default('0') }}" data-max="{{ max|default('255') }}"
+		data-pic-on="{{ pic_on|default(icon1~'time_clock.png') }}" data-pic-off="{{ pic_off|default(icon0~'time_clock.png') }}"
+		class="switch"><img class="icon" src="{{ pic_off|default(icon0~'time_clock.png') }}" />
+    </span>
+
+{% endmacro %}
+
