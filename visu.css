@@ -384,6 +384,14 @@
     overflow: auto;
 }
 
+.nw_popup-uzsu .activate {
+    padding-left: 15px;
+    background: 0;
+    border: 0;
+    -webkit-box-shadow: inherit;
+    box-shadow: inherit;
+}
+
 .nw_popup-uzsu .numpad_value {
     width: 50%;
     height: 75%;
@@ -395,6 +403,41 @@
     font-size: 2em;
 }
 
+.split-custom-wrapper {
+    /* position wrapper on the right of the listitem */
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+
+.split-custom-button {
+    position: relative;
+    float: right;   /* allow multiple links stacked on the right */
+    height: 100%;
+    margin:0;
+    min-width:3em;
+    /* remove boxshadow and border */
+    display: table;
+    border:none;
+    moz-border-radius: 0;
+    webkit-border-radius: 0;
+    border-radius: 0;
+    moz-box-shadow: none;
+    webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.split-custom-button span.ui-btn-inner {
+    /* position icons in center of listitem*/
+    position: relative;
+    min-width: 0;
+    padding: 0 0 0 12px;
+    display: table-cell;
+    vertical-align: middle;
+    /* compensation for icon dimensions */
+    height:40%; /* stay within boundaries of list item */
+}
 
 @media (min-width: 640px) and (max-width: 1024px) {
     .content-primary {

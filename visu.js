@@ -227,7 +227,8 @@ $(document).delegate('[data-widget="visu.uzsu_icon"]', {
 });
 
 $(document).on('pagecreate',function(event){
-    $('#' + event.target.id).data('uzsu', new UzsuPopup('#' + event.target.id));
+    if (event.target.id != 'qlock')
+        $('#' + event.target.id).data('uzsu', new UzsuPopup('#' + event.target.id));
 });
 
 var UzsuPopup = function(id) {
@@ -297,9 +298,21 @@ UzsuPopup.prototype = {
         $(this.vars.main + ' .ok').on('click', $.proxy(this.save, this));
         $(this.vars.main + ' .add').on('click', $.proxy(this.add, this));
         $(this.vars.popup + ' .prev').on('click', $.proxy(this.prev, this));
+        $(this.vars.main + ' .activate').on('click', $.proxy(this.activate, this));
 
         $(this.vars.main).on('click', 'li', $.proxy(function(e) {
-            this.change($(this.vars.main + ' li').index($(e.target).closest('li')));
+            if ($(e.target).closest('div.split-custom-wrapper') == undefined)
+                this.change($(this.vars.main + ' li').index($(e.target).closest('li')));
+        }, this));
+        $(this.vars.main).on('click', 'a.delete', $.proxy(function(e) {
+            element = $(e.target).closest('li');
+            this.delete($(this.vars.main + ' li').index(element), element);
+        }, this));
+        $(this.vars.main).on('click', 'a.enable', $.proxy(function(e) {
+            this.enable($(this.vars.main + ' li').index($(e.target).closest('li')), true);
+        }, this));
+        $(this.vars.main).on('click', 'a.disable', $.proxy(function(e) {
+            this.enable($(this.vars.main + ' li').index($(e.target).closest('li')), false);
         }, this));
 
         $(this.vars.popup).on('popupbeforeposition', $.proxy(this.next, this));
@@ -345,7 +358,7 @@ UzsuPopup.prototype = {
             var item = this.list[i];
             ret = '';
             // ret += '<img class="icon ui-li-thumb" src="' + (item.active ? this.img.active : this.img.inactive) + '" />';
-            ret += '<h3>';
+            ret += '<a><h3>';
             if (item.rrule) {
                 if (item.rrule == 'FREQ=DAILY')
                     ret += 'Täglich';
@@ -356,13 +369,22 @@ UzsuPopup.prototype = {
                 else
                     ret += 'Benutzerdefiniert'
             }
-            ret += ' um ' + item.time.replace('<','&lt') + ' Uhr</h3>';
+            ret += ' um ' + item.time.replace('<','&lt') + ' Uhr</h3></a>';
+            ret += '<div class="split-custom-wrapper">'
+            ret += '<a data-role="button" class="split-custom-button delete" data-icon="minus" data-iconpos="notext"></a>'
+            if (item.active)
+                ret += '<a data-role="button" class="split-custom-button disable" data-icon="delete" data-iconpos="notext"></a>' 
+            else
+                ret += '<a data-role="button" class="split-custom-button enable" data-icon="check" data-iconpos="notext"></a>' 
+            ret += '</div>'
 		    //ret += '<a href="#delete">Löschen</a>';
-            line += '<li data-icon="false"><a>' + ret + '</a></li>';
+            line += '<li data-icon="false">' + ret + '</li>';
         }
 
         // set the actual content
-	    $(this.vars.list).html(line).trigger('prepare').listview().listview('refresh').trigger('redraw');
+	    $(this.vars.list).html(line).trigger('prepare').listview('refresh').trigger('redraw').trigger('create');
+        
+        $(this.vars.main + ' .activate').buttonMarkup({ icon: (this.active ? 'delete' : 'check') });
     },
 
     save: function() {
@@ -459,6 +481,23 @@ UzsuPopup.prototype = {
         this.current.index = index;
         this.current.entry = $.extend({}, this.list[index]);
         this.next();
+    },
+
+    delete: function(index, element) {
+        this.list.splice(index, 1);
+        element.remove();
+        $(this.vars.list).listview('refresh');
+    },
+
+    activate: function() {
+        var el = $(this.vars.main + ' .activate');
+        this.active = el.attr('data-icon') == 'check';
+        el.buttonMarkup({ icon: ( this.active ? 'delete' : 'check') });
+    },
+
+    enable: function(index, active) {
+        this.list[index].active = active;
+        this.refresh();
     },
 
     add: function() {
