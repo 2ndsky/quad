@@ -1,4 +1,3 @@
-
 // ---- SOLARLOG ----------------------------------------------------
 var solarlog = null;
 
@@ -223,13 +222,16 @@ $(document).delegate('[data-widget="visu.uzsu_icon"]', {
         var max = $(this).attr('data-max');
         var items = widget.explode($(this).attr('data-item'))
         
-        uzsu.open(type, response.active, response.list, items, min, max);
+        $('#' + $.mobile.activePage.attr('id')).data('uzsu').open(type, response.active, response.list, items, min, max);
 	}
 });
 
+$(document).on('pagecreate',function(event){
+    $('#' + event.target.id).data('uzsu', new UzsuPopup('#' + event.target.id));
+});
 
-var UzsuPopup = function() {
-    this.init();
+var UzsuPopup = function(id) {
+    this.init(id);
 }
 
 UzsuPopup.prototype = {
@@ -270,16 +272,26 @@ UzsuPopup.prototype = {
 
     // variable names from the HTML structure
     vars: {
-        popup: '#popupUZSU',
-        main: '#panel_list',
-        list: '#uzsu-items',
-        dateType: '#panel_date_type',
-        timeType: '#panel_time_type',
-        time: '#panel_time',
-        valuePanelPrefix: '#panel_value_',
+        id: '',
+        popup: '.popupUZSU',
+        main: '.panel_list',
+        list: '.uzsu-items',
+        dateType: '.panel_date_type',
+        timeType: '.panel_time_type',
+        time: '.panel_time',
+        valuePanelPrefix: '.panel_value_',
     },
 
-    init: function() {
+    init: function(id) {
+        this.vars.id = id;
+        this.vars.popup = id + ' .popupUZSU';
+        this.vars.main = id + ' .panel_list';
+        this.vars.list = id + ' .uzsu-items';
+        this.vars.dateType = id + ' .panel_date_type';
+        this.vars.timeType = id + ' .panel_time_type';
+        this.vars.time = id + ' .panel_time';
+        this.vars.valuePanelPrefix = id + ' .panel_value_';
+
         // add events
         $(this.vars.main + ' .close').on('click', $.proxy(this.close, this));
         $(this.vars.main + ' .ok').on('click', $.proxy(this.save, this));
@@ -314,7 +326,8 @@ UzsuPopup.prototype = {
         } else {
             this.items = [ items ];
         }
-
+        
+        $(this.vars.popup).popup();
         $(this.vars.popup).popup('open');
     },
 
@@ -349,7 +362,7 @@ UzsuPopup.prototype = {
         }
 
         // set the actual content
-	    $(this.vars.list).html(line).trigger('prepare').listview('refresh').trigger('redraw');
+	    $(this.vars.list).html(line).trigger('prepare').listview().listview('refresh').trigger('redraw');
     },
 
     save: function() {
@@ -529,9 +542,8 @@ UzsuPopup.prototype = {
 
         values: {
             percent: {
-                id: '#panel_value_percent',
-
                 init: function() {
+                    this.panels.values.percent.id = this.vars.valuePanelPrefix + 'percent';
                     $(this.panels.values.percent.id).on('change', $.proxy(this.panels.values.percent.refresh, this));
                     $(this.panels.values.percent.id + ' .next').on('click', $.proxy(this.next, this));
                     $(this.panels.values.percent.id + ' .number_button').on('click', $.proxy(function(e) {
@@ -567,9 +579,8 @@ UzsuPopup.prototype = {
             },
 
             boolean: {
-                id: '#panel_value_bool',
-
                 init: function() {
+                    this.panels.values.boolean.id = this.vars.valuePanelPrefix + 'bool';
                     $(this.panels.values.boolean.id).on('change', $.proxy(this.panels.values.boolean.refresh, this));
                     $(this.panels.values.boolean.id + ' select').on('slidestop', $.proxy(this.panels.values.boolean.slidestop, this));
                     $(this.panels.values.boolean.id + ' .next').on('click', $.proxy(this.next, this));
@@ -588,8 +599,3 @@ UzsuPopup.prototype = {
     }
 };
 
-var uzsu;
-
-$(document).ready(function() {
-    uzsu = new UzsuPopup();
-});

@@ -9,6 +9,9 @@
  
  
 @CHARSET "UTF-8";
+.body {
+    background-color: black;
+}
 
 .ui-page > .ui-header .ui-right {
     margin: 5px 5px 0 0;

@@ -15,8 +15,8 @@
     <meta charset="utf-8" />
 	<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-	<meta http-equiv="expires" content="0" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="expires" content="0" />
 
     <link rel="icon" href="favicon.png" />
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -143,87 +143,87 @@
 
     {% endblock %}
 
-
-    <div data-role="popup" id="popupUZSU" class="ui-content nw_popup-uzsu"  data-dismissible="false">
-        <div id="panel_list">
-            <div class="content">
-                <ul id="uzsu-items" class="touch" data-role="listview">
-                </ul>
-            </div>
-            <div class="add"><span>ADD</span></div>
-            <div class="right ok"><span>OK</span></div>
-            <div class="right close"><span>ESC</span></div>
-        </div>    
-        
-        <div id="panel_date_type">
-            <div class="content">
-                <ul id="list_date_type" class="touch" data-role="listview">
-                    <li>Täglich</li>
-                    <li>Werktage</li>
-                    <li>Wochenende</li>
-                </ul>
-            </div>
-            <div class="right"><span>&nbsp;</span></div>
-            <div class="right prev"><span>ESC</span></div>
-        </div> 
-        
-        <div id="panel_time_type">
-            <div class="content">
-                <ul id="list_time_type" class="touch" data-role="listview">
-                    <li>Uhrzeit</li>
-                </ul>
-            </div>
-            <div class="right"><span>&nbsp;</span></div>
-            <div class="right prev"><span>ESC</span></div>
+<div data-role="popup" class="popupUZSU ui-content nw_popup-uzsu"  data-dismissible="false" data-position-to="window">
+    <div class="panel_list">
+        <div class="content">
+            <ul class="uzsu-items touch" data-role="listview">
+            </ul>
         </div>
-        
-        <div id="panel_value_bool" style="display:none;">
-            <div class="content">
-                <select name="bool-flip" id="bool-flip" data-role="slider">
-                    <option value="0">Off</option>
-                    <option value="1">On</option>
-                </select> 
-            </div>
-            <div class="right next"><span>OK</span></div>
-            <div class="right prev"><span>ESC</span></div>
+        <div class="add"><span>ADD</span></div>
+        <div class="right ok"><span>OK</span></div>
+        <div class="right close"><span>ESC</span></div>
+    </div>    
+    
+    <div class="panel_date_type">
+        <div class="content">
+            <ul class="list_date_type touch" data-role="listview">
+                <li>Täglich</li>
+                <li>Werktage</li>
+                <li>Wochenende</li>
+            </ul>
         </div>
-        
-        <div id="panel_value_percent" style="display:none;">
-            <div class="numpad_value"><span></span></div>
-            <div class="number_button"><span>1</span></div>
-            <div class="number_button"><span>2</span></div>
-            <div class="number_button"><span>3</span></div>
-            <div class="number_button"><span>4</span></div>
-            <div class="number_button"><span>5</span></div>
-            <div class="number_button"><span>6</span></div>
-            <div class="number_button"><span>7</span></div>
-            <div class="number_button"><span>8</span></div>
-            <div class="number_button"><span>9</span></div>
-            <div class="number_button"><span>AC</span></div>
-            <div class="number_button"><span>0</span></div>
-            <div class="number_button"><span>C</span></div>
-            <div class="right next"><span>OK</span></div>
-            <div class="right prev"><span>ESC</span></div>
+        <div class="right"><span>&nbsp;</span></div>
+        <div class="right prev"><span>ESC</span></div>
+    </div> 
+    
+    <div class="panel_time_type">
+        <div class="content">
+            <ul class="list_time_type touch" data-role="listview">
+                <li>Uhrzeit</li>
+            </ul>
         </div>
-        
-        <div id="panel_time" style="display:none;" data-value="">
-            <div class="numpad_value"><span>__:__ Uhr</span></div>
-            <div class="number_button"><span>1</span></div>
-            <div class="number_button"><span>2</span></div>
-            <div class="number_button"><span>3</span></div>
-            <div class="number_button"><span>4</span></div>
-            <div class="number_button"><span>5</span></div>
-            <div class="number_button"><span>6</span></div>
-            <div class="number_button"><span>7</span></div>
-            <div class="number_button"><span>8</span></div>
-            <div class="number_button"><span>9</span></div>
-            <div class="number_button"><span>AC</span></div>
-            <div class="number_button"><span>0</span></div>
-            <div class="number_button"><span>C</span></div>
-            <div class="right next"><span>OK</span></div>
-            <div class="right prev"><span>ESC</span></div>
-        </div>
+        <div class="right"><span>&nbsp;</span></div>
+        <div class="right prev"><span>ESC</span></div>
     </div>
+    
+    <div class="panel_value_bool" style="display:none;">
+        <div class="content">
+            <select data-role="slider">
+                <option value="0">Off</option>
+                <option value="1">On</option>
+            </select> 
+        </div>
+        <div class="right next"><span>OK</span></div>
+        <div class="right prev"><span>ESC</span></div>
+    </div>
+    
+    <div class="panel_value_percent" style="display:none;">
+        <div class="numpad_value"><span></span></div>
+        <div class="number_button"><span>1</span></div>
+        <div class="number_button"><span>2</span></div>
+        <div class="number_button"><span>3</span></div>
+        <div class="number_button"><span>4</span></div>
+        <div class="number_button"><span>5</span></div>
+        <div class="number_button"><span>6</span></div>
+        <div class="number_button"><span>7</span></div>
+        <div class="number_button"><span>8</span></div>
+        <div class="number_button"><span>9</span></div>
+        <div class="number_button"><span>AC</span></div>
+        <div class="number_button"><span>0</span></div>
+        <div class="number_button"><span>C</span></div>
+        <div class="right next"><span>OK</span></div>
+        <div class="right prev"><span>ESC</span></div>
+    </div>
+    
+    <div class="panel_time" style="display:none;" data-value="">
+        <div class="numpad_value"><span>__:__ Uhr</span></div>
+        <div class="number_button"><span>1</span></div>
+        <div class="number_button"><span>2</span></div>
+        <div class="number_button"><span>3</span></div>
+        <div class="number_button"><span>4</span></div>
+        <div class="number_button"><span>5</span></div>
+        <div class="number_button"><span>6</span></div>
+        <div class="number_button"><span>7</span></div>
+        <div class="number_button"><span>8</span></div>
+        <div class="number_button"><span>9</span></div>
+        <div class="number_button"><span>AC</span></div>
+        <div class="number_button"><span>0</span></div>
+        <div class="number_button"><span>C</span></div>
+        <div class="right next"><span>OK</span></div>
+        <div class="right prev"><span>ESC</span></div>
+    </div>
+</div>
+
 
 
 </div>
