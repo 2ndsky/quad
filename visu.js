@@ -217,12 +217,17 @@ $(document).delegate('[data-widget="visu.uzsu_icon"]', {
     },
     'click': function(event) {
         var response = $(this).data('uzsu');
-        var type = $(this).attr('data-type');
-        var min = $(this).attr('data-min');
-        var max = $(this).attr('data-max');
-        var items = widget.explode($(this).attr('data-item'))
+        if (response === undefined) {
+        	console.log('config item not defined');
+        	alert('config item not defined');
+        } else {
+        	var type = $(this).attr('data-type');
+        	var min = $(this).attr('data-min');
+        	var max = $(this).attr('data-max');
+        	var items = widget.explode($(this).attr('data-item'))
         
-        $('#' + $.mobile.activePage.attr('id')).data('uzsu').open(type, response.active, response.list, items, min, max);
+        	$('#' + $.mobile.activePage.attr('id')).data('uzsu').open(type, response.active, response.list, items, min, max);
+        }
 	}
 });
 
