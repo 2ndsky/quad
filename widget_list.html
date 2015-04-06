@@ -39,7 +39,7 @@
 {% endmacro %}
 
 /**
- * Multi-switch with UZSU-function for up to three switches in one line
+ * Multi-switch with UZSU-function for up to three switches in one linve
  * 
  * @param       unique id for this widget
  * @param       name of the switch
@@ -229,6 +229,31 @@
     
 {% endmacro %}
 
+{% macro mvalue(id, txt, gad, unit) %}
+    {% import "basic.html" as basic %}
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="text">{{ txt|e }}</div>
+        <div>
+            {% if gad is iterable  %}
+            {{ basic.value(id~'list_value0', gad[0], unit[0]) }}   
+            {% else %}
+            {{ basic.value(id~'list_value0', gad, unit) }}
+            {% endif %}
+        </div>
+        <div>
+            {% if gad|length > 1  %}
+            {{ basic.value(id~'list_value1', gad[1], unit[1]) }}
+            {% endif %}
+        </div>
+        <div class="landscape">
+            {% if gad|length == 3  %}
+            {{ basic.value(id~'list_value2', gad[2], unit[2]) }}
+            {% endif %}
+        </div>
+    </div>
+    </li>
+{% endmacro %}
 
 /**
  * Standard dimmer with switching and dimming function
