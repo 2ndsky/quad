@@ -408,3 +408,69 @@
     </li>
 {% endmacro %}
 
+
+/**
+ * Mapping of 5 values to strings/text
+ * TODO: make it as list
+ * @param       unique id for this widget
+ *
+ */
+{% macro text5(id, text, gad, txt_1, txt_2, txt_3, txt_4, txt_5, val_1, val_2, val_3, val_4, val_5) %}
+    {% import "basic.html" as basic %}
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="text">{{ text|e }}</div>
+        <div>
+            <span id="{{ uid(page, id) }}" data-widget="basic.text5" data-item="{{ gad }}"
+		data-txt-1="{{ txt_1 }}" data-txt-2="{{ txt_2 }}" data-txt-3="{{ txt_3 }}" data-txt-4="{{ txt_4 }}" data-txt-5="{{ txt_5 }}"
+		data-val-1="{{ val_1|default('') }}" data-val-2="{{ val_2|default('') }}" data-val-3="{{ val_3|default('') }}" data-val-4="{{ val_4|default('') }}" data-val-5="{{ val_5|default('') }}"
+		class="text">
+            </span>
+    </div>
+    </li>
+{% endmacro %}
+
+/**
+ * Show String/Icon in List form
+ *
+ * @param       unique id for this widget
+ * @param       text in main Row
+ * @param       a text or as list for the following rows
+ * @param       an icon or as list for the following rows
+ */
+{% macro string(id, txt, string, icon) %}
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="text">{{ txt|e }}</div>
+        <div>
+            {% if string is iterable  %}
+            {{ string[0]|e }}
+                {% if icon[0]  %}
+                    <a><img class="icon" src="{{ icon[0] }}"/></a>
+                {% endif %}
+            {% else %}
+            {{ string|e }}
+                {% if icon %}<
+                    a><img class="icon" src="{{ icon }}"/></a>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div>
+            {% if string|length > 1  %}
+            {{ string[1]|e }}
+                {% if icon[1]  %}
+                    <a><img class="icon" src="{{ icon[1] }}"/></a>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="landscape">
+            {% if string|length == 3  %}
+            {{ string[2]|e }}
+                {% if icon[2]  %}
+                    <a><img class="icon" src="{{ icon[2] }}"/></a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    </li>
+{% endmacro %}
