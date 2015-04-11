@@ -643,3 +643,19 @@ UzsuPopup.prototype = {
     }
 };
 
+// ----- visu.maptext -----------------------------------------------------------
+$(document).delegate('[data-widget="visu.maptext"]', {
+	'update': function (event, response) {
+		var txt_arr = widget.explode($(this).attr('data-txt'));
+		var val_arr = widget.explode($(this).attr('data-val'));
+		var match;
+		var index;
+		for (index = 0; index < val_arr.length; index++) {
+			if (val_arr[index] == response) {
+				match = txt_arr[index];
+			}
+		}
+		$('#' + this.id).html(match);
+	}
+});
+
