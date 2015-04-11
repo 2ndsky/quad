@@ -9,17 +9,14 @@
                 
  
 /**
- * Extended dimmer with switching and dimming function
+ * Basic switch with UZSU-function
  * 
  * @param       unique id for this widget
- * @param       name of the dimmer
+ * @param       name of the switch
  * @param       a gad/item for switching
- * @param       a gad/item for dimming 
+ * @param       a gad/item for uzsu
  * @param       the pic for the 'on' state
  * @param       the pic for the 'off' state
- * @param       the minimum value if the slider is moved to total left (optional, default 0)
- * @param       the maximum value if the slider is moved to total right (optional, default 255)
- * @param       step between two values (optional, default 5) 
  */
 {% macro switch(id, txt, gad_switch, gad_uzsu, pic_on, pic_off) %}
     {% import "basic.html" as basic %}
@@ -38,8 +35,122 @@
 {% endif %}
         </div>
     </div>
+    </li>    
+{% endmacro %}
+
+/**
+ * Multi-switch with UZSU-function for up to three switches in one linve
+ * 
+ * @param       unique id for this widget
+ * @param       name of the switch
+ * @param       a gad/item for switching - as list
+ * @param       a gad/item for uzsu - as list
+ * @param       the pic for the 'on' state - as list
+ * @param       the pic for the 'off' state - as list
+ */
+{% macro mswitch(id, txt, gad_switch, gad_uzsu, pic_on, pic_off) %}
+    {% import "basic.html" as basic %}
+    {% import "widget_visu.html" as visu %}
+    {% import "widget_popup.html" as popup %}
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="text">{{ txt|e }}</div>
+        <div>
+            {% if gad_switch is iterable  %}
+            {{ basic.switch(id~'list_switch0', gad_switch[0], pic_on[0], pic_off[0]) }}
+                {% if gad_uzsu[0] %}
+                {{ visu.uzsu_icon(id~'list_uzsu0', 'bool', gad_uzsu[0]) }}
+                {% endif %}
+            {% else %}
+            {{ basic.switch(id~'list_switch0', gad_switch, pic_on, pic_off) }}   
+                {% if gad_uzsu %}
+                {{ visu.uzsu_icon(id~'list_uzsu0', 'bool', gad_uzsu) }}
+                {% endif %}                
+            {% endif %}
+        </div>
+        <div>
+            {% if gad_switch|length > 1  %}
+                {{ basic.switch(id~'list_switch1', gad_switch[1], pic_on[1], pic_off[1]) }}
+                {% if gad_uzsu[1] %}
+                {{ visu.uzsu_icon(id~'list_uzsu1', 'bool', gad_uzsu[1]) }}
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="landscape">
+            {% if gad_switch|length == 3  %}
+                {{ basic.switch(id~'list_switch2', gad_switch[2], pic_on[2], pic_off[2]) }}
+                {% if gad_uzsu[2] %}
+                {{ visu.uzsu_icon(id~'list_uzsu2', 'bool', gad_uzsu[2]) }}
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
     </li>
-    
+{% endmacro %}
+
+/**
+ * Basic Button
+ * 
+ * @param       unique id for this widget
+ * @param       name of the switch
+ * @param       a gad/item for switching
+ * @param       a Button-Text (opt.)
+ * @param       a Button-Icon (opt.)
+ * @param       value to send
+ */
+{% macro button(id, txt, gad_button, button_txt, button_icon, button_val) %}
+    {% import "basic.html" as basic %}
+    {% import "widget_visu.html" as visu %}
+    {% import "widget_popup.html" as popup %}
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="text">{{ txt|e }}</div>
+        <div>
+            {{ visu.button(id~'list_switch', gad_button, button_txt, button_icon, button_val) }}
+        </div>
+        <div></div>
+        <div class="landscape">
+        </div>
+    </div>
+    </li>
+{% endmacro %}
+
+/**
+ * Multi-Button for up to three buttons in one line
+ * 
+ * @param       unique id for this widget
+ * @param       name of the switch
+ * @param       a gad/item for switching
+ * @param       a Button-Text (opt.)
+ * @param       a Button-Icon (opt.)
+ * @param       value to send
+ */
+{% macro mbutton(id, txt, gad_button, button_txt, button_icon, button_val) %}
+    {% import "basic.html" as basic %}
+    {% import "widget_visu.html" as visu %}
+    {% import "widget_popup.html" as popup %}
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="text">{{ txt|e }}</div>
+        <div>
+            {% if gad_button is iterable  %}
+            {{ visu.button(id~'list_switch0', gad_button[0], button_txt[0], button_icon[0], button_val[0]) }}   
+            {% else %}
+            {{ visu.button(id~'list_switch0', gad_button, button_txt, button_icon, button_val) }} 
+            {% endif %}
+        </div>
+        <div>
+            {% if gad_button|length > 1  %}
+            {{ visu.button(id~'list_switch1', gad_button[1], button_txt[1], button_icon[1], button_val[1]) }}
+            {% endif %}
+        </div>
+        <div class="landscape">
+            {% if gad_button|length == 3  %}
+            {{ visu.button(id~'list_switch2', gad_button[2], button_txt[2], button_icon[2], button_val[2]) }}
+            {% endif %}
+        </div>
+    </div>
+    </li>
 {% endmacro %}
 
 {% macro symbol(id, txt, gad, gad_uzsu, pic_on, pic_off) %}
@@ -118,6 +229,31 @@
     
 {% endmacro %}
 
+{% macro mvalue(id, txt, gad, unit) %}
+    {% import "basic.html" as basic %}
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="text">{{ txt|e }}</div>
+        <div>
+            {% if gad is iterable  %}
+            {{ basic.value(id~'list_value0', gad[0], unit[0]) }}   
+            {% else %}
+            {{ basic.value(id~'list_value0', gad, unit) }}
+            {% endif %}
+        </div>
+        <div>
+            {% if gad|length > 1  %}
+            {{ basic.value(id~'list_value1', gad[1], unit[1]) }}
+            {% endif %}
+        </div>
+        <div class="landscape">
+            {% if gad|length == 3  %}
+            {{ basic.value(id~'list_value2', gad[2], unit[2]) }}
+            {% endif %}
+        </div>
+    </div>
+    </li>
+{% endmacro %}
 
 /**
  * Standard dimmer with switching and dimming function
@@ -272,3 +408,74 @@
     </li>
 {% endmacro %}
 
+/**
+ * Show String/Icon in List form
+ *
+ * @param       unique id for this widget
+ * @param       text in main Row
+ * @param       a text or as list for the following rows
+ * @param       an icon or as list for the following rows
+ */
+{% macro string(id, txt, string, icon) %}
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="text">{{ txt|e }}</div>
+        <div>
+            {% if string is iterable  %}
+            {{ string[0]|e }}
+                {% if icon[0]  %}
+                    <a><img class="icon" src="{{ icon[0] }}"/></a>
+                {% endif %}
+            {% else %}
+            {{ string|e }}
+                {% if icon %}<
+                    a><img class="icon" src="{{ icon }}"/></a>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div>
+            {% if string|length > 1  %}
+            {{ string[1]|e }}
+                {% if icon[1]  %}
+                    <a><img class="icon" src="{{ icon[1] }}"/></a>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="landscape">
+            {% if string|length == 3  %}
+            {{ string[2]|e }}
+                {% if icon[2]  %}
+                    <a><img class="icon" src="{{ icon[2] }}"/></a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    </li>
+{% endmacro %}
+
+/**
+ * map values to text
+ *
+ * @param       unique id for this widget
+ * @param       text in main Row
+ * @param       gad
+ * @param       a text or as list for the string wich is shown
+ * @param       an icon or as list for the value wich has to match with gad 
+ */
+{% macro maptext(id, text, gad, txt, val) %}
+    {% import "basic.html" as basic %}
+    <li data-icon="false">
+    <div class="nw_table">
+        <div class="text">{{ text|e }}</div>
+        <div>
+            <span
+                id="{{ uid(page, id) }}"
+                data-widget="visu.maptext"
+                data-item="{{ gad }}"
+		data-txt ="{{ implode(txt) }}" 
+		data-val ="{{ implode(val)|default('') }}"
+                class="text">
+            </span>
+    </div>
+    </li>
+{% endmacro %}

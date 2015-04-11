@@ -62,24 +62,28 @@
             <div class="set">
                 <a data-role="button" data-icon="minus" data-inline="true" data-iconpos="notext" class="ui-mini"></a>
                 <div class="temp" style="display:none;">{{ basic.float(id~'set', gad_set, '°' ) }}</div>
-                <div class="temp">{{ basic.float(id~'set_value', gad_set_value, '°' ) }}</div>
+                <div class="temp" align="center">{{ basic.float(id~'set_value', gad_set_value, '°' ) }}</div>
                 <a data-role="button" data-icon="plus" data-inline="true" data-iconpos="notext" class="ui-mini"></a>
             </div>
         {% endif %}
 
         <div class="control">
-            {% if (gad_comfort == gad_night) and (gad_night == gad_frost) %}
-                {{ basic.switch(id~'mode', gad_comfort, icon1~'user_available.png', icon0~'user_away.png', 'comfort', 'standby') }}
-                {{ basic.switch(id~'night', gad_night, icon1~'scene_night.png', icon0~'scene_day.png', 'night', 'standby') }}
-                {{ basic.switch(id~'frost', gad_frost, icon1~'weather_frost.png', icon0~'weather_frost.png', 'frost', 'standby') }}
-            {% else %}
-                {{ basic.switch(id~'mode', gad_comfort, icon1~'user_available.png', icon0~'user_away.png') }}
-                {{ basic.switch(id~'night', gad_night, icon1~'scene_night.png', icon0~'scene_day.png') }}
-                {{ basic.switch(id~'frost', gad_frost, icon1~'weather_frost.png', icon0~'weather_frost.png') }}
+            {% if gad_comfort or gad_night or gad_frost %}    
+                {% if (gad_comfort == gad_night) and (gad_night == gad_frost) %}
+                    {{ basic.switch(id~'mode', gad_comfort, icon1~'user_available.png', icon0~'user_away.png', 'comfort', 'standby') }}
+                    {{ basic.switch(id~'night', gad_night, icon1~'scene_night.png', icon0~'scene_day.png', 'night', 'standby') }}
+                    {{ basic.switch(id~'frost', gad_frost, icon1~'weather_frost.png', icon0~'weather_frost.png', 'frost', 'standby') }}
+                {% else %}
+                    {{ basic.switch(id~'mode', gad_comfort, icon1~'user_available.png', icon0~'user_away.png') }}
+                    {{ basic.switch(id~'night', gad_night, icon1~'scene_night.png', icon0~'scene_day.png') }}
+                    {{ basic.switch(id~'frost', gad_frost, icon1~'weather_frost.png', icon0~'weather_frost.png') }}
+                {% endif %}
+            {% endif %}    
+            {% if gad_state %}    
+                <div style="float:left; width: 5px; height: 48px;"></div>
+                {{ basic.symbol(id~'state_on', gad_state, '', icon0~'sani_heating.png', 0) }}
+                {{ basic.symbol(id~'state_off', gad_state, '', icon1~'sani_heating.png') }}
             {% endif %}
-            <div style="float:left; width: 5px; height: 48px;"></div>
-            {{ basic.symbol(id~'state_on', gad_state, '', icon0~'sani_heating.png', 0) }}
-            {{ basic.symbol(id~'state_off', gad_state, '', icon1~'sani_heating.png') }}
         </div>
     </div>
 {% endmacro %}

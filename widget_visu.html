@@ -67,3 +67,14 @@
 
 {% endmacro %}
 
+{% macro button(id, gad_button, button_txt, pic, val) %} 
+    <span id="{{ uid(page, id) }}" data-widget="visu.button" data-item="{{ gad_button }}"
+                data-val="{{ val|default('1') }}"
+                class="switch">
+        {% if button_txt %}
+            <div>{{ button_txt|e }}</div>
+        {% else %}
+            <a><img class="icon" src="{{ pic|default(icon0~'control_on_off.png') }}"/></a>
+        {% endif %}
+    </span> 
+{% endmacro %} 
