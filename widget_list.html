@@ -57,30 +57,30 @@
         <div class="text">{{ txt|e }}</div>
         <div>
             {% if gad_switch is iterable  %}
-            {{ basic.switch(id~'list_switch', gad_switch[0], pic_on[0], pic_off[0]) }}
+            {{ basic.switch(id~'list_switch0', gad_switch[0], pic_on[0], pic_off[0]) }}
                 {% if gad_uzsu[0] %}
-                {{ visu.uzsu_icon(id~'list_uzsu', 'bool', gad_uzsu[0]) }}
+                {{ visu.uzsu_icon(id~'list_uzsu0', 'bool', gad_uzsu[0]) }}
                 {% endif %}
             {% else %}
-            {{ basic.switch(id~'list_switch', gad_switch, pic_on, pic_off) }}   
+            {{ basic.switch(id~'list_switch0', gad_switch, pic_on, pic_off) }}   
                 {% if gad_uzsu %}
-                {{ visu.uzsu_icon(id~'list_uzsu', 'bool', gad_uzsu) }}
+                {{ visu.uzsu_icon(id~'list_uzsu0', 'bool', gad_uzsu) }}
                 {% endif %}                
             {% endif %}
         </div>
         <div>
             {% if gad_switch|length > 1  %}
-                {{ basic.switch(id~'list_switch', gad_switch[1], pic_on[1], pic_off[1]) }}
+                {{ basic.switch(id~'list_switch1', gad_switch[1], pic_on[1], pic_off[1]) }}
                 {% if gad_uzsu[1] %}
-                {{ visu.uzsu_icon(id~'list_uzsu', 'bool', gad_uzsu[1]) }}
+                {{ visu.uzsu_icon(id~'list_uzsu1', 'bool', gad_uzsu[1]) }}
                 {% endif %}
             {% endif %}
         </div>
         <div class="landscape">
             {% if gad_switch|length == 3  %}
-                {{ basic.switch(id~'list_switch', gad_switch[2], pic_on[2], pic_off[2]) }}
+                {{ basic.switch(id~'list_switch2', gad_switch[2], pic_on[2], pic_off[2]) }}
                 {% if gad_uzsu[2] %}
-                {{ visu.uzsu_icon(id~'list_uzsu', 'bool', gad_uzsu[2]) }}
+                {{ visu.uzsu_icon(id~'list_uzsu2', 'bool', gad_uzsu[2]) }}
                 {% endif %}
             {% endif %}
         </div>
